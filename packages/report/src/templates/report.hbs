@@ -1,0 +1,35 @@
+# Patriot Rentals - Competitor Price Gap Analysis - {{reportDate}}
+
+## Summary
+- Total Products Matched: {{summary.totalMatched}}
+- Competitors Analyzed: {{summary.competitorsAnalyzedCount}}
+
+## Top Under-Priced Items (Patriot is Cheaper)
+| Patriot SKU | Product Name | Patriot Rate (Day) | Avg. Competitor Rate (Day) | Gap % |
+|---|---|---|---|---|
+{{#each underPricedItems}}
+| {{this.patriotSku}} | {{this.patriotProductName}} | ${{this.patriotDayRate}} | ${{this.avgCompetitorDayRate}} | {{this.gapPercent}}% |
+{{/each}}
+
+## Top Over-Priced Items (Patriot is More Expensive)
+| Patriot SKU | Product Name | Patriot Rate (Day) | Avg. Competitor Rate (Day) | Gap % |
+|---|---|---|---|---|
+{{#each overPricedItems}}
+| {{this.patriotSku}} | {{this.patriotProductName}} | ${{this.patriotDayRate}} | ${{this.avgCompetitorDayRate}} | {{this.gapPercent}}% |
+{{/each}}
+
+## Items with No Competitor Matches
+{{#if noMatchItems}}
+| Patriot SKU | Product Name |
+|---|---|
+{{#each noMatchItems}}
+| {{this.patriotSku}} | {{this.productName}} |
+{{/each}}
+{{else}}
+All Patriot items have at least one competitor match.
+{{/if}}
+
+## Suggested Actions (Heuristic)
+{{#each suggestedActions}}
+- For **{{this.patriotSku}} ({{this.productName}})**: {{this.suggestion}}
+{{/each}} 

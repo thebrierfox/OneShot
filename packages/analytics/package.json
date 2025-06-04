@@ -1,0 +1,14 @@
+{
+  "name": "@patriot-rentals/analytics",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "setup-venv": "python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt",
+    "activate-venv": ". .venv/bin/activate",
+    "match-products": "python src/main_analytics.py --action match_products",
+    "create-views": "python src/main_analytics.py --action create_views",
+    "lint": "pylint src/",
+    "format": "black src/",
+    "clean": "rm -rf .venv __pycache__ */__pycache__ .pytest_cache"
+  }
+} 

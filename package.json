@@ -1,0 +1,39 @@
+{
+  "name": "patriot-price-gap-tool",
+  "version": "1.0.0",
+  "description": "Local tool for competitor price intelligence for Patriot Equipment Rentals.",
+  "private": true,
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md,yaml}\"",
+    "typecheck": "turbo run typecheck",
+    "generate-report": "pnpm --filter @patriot-rentals/report start",
+    "test": "turbo run test",
+    "test:e2e:scrape-url": "pnpm --filter @patriot-rentals/scraper test:e2e:scrape-url",
+    "db:up": "docker-compose up -d postgres weaviate redis temporal flaresolverr",
+    "db:down": "docker-compose down --volumes",
+    "db:logs": "docker-compose logs -f",
+    "prepare": "husky install || true",
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "typescript": "~5.4.5",
+    "ts-node": "~10.9.2",
+    "nodemon": "~3.1.0",
+    "eslint": "~8.57.0",
+    "@typescript-eslint/eslint-plugin": "~7.8.0",
+    "@typescript-eslint/parser": "~7.8.0",
+    "eslint-config-prettier": "~9.1.0",
+    "eslint-plugin-import": "~2.29.1",
+    "eslint-plugin-prettier": "~5.1.3",
+    "prettier": "~3.2.5",
+    "turbo": "~1.13.3",
+    "husky": "~9.0.11"
+  },
+  "engines": {
+    "node": ">=18.17.0",
+    "pnpm": ">=8.6.0"
+  }
+} 

@@ -1,0 +1,19 @@
+node_modules
+.turbo
+dist
+*.log
+.env
+.DS_Store
+
+# Debug snapshots and reports
+/debug_snapshots/
+/reports/
+
+# Docker volumes (if mapped locally for inspection, though typically not)
+patriot_pg_data/
+patriot_redis_data/
+patriot_weaviate_data/
+
+# IDE specific
+.idea/
+.vscode/ 
