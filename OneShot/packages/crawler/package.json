@@ -1,0 +1,25 @@
+{
+  "name": "@patriot-rentals/crawler",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsc -p tsconfig.build.json --watch",
+    "typecheck": "tsc --noEmit",
+    "start": "node dist/index.js",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo"
+  },
+  "dependencies": {
+    "crawlee": "^3.9.2",
+    "@crawlee/playwright": "^3.9.2",
+    "playwright": "^1.45.0",
+    "dotenv": "^16.4.5",
+    "axios": "^1.6.8",
+    "proxy-chain": "^2.4.0",
+    "@temporalio/client": "^1.9.0",
+    "@patriot-rentals/shared-types": "workspace:*"
+  },
+  "devDependencies": { "typescript": "~5.4.5", "ts-node": "~10.9.2", "@types/node": "^20" }
+} 

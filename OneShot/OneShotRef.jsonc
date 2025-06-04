@@ -1,0 +1,944 @@
+{
+  "directiveTitle": "CURSOR.AI — ULTIMATE ONE-SHOT DIRECTIVE (LOCAL EXECUTION V3.1 - FULLY REALIZED)",
+  "projectTitle": "Patriot Equipment Rentals – Competitor Price-Gap Tool",
+  "metaDirective": {
+    "aiPersonaAndObjective": "You are an expert Lead Software Architect and Senior Full-Stack TypeScript Developer, renowned for meticulous attention to detail and creating comprehensive, robust systems. Your sole objective is to generate the complete, runnable, and robust \"Patriot Equipment Rentals – Competitor Price-Gap Tool\" as specified below, in a single pass. Adhere meticulously to ALL definitions, constraints, file structures, type signatures, and configurations provided. Generate all specified files and their precise content.",
+    "initialActionProtocol_Phase0": {
+      "title": "INITIAL ACTION PROTOCOL (Phase 0 - Scaffolding & Instruction Embedding)",
+      "instruction": "Before generating ANY functional code within files, you MUST perform the following preliminary steps:",
+      "steps": [
+        "1. Parse this entire directive document meticulously.",
+        "2. For EVERY file explicitly specified to be created (e.g., in `DETAILED FILE & MODULE SPECIFICATIONS` or defined inline for configurations like `docker-compose.yml`, `package.json`, etc.), create the empty file in its correct directory path within the project structure.",
+        "3. At the very top of EACH newly created (initially empty) file, insert a multi-line comment block. This comment block MUST contain:",
+        "    a. A clear header, e.g., `/* DIRECTIVE FOR: [full/path/to/file.ext] */` (use appropriate comment syntax for the file type: `#` for Python/YAML, `//` or `/* */` for TS/JS, `<!-- -->` for HTML/MD).",
+        "    b. The EXACT relevant section(s) copied VERBATIM from THIS main directive document that describe that specific file's purpose, structure, key functions/classes/interfaces, data schemas, expected content, or any specific implementation notes related SOLELY to that file.",
+        "    c. A clear footer for the embedded directive, e.g., `/* END DIRECTIVE FOR: [full/path/to/file.ext] */`.",
+        "    d. Example for a TypeScript file: `/* DIRECTIVE FOR: packages/shared-types/src/index.ts ... [copied content from main directive] ... END DIRECTIVE */`.",
+        "4. This embedded instruction block within each file serves as the PRIMARY, LOCALIZED specification for that file's content. It is not just a note; it IS the blueprint for that file.",
+        "5. Only AFTER this scaffolding and instruction embedding phase (Phase 0) is fully completed for ALL specified files, proceed to Phase 1 (Project Scaffolding & Core Infrastructure - Actual Content Generation) and begin populating the files with functional code, adhering strictly to their embedded instructions AND the overall directive's global rules and context."
+      ]
+    },
+    "criticalOperationalPrinciple": "You MUST NOT simplify, abbreviate, or omit any specified steps, components, configurations, or details in this directive. Completeness and fidelity to this directive are paramount. Assume all specified details are critical and intentional. Do not attempt to 'optimize' by removing or altering specified steps or features. Proactively implement best practices for robustness (e.g., input validation, detailed error logging, JSDoc comments for all exported members) for all components you build, IN ADDITION TO fulfilling all explicit requirements. Assume all standard development tools (Node.js, pnpm, Docker, Git) are available in the execution environment. Prioritize clarity, maintainability, and adherence to this specification."
+  },
+  "projectOverview": {
+    "coreGoal": "Build a robust, maintainable, fully open-source, locally-executable tool that, when run on-request via a single `pnpm` command (`pnpm generate-report`), (1) scrapes product pages from configured competitor sites, (2) extracts specified rental rates, (3) matches SKUs against Patriot’s catalog, (4) stores data locally within Docker containers, and (5) outputs a comprehensive gap-analysis Markdown report."
+  },
+  "globalProjectRulesAndCodingStandards": [
+    { "id": 1, "rule": "LANGUAGE: TypeScript (Strict Mode enforced via `tsconfig.json`)." },
+    { "id": 2, "rule": "PACKAGE MANAGER: `pnpm` for workspace management." },
+    { "id": 3, "rule": "ASYNCHRONOUS OPERATIONS: Utilize `async/await` extensively. All Promises must be handled (resolved or rejected with error handling)." },
+    { "id": 4, "rule": "ERROR HANDLING: Implement comprehensive `try/catch` blocks for I/O, network requests, and potentially failing operations. Log errors descriptively using `console.error` prefixed with the module/function name (e.g., `[CrawlerService] Error: ...`)." },
+    { "id": 5, "rule": "CONFIGURATION: Prefer discrete configuration files (e.g., per-vendor `.config.ts`) over numerous environment variables for complex settings. `.env` for secrets and global runtime parameters. Use `dotenv` package for loading." },
+    {
+      "id": 6,
+      "rule": "NAMING CONVENTIONS:",
+      "conventions": {
+        "interfacesTypes": "`PascalCase` (e.g., `NormalizedProduct`)",
+        "classes": "`PascalCase`",
+        "functionsMethods": "`camelCase` (e.g., `scrapeProductWorkflow`)",
+        "variablesConstants": "`camelCase` or `UPPER_SNAKE_CASE` for true constants (e.g., `DEFAULT_TIMEOUT`).",
+        "files": "`kebab-case.ts` (e.g., `shared-types.ts`, `vendor-config.ts`). Config files per vendor should be `[vendorId].config.ts` (e.g. `sunbelt.config.ts`)."
+      }
+    },
+    { "id": 7, "rule": "MODULARITY: Design components for clear separation of concerns. Each file should have a single, well-defined responsibility." },
+    { "id": 8, "rule": "COMMENTS: Add JSDoc comments for ALL exported functions, classes, interfaces, type aliases, and complex internal logic. Explain the 'why' not just the 'what'." },
+    { "id": 9, "rule": "NO SIMPLIFICATION: All elements of this directive must be implemented as specified. If a feature seems complex, that complexity is intentional. Do not introduce simplifications that deviate from the provided specifications. Prefer explicit implementations that match the letter and spirit of the directive. Fidelity to detail is critical." },
+    { "id": 10, "rule": "IDEMPOTENCY: Temporal workflows and activities MUST strive for idempotency to ensure resilience against retries and failures." },
+    { "id": 11, "rule": "LOGGING: Utilize a simple console logger (e.g., `console.log`, `console.error`, `console.warn`) with clear prefixes indicating the module/service (e.g., `[ScraperActivity]`, `[ETLService]`). Log key lifecycle events, errors, and important decision points." },
+    { "id": 12, "rule": "DEPENDENCY VERSIONS: Use the exact versions specified for key dependencies (e.g., Playwright, Temporal, Weaviate). For others, use recent stable versions." }
+  ],
+  "detailedPhases": [
+    {
+      "phaseId": "PHASE 1",
+      "phaseTitle": "PROJECT SCAFFOLDING & CORE INFRASTRUCTURE (LOCAL DOCKER ENVIRONMENT - Content Generation)",
+      "tasks": [
+        {
+          "taskId": "1.1",
+          "taskTitle": "Root Project Setup (File Content Generation)",
+          "details": [
+            "Operator will initialize the project with `pnpm init`. Your task is to generate the subsequent configuration files.",
+            {
+              "fileName": "pnpm-workspace.yaml",
+              "path": "/",
+              "content": "```yaml\npackages:\n  - 'packages/*'\n```"
+            },
+            {
+              "fileName": "package.json (Root)",
+              "path": "/",
+              "content": {
+                "name": "patriot-price-gap-tool",
+                "version": "1.0.0",
+                "description": "Local tool for competitor price intelligence for Patriot Equipment Rentals.",
+                "private": true,
+                "scripts": {
+                  "dev": "turbo run dev --parallel",
+                  "build": "turbo run build",
+                  "lint": "eslint . --ext .ts,.tsx --fix",
+                  "format": "prettier --write \"**/*.{ts,tsx,js,json,md,yaml}\"",
+                  "typecheck": "turbo run typecheck",
+                  "generate-report": "pnpm --filter @patriot-rentals/report start",
+                  "test": "turbo run test",
+                  "test:e2e:scrape-url": "pnpm --filter @patriot-rentals/scraper test:e2e:scrape-url",
+                  "db:up": "docker-compose up -d postgres weaviate redis temporal flaresolverr",
+                  "db:down": "docker-compose down --volumes",
+                  "db:logs": "docker-compose logs -f",
+                  "prepare": "husky install || true",
+                  "clean": "turbo run clean && rm -rf node_modules"
+                },
+                "devDependencies": {
+                  "typescript": "~5.4.5",
+                  "ts-node": "~10.9.2",
+                  "nodemon": "~3.1.0",
+                  "eslint": "~8.57.0",
+                  "@typescript-eslint/eslint-plugin": "~7.8.0",
+                  "@typescript-eslint/parser": "~7.8.0",
+                  "eslint-config-prettier": "~9.1.0",
+                  "eslint-plugin-import": "~2.29.1",
+                  "eslint-plugin-prettier": "~5.1.3",
+                  "prettier": "~3.2.5",
+                  "turbo": "~1.13.3",
+                  "husky": "~9.0.11"
+                },
+                "engines": { "node": ">=18.17.0", "pnpm": ">=8.6.0" }
+              }
+            },
+            {
+              "fileName": ".nvmrc",
+              "path": "/",
+              "content": "18.17.0"
+            },
+            {
+              "fileName": ".gitignore",
+              "path": "/",
+              "content": "```\nnode_modules\n.turbo\ndist\n*.log\n.env\n.DS_Store\n\n# Debug snapshots and reports\n/debug_snapshots/\n/reports/\n\n# Docker volumes (if mapped locally for inspection, though typically not)\npatriot_pg_data/\npatriot_redis_data/\npatriot_weaviate_data/\n\n# IDE specific\n.idea/\n.vscode/\n```"
+            },
+            {
+              "fileName": "tsconfig.json (Root - Base for Packages)",
+              "path": "/",
+              "content": {
+                "compilerOptions": {
+                  "target": "ES2022",
+                  "module": "commonjs",
+                  "lib": ["ES2022", "DOM"],
+                  "esModuleInterop": true,
+                  "forceConsistentCasingInFileNames": true,
+                  "strict": true,
+                  "skipLibCheck": true,
+                  "declaration": true,
+                  "sourceMap": true,
+                  "baseUrl": ".",
+                  "paths": {
+                    "@patriot-rentals/*": ["packages/*/src"]
+                  },
+                  "outDir": "./dist",
+                  "rootDir": "./src",
+                  "composite": false,
+                  "moduleResolution": "node",
+                  "resolveJsonModule": true,
+                  "experimentalDecorators": true,
+                  "emitDecoratorMetadata": true
+                },
+                "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts", "**/test-data/**", "**/mocks/**"]
+              }
+            },
+            {
+              "fileName": ".eslintrc.js",
+              "path": "/",
+              "content": "```javascript\nmodule.exports = {\n  root: true,\n  parser: '@typescript-eslint/parser',\n  plugins: ['@typescript-eslint', 'import', 'prettier'],\n  extends: [\n    'eslint:recommended',\n    'plugin:@typescript-eslint/recommended',\n    'plugin:import/recommended',\n    'plugin:import/typescript',\n    'prettier',\n  ],\n  settings: {\n    'import/resolver': {\n      typescript: {\n        project: './tsconfig.json',\n      },\n    },\n  },\n  rules: {\n    'prettier/prettier': 'warn',\n    '@typescript-eslint/no-explicit-any': 'warn',\n    '@typescript-eslint/no-unused-vars': ['warn', { 'argsIgnorePattern': '^_' }],\n    'import/order': [\n      'warn',\n      {\n        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'],\n        alphabetize: { order: 'asc', caseInsensitive: true },\n      },\n    ],\n    'no-console': 'warn', // Encourage use of a dedicated logger in actual modules\n  },\n  env: {\n    node: true,\n    es2022: true,\n  },\n  ignorePatterns: ['node_modules', 'dist', '.turbo', 'coverage', '*.md'],\n};\n```"
+            },
+            {
+              "fileName": ".prettierrc.js",
+              "path": "/",
+              "content": "```javascript\nmodule.exports = {\n  semi: true,\n  trailingComma: 'all',\n  singleQuote: true,\n  printWidth: 120,\n  tabWidth: 2,\n  arrowParens: 'always',\n};\n```"
+            },
+            {
+              "fileName": "turbo.json",
+              "path": "/",
+              "content": {
+                "$schema": "https://turbo.build/schema.json",
+                "globalDependencies": ["tsconfig.json"],
+                "pipeline": {
+                  "build": {
+                    "dependsOn": ["^build"],
+                    "outputs": ["dist/**"]
+                  },
+                  "lint": { "outputs": [] },
+                  "typecheck": { "dependsOn": ["^build"], "outputs": [] },
+                  "dev": {
+                    "cache": false,
+                    "persistent": true
+                  },
+                  "test": {
+                    "dependsOn": ["build"],
+                    "outputs": ["coverage/**"]
+                  },
+                  "clean": { "cache": false }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "taskId": "1.2",
+          "taskTitle": "Docker Compose Setup",
+          "fileName": "docker-compose.yml",
+          "path": "/",
+          "content": "```yaml\nversion: '3.8'\nservices:\n  postgres:\n    image: postgres:15.3-alpine\n    container_name: patriot_postgres\n    ports: [\"${POSTGRES_PORT:-5432}:5432\"]\n    volumes: [\"patriot_pg_data:/var/lib/postgresql/data\"]\n    environment:\n      POSTGRES_USER: ${POSTGRES_USER:-patriot_user}\n      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-patriot_pass}\n      POSTGRES_DB: ${POSTGRES_DB:-patriot_rentals}\n    healthcheck:\n      test: [\"CMD-SHELL\", \"pg_isready -U ${POSTGRES_USER:-patriot_user} -d ${POSTGRES_DB:-patriot_rentals}\"]\n      interval: 10s\n      timeout: 5s\n      retries: 5\n    restart: unless-stopped\n\n  redis:\n    image: redis:7.0-alpine\n    container_name: patriot_redis\n    ports: [\"${REDIS_PORT:-6379}:6379\"]\n    volumes: [\"patriot_redis_data:/data\"]\n    healthcheck:\n      test: [\"CMD\", \"redis-cli\", \"ping\"]\n      interval: 10s\n      timeout: 5s\n      retries: 5\n    restart: unless-stopped\n\n  weaviate:\n    image: semitechnologies/weaviate:1.25.0\n    container_name: patriot_weaviate\n    ports: [\"${WEAVIATE_HTTP_PORT:-8080}:8080\", \"${WEAVIATE_GRPC_PORT:-50051}:50051\"]\n    volumes: [\"patriot_weaviate_data:/var/lib/weaviate\"]\n    environment:\n      QUERY_DEFAULTS_LIMIT: 25\n      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'\n      PERSISTENCE_DATA_PATH: '/var/lib/weaviate'\n      DEFAULT_VECTORIZER_MODULE: 'none' # Explicitly none, we provide vectors\n      ENABLE_MODULES: 'text2vec-huggingface,generative-openai' # Keep generative for potential future use\n      #HUGGINGFACE_APIKEY: ${HUGGINGFACE_APIKEY:-} # If using rate-limited models via HF Inference API for Weaviate\n      CLUSTER_HOSTNAME: 'node1'\n      LOG_LEVEL: ${LOG_LEVEL:-info}\n    healthcheck:\n      test: [\"CMD-SHELL\", \"wget -q --spider http://localhost:8080/v1/.well-known/ready || exit 1\"]\n      interval: 10s\n      timeout: 5s\n      retries: 5\n    restart: unless-stopped\n\n  browserless:\n    image: browserless/playwright:1.45.0-playwright-1.45.0 # Fixed version\n    container_name: patriot_browserless\n    ports: [\"${BROWSERLESS_PORT:-3000}:3000\"]\n    environment:\n      TOKEN: ${BROWSERLESS_TOKEN:-localtoken}\n      CONNECTION_TIMEOUT: 600000 # 10 minutes\n      MAX_CONCURRENT_SESSIONS: ${MAX_BROWSERLESS_SESSIONS:-5}\n      DEFAULT_STEALTH: 'true'\n      ENABLE_DEBUGGER: 'false' # Set to true for local debugging via ws endpoint\n      PREBOOT_CHROME: 'true'\n      MAX_QUEUE_LENGTH: 100\n    restart: unless-stopped\n\n  flaresolverr:\n    image: ghcr.io/flaresolverr/flaresolverr:v3.3.17 # Use a recent stable v3\n    container_name: patriot_flaresolverr\n    ports: [\"${FLARESOLVERR_PORT:-8191}:8191\"]\n    environment:\n      LOG_LEVEL: ${LOG_LEVEL:-info}\n      TZ: UTC\n    healthcheck:\n      test: [\"CMD-SHELL\", \"wget -q --spider http://localhost:8191/health || exit 1\"]\n      interval: 10s\n      timeout: 5s\n      retries: 5\n    restart: unless-stopped\n\n  temporal:\n    image: temporalio/auto-setup:1.23.1 # Use a recent stable version\n    container_name: patriot_temporal\n    ports: [\"${TEMPORAL_GRPC_PORT:-7233}:7233\"]\n    environment:\n      - DB=postgresql\n      - DB_PORT=5432 # Internal Docker network port for Postgres\n      - POSTGRES_USER=${POSTGRES_USER:-patriot_user}\n      - POSTGRES_PWD=${POSTGRES_PASSWORD:-patriot_pass}\n      - POSTGRES_SEEDS=postgres # Service name of Postgres container\n      - POSTGRES_VISIBILITY_PWD=${POSTGRES_PASSWORD:-patriot_pass}\n      - DYNAMIC_CONFIG_FILE_PATH=config/dynamicconfig/development.yaml\n      - ENABLE_SQL_VISIBILITY=true\n      - TEMPORAL_HISTORY_ARCHIVAL=disabled\n      - TEMPORAL_VISIBILITY_ARCHIVAL=disabled\n      - LOG_LEVEL=${LOG_LEVEL:-info}\n    depends_on:\n      postgres: { condition: service_healthy }\n    volumes: [\"./infra/temporal/config:/etc/temporal/config\"]\n    restart: unless-stopped\n\nvolumes:\n  patriot_pg_data:\n  patriot_redis_data:\n  patriot_weaviate_data:\n```"
+        },
+        {
+          "taskId": "1.3",
+          "taskTitle": "Environment Configuration",
+          "fileName": ".env.example",
+          "path": "/",
+          "content": "```dotenv\n# --- General ---\nNODE_ENV=development\nLOG_LEVEL=info # trace, debug, info, warn, error\n\n# --- Docker Compose Ports (Defaults shown, override if needed by your local setup) ---\nPOSTGRES_PORT=5432\nREDIS_PORT=6379\nWEAVIATE_HTTP_PORT=8080\nWEAVIATE_GRPC_PORT=50051\nBROWSERLESS_PORT=3000\nFLARESOLVERR_PORT=8191\nTEMPORAL_GRPC_PORT=7233\n\n# --- Postgres Credentials (match docker-compose.yml) ---\nPOSTGRES_USER=patriot_user\nPOSTGRES_PASSWORD=patriot_pass\nPOSTGRES_DB=patriot_rentals\nPOSTGRES_HOST=localhost # When accessing from host machine\n# DATABASE_URL is constructed dynamically in code using these vars\n\n# --- Redis --- (Crawlee uses this for request queue by default)\nREDIS_HOST=localhost # When accessing from host machine\n# REDIS_URL is constructed dynamically in code using these vars\n\n# --- Weaviate ---\nWEAVIATE_SCHEME=http\nWEAVIATE_HOST=localhost # When accessing from host machine for API calls (refers to HTTP port)\n# WEAVIATE_API_KEY= # Set if Weaviate auth is enabled\n# HUGGINGFACE_APIKEY= # Optional: if Weaviate text2vec-huggingface module needs it for rate-limited models\n\n# --- Browserless ---\nBROWSERLESS_HOST=localhost\nBROWSERLESS_TOKEN=localtoken # Must match docker-compose.yml\nMAX_BROWSERLESS_SESSIONS=5 # Adjust based on local resources\n# BROWSERLESS_WS_ENDPOINT is constructed dynamically in code\n\n# --- Proxies (Operator-provided for manual proxy configuration via proxy-chain) ---\n# Example: http://username:password@proxyhost:port OR socks5://user:pass@host:port\n# This is for proxy-chain used by Crawlee/Playwright directly if enabled in code\nHTTP_PROXY_STRING=\n\n# --- FlareSolverr ---\nFLARESOLVERR_URL=\"http://localhost:${FLARESOLVERR_PORT:-8191}/v1\"\n\n# --- Temporal ---\nTEMPORAL_ADDRESS=\"localhost:${TEMPORAL_GRPC_PORT:-7233}\"\nTEMPORAL_NAMESPACE=default\nTEMPORAL_TASK_QUEUE_CRAWLER=patriot-crawler-tq\nTEMPORAL_TASK_QUEUE_SCRAPER=patriot-scraper-tq\nTEMPORAL_TASK_QUEUE_ETL=patriot-etl-tq\n\n# --- Embedding Model --- \n# Used by instructor-embedding library\nEMBEDDING_MODEL_NAME=hkunlp/instructor-large\n# For Weaviate's text2vec-huggingface module, if configuring it to pull models (alternative to instructor-embedding):\n# WEAVIATE_EMBEDDING_MODEL=sentence-transformers/e5-mistral-7b-instruct\n\n# --- Application Configuration ---\nPATRIOT_CATALOG_FILE_PATH=\"./config/patriot_catalog.csv\"\nCOMPETITOR_CONFIG_DIR=\"./packages/scraper/src/configs\" # Relative to project root\nDEBUG_SNAPSHOTS_DIR=\"./debug_snapshots\" # Relative to project root\nREPORTS_OUTPUT_DIR=\"./reports\" # Relative to project root\nMAX_CRAWL_REQUESTS_PER_VENDOR=100 # Default limit for Crawlee per vendor run\nMAX_CONCURRENT_CRAWLS_PLAYWRIGHT=3 # Max concurrent PlaywrightCrawler instances in Crawlee\nMAX_CONCURRENT_TEMPORAL_WORKFLOWS=5 # Max concurrent Temporal workflows for scraping\nTEMPORAL_ACTIVITY_TIMEOUT_MS=300000 # 5 minutes for scrape activities\nTEMPORAL_WORKFLOW_TIMEOUT_MS=600000 # 10 minutes for entire scrape workflow per URL\n\n# --- Initial Competitors to Scrape (comma-separated IDs from scraper/src/configs) ---\n# Corresponds to filenames in packages/scraper/src/configs/[id].config.ts\n# Example: VENDOR_IDS_TO_PROCESS=sunbelt,unitedrentals,fabickrents,mikesrentals,farmingtonrentalstore\nVENDOR_IDS_TO_PROCESS=sunbelt,unitedrentals # Start with a few for initial testing\n```"
+        },
+        {
+          "taskId": "1.4",
+          "taskTitle": "Temporal Infra Config",
+          "fileName": "development.yaml",
+          "path": "/infra/temporal/config/dynamicconfig/",
+          "content": "```yaml\n# Minimal dynamic config for local development with SQL visibility.\nsystem.enableReadFromES:\n  - value: false\n    constraints: {}\nsystem.enableWriteToES:\n  - value: false\n    constraints: {}\nfrontend.enableClientVersionCheck:\n  - value: true\n    constraints: {}\n# Reduce partitions for local development to minimize resource usage\nmatching.numTaskqueueReadPartitions:\n  - value: 1\n    constraints:\n      taskQueueName: \"patriot-crawler-tq\"\n  - value: 1\n    constraints:\n      taskQueueName: \"patriot-scraper-tq\"\n  - value: 1\n    constraints:\n      taskQueueName: \"patriot-etl-tq\"\n# Add other task queues here with similar low partition counts if defined\n```"
+        },
+        {
+          "taskId": "1.5",
+          "taskTitle": "Create Initial Package Structures & Base Files",
+          "details": [
+            "For each package (`shared-types`, `crawler`, `scraper`, `etl`, `analytics`, `report`):",
+            "  - Create directory `packages/[packageName]`. ",
+            "  - Inside, create `src/` and `test/` directories (and `test/mocks` or `test/test-data` as needed later).",
+            "  - Create a `package.json` (initial content will be provided in specific package phases).",
+            "  - Create a `tsconfig.json` (initial content will be provided in specific package phases).",
+            "  - Create an empty `src/index.ts` file."
+          ]
+        }
+      ]
+    },
+    {
+      "phaseId": "PHASE 2",
+      "phaseTitle": "SHARED TYPES & CONFIGURATIONS (Content Generation)",
+      "tasks": [
+        {
+          "taskId": "2.1",
+          "taskTitle": "Shared Types Package (`@patriot-rentals/shared-types`)",
+          "package": "shared-types",
+          "files": [
+            {
+              "fileName": "package.json",
+              "path": "/packages/shared-types/",
+              "content": {
+                "name": "@patriot-rentals/shared-types",
+                "version": "1.0.0",
+                "private": true,
+                "main": "dist/index.js",
+                "types": "dist/index.d.ts",
+                "scripts": {
+                  "build": "tsc -p tsconfig.build.json",
+                  "dev": "tsc -p tsconfig.build.json --watch",
+                  "typecheck": "tsc --noEmit",
+                  "clean": "rm -rf dist tsconfig.tsbuildinfo"
+                },
+                "devDependencies": {
+                  "typescript": "~5.4.5"
+                }
+              }
+            },
+            {
+              "fileName": "tsconfig.json",
+              "path": "/packages/shared-types/",
+              "content": {
+                "extends": "../../tsconfig.json",
+                "compilerOptions": {
+                  "outDir": "./dist",
+                  "rootDir": "./src",
+                  "composite": true,
+                  "baseUrl": "./src",
+                  "paths": { "@/*": ["*"] }
+                },
+                "include": ["src/**/*"],
+                "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"]
+              }
+            },
+            {
+              "fileName": "tsconfig.build.json",
+              "path": "/packages/shared-types/",
+              "content": {
+                "extends": "./tsconfig.json",
+                "compilerOptions": { "noEmit": false },
+                "exclude": ["**/*.test.ts", "**/*.spec.ts", "**/test/**/*", "**/mocks/**"]
+              }
+            },
+            {
+              "fileName": "index.ts",
+              "path": "/packages/shared-types/src/",
+              "content": "```typescript\n// JSDoc comments for all types and interfaces are mandatory.\n\n/** Represents a monetary value with currency. */\nexport interface Price {\n  /** The numerical amount of the price. */\n  amount: number;\n  /** The ISO 4217 currency code (e.g., \"USD\"). */\n  currency: string;\n}\n\n/** Defines rental rates for different periods. */\nexport interface RentalRates {\n  /** Price for daily rental. */\n  perDay?: Price | null;\n  /** Price for weekly rental. */\n  perWeek?: Price | null;\n  /** Price for monthly (typically 4-week or 28-day) rental. */\n  perMonth?: Price | null;\n}\n\n/** Raw data structure directly from scraping a product page. */\nexport interface RawScrapedProduct {\n  /** Unique identifier for the competitor, e.g., \"sunbelt\". */\n  vendorId: string;\n  /** Full URL of the scraped product page. */\n  url: string;\n  /** ISO 8601 timestamp of when scraping occurred. */\n  scrapedAt: string;\n  /** Product name as extracted from the page. */\n  productName?: string | null;\n  /** Parsed rental rates from the page. */\n  rates?: RentalRates | null;\n  /** Vendor's Stock Keeping Unit (SKU) or product ID. */\n  sku?: string | null;\n  /** Product description text. */\n  description?: string | null;\n  /** URL of the primary product image. */\n  imageUrl?: string | null;\n  /** Product category as identified on the page. */\n  category?: string | null;\n  /** Full HTML content of the page, stored mainly for debugging failed extractions. */\n  rawHtmlContent?: string;\n  /** Any intercepted JSON payload that might contain price or product data. */\n  networkJsonPayload?: any;\n  /** Error message if scraping this specific item failed. */\n  error?: string | null;\n  /** HTTP status code of the page response during scrape attempt. */\n  httpStatus?: number | null;\n}\n\n/** Normalized product data after ETL, ready for storage and analysis. */\nexport interface NormalizedProduct {\n  /** Auto-generated Postgres ID after insertion. */\n  id?: number;\n  /** Unique identifier for the competitor. */\n  vendorId: string;\n  /** Full URL of the scraped product page. */\n  url: string;\n  /** ISO 8601 timestamp of when scraping occurred. */\n  scrapedAt: string;\n  /** Product name. */\n  productName?: string | null;\n  /** Numeric daily rental rate. */\n  dayRate?: number | null;\n  /** Numeric weekly rental rate. */\n  weekRate?: number | null;\n  /** Numeric monthly rental rate. */\n  monthRate?: number | null;\n  /** Normalized ISO 4217 currency code (e.g., \"USD\"). */\n  currency?: string | null;\n  /** Vendor's SKU. */\n  sku?: string | null;\n  /** Product description. */\n  description?: string | null;\n  /** URL of the primary product image. */\n  imageUrl?: string | null;\n  /** Product category. */\n  category?: string | null;\n  /** Matched Patriot Equipment Rentals SKU, if any. */\n  patriotSku?: string | null;\n  /** ISO 8601 timestamp of the last successful SKU match. */\n  lastMatchedAt?: string | null;\n  /** Optional: Embedding vector for the product, if stored directly in Postgres. */\n  // embeddingVector?: number[];\n}\n\n/** Configuration for a specific competitor vendor, used by crawler and scraper. */\nexport interface VendorConfig {\n  /** Unique lowercase identifier for the vendor (e.g., \"sunbelt\", \"unitedrentals\"). Must match filename. */\n  id: string;\n  /** Human-readable name for display in reports and logs. */\n  displayName: string;\n  /** Base URL of the competitor's website. */\n  baseUrl: string;\n  /** Array of initial URLs to start crawling from (e.g., category pages, sitemaps, search result pages). */\n  startUrls: string[];\n  /** RegExp string to identify product page URLs relative to the baseUrl or full URLs. */\n  productUrlDetectRegex: string;\n  /** Optional stringified JavaScript function `(url: string, pageContent: string) => boolean` to perform complex checks if a page is a product page. \n   *  `pageContent` is the full HTML of the page. This is evaluated dynamically via `eval` or `new Function()`, use with caution. */\n  isProductPageChecker?: string;\n  /** CSS selectors to extract data from product pages. */\n  selectors: {\n    productName: string;\n    priceDay?: string;      // Selector for text containing daily price\n    priceWeek?: string;     // Selector for text containing weekly price\n    priceMonth?: string;    // Selector for text containing monthly price\n    sku?: string;\n    description?: string;\n    imageUrl?: string;\n    category?: string;\n    // Example: 'meta[name=\"description\"]::attr(content)' to get attribute value\n  };\n  /** Optional configurations for intercepting network requests (e.g., XHR/fetch) that might contain pricing JSON. */\n  networkIntercepts?: Array<{\n    /** RegExp string for the URL of the network request. */\n    urlPattern: string;\n    /** Optional Playwright resource type filter. */\n    resourceType?: 'fetch' | 'xhr' | 'document' | 'script' | 'image' | 'stylesheet' | 'font' | 'media' | 'websocket' | 'other';\n    /** Paths within the intercepted JSON payload to find pricing data. Uses dot-notation (e.g., 'data.pricingInfo.daily.amount'). */\n    pricePaths: {\n      day?: string;\n      week?: string;\n      month?: string;\n      currency?: string;   // e.g., 'data.currency' or a fixed value if not in payload\n      sku?: string;\n      productName?: string;\n    };\n  }>;\n  /** Optional stringified JavaScript function `(initialData: Partial<RawScrapedProduct>, page: import('playwright').Page, cheerioPage: import('cheerio').CheerioAPI) => Promise<Partial<RawScrapedProduct>>` \n   *  for custom data parsing logic AFTER initial selector/network extraction. Evaluated dynamically. */\n  customParser?: string;\n  /** Playwright-specific context options (e.g., viewport, userAgent, extraHTTPHeaders, locale, timezoneId). */\n  playwrightContextOptions?: Record<string, any>;\n  /** If true, attempts to route requests for this vendor through a FlareSolverr instance. */\n  useFlaresolverr?: boolean;\n  /** Human-readable notes for the operator regarding this vendor's site behavior or specific scraping strategy. */\n  notes?: string;\n  /** Crawlee specific options for this vendor, e.g., navigationTimeoutSecs, maxRequestRetries. */\n  crawlerOptions?: {\n    navigationTimeoutSecs?: number;\n    maxRequestRetries?: number;\n    [key: string]: any;\n  };\n  /** Optional: Define how to extract individual rate components if prices are not in dedicated fields. */\n  rateParsingConfig?: {\n    currencySymbol?: string; // e.g., '$'\n    decimalSeparator?: string; // e.g., '.'\n    thousandSeparator?: string; // e.g., ','\n  };\n}\n\n/** Input for the main report generation orchestrator. */\nexport interface ReportGenerationOrchestratorInput {\n  /** Optional array of specific vendor IDs (from VendorConfig.id) to process. If undefined or empty, process all configured vendors. */\n  vendorIdsToProcess?: string[];\n  /** If true, forces re-crawling and re-scraping of all target URLs, ignoring recently scraped data. */\n  forceRecrawlAll?: boolean;\n  /** If true, forces re-scraping of URLs found by crawler, even if recently scraped. */\n  forceRescrapeFound?: boolean;\n  /** If true, skips the crawling phase and attempts to re-process/re-match existing data. */\n  skipCrawling?: boolean;\n  /** If true, skips the matching phase. */\n  skipMatching?: boolean;\n}\n\n/** Represents a Patriot catalog item. */\nexport interface PatriotCatalogItem {\n  patriotSku: string;\n  productName?: string | null;\n  description?: string | null;\n  category?: string | null;\n  dayRate?: number | null;\n  weekRate?: number | null;\n  monthRate?: number | null;\n  currency?: string | null;\n}\n```"
+            }
+          ]
+        },
+        {
+          "taskId": "2.2",
+          "taskTitle": "General Application Configuration Files",
+          "location": "/config/ (at project root)",
+          "files": [
+            {
+              "fileName": "patriot_catalog_config.json",
+              "path": "/config/",
+              "content": {
+                "filePath": "./config/patriot_catalog.csv",
+                "skuColumnName": "PatriotSKU",
+                "nameColumnName": "ProductName",
+                "descriptionColumnName": "ProductDescription",
+                "categoryColumnName": "Category",
+                "priceDayColumnName": "DailyRate",
+                "priceWeekColumnName": "WeeklyRate",
+                "priceMonthColumnName": "MonthlyRate",
+                "currencyColumnName": "Currency"
+              }
+            },
+            {
+              "fileName": "patriot_catalog.csv",
+              "path": "/config/",
+              "content": "```csv\nPatriotSKU,ProductName,ProductDescription,Category,DailyRate,WeeklyRate,MonthlyRate,Currency\nP001,\"Excavator X100\",\"Small powerful excavator for tight spaces. Ideal for residential and light commercial work.\",Excavator,300,1200,4000,USD\nP002,\"Scissor Lift S50\",\"50ft Scissor Lift, electric, narrow chassis for indoor use.\",Aerial Lift,150,600,2000,USD\nP003,\"Generator G20KW\",\"20KW Diesel Generator, towable, quiet operation.\",Power,100,400,1500,USD\nP004,\"Compact Track Loader CTL80\",\"80HP Compact Track Loader with bucket.\",Skid Steer,250,1000,3500,USD\n```"
+            },
+            {
+              "fileName": "initial_competitors_to_process.json",
+              "path": "/config/",
+              "comment": "This file lists the vendor IDs (matching scraper config filenames without .config.ts, e.g., 'sunbelt' for 'sunbelt.config.ts') to be processed by default when `VENDOR_IDS_TO_PROCESS` env var is not set. Used by the report orchestrator.",
+              "content": {
+                "vendors": ["sunbelt", "unitedrentals", "fabickrents", "mikesrentals", "farmingtonrentalstore"]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phaseId": "PHASE 3",
+      "phaseTitle": "DATA EXTRACTION PIPELINE (Crawler, Scraper, ETL - Content Generation)",
+      "tasks": [
+        {
+          "taskId": "3.1",
+          "taskTitle": "Crawler Package (`@patriot-rentals/crawler`)",
+          "package": "crawler",
+          "files": [
+            {
+              "fileName": "package.json",
+              "path": "/packages/crawler/",
+              "content": {
+                "name": "@patriot-rentals/crawler",
+                "version": "1.0.0",
+                "private": true,
+                "main": "dist/index.js",
+                "types": "dist/index.d.ts",
+                "scripts": {
+                  "build": "tsc -p tsconfig.build.json",
+                  "dev": "tsc -p tsconfig.build.json --watch",
+                  "typecheck": "tsc --noEmit",
+                  "start": "node dist/index.js", // For standalone testing if needed
+                  "clean": "rm -rf dist tsconfig.tsbuildinfo"
+                },
+                "dependencies": {
+                  "crawlee": "^3.9.2", // Specify exact Crawlee version
+                  "@crawlee/playwright": "^3.9.2",
+                  "playwright": "^1.45.0", // Match Browserless image
+                  "dotenv": "^16.4.5",
+                  "axios": "^1.6.8", // For FlareSolverr client
+                  "proxy-chain": "^2.4.0",
+                  "@temporalio/client": "^1.9.0",
+                  "@patriot-rentals/shared-types": "workspace:*"
+                },
+                "devDependencies": { "typescript": "~5.4.5", "ts-node": "~10.9.2" }
+              }
+            },
+            {
+              "fileName": "tsconfig.json",
+              "path": "/packages/crawler/",
+              "content": {
+                "extends": "../../tsconfig.json",
+                "compilerOptions": { "outDir": "./dist", "rootDir": "./src", "composite": true, "baseUrl": "./src", "paths": { "@/*": ["*"] } },
+                "include": ["src/**/*"],
+                "exclude": ["node_modules", "dist"]
+              }
+            },
+            {
+              "fileName": "tsconfig.build.json",
+              "path": "/packages/crawler/",
+              "content": {
+                "extends": "./tsconfig.json",
+                "compilerOptions": { "noEmit": false },
+                "exclude": ["**/*.test.ts", "**/*.spec.ts", "**/test/**/*", "**/mocks/**"]
+              }
+            },
+            {
+              "fileName": "index.ts",
+              "path": "/packages/crawler/src/",
+              "contentNotes": "This is the main entry point if crawler were run standalone. For this project, `crawler.service.ts` will be called by the report orchestrator."
+            },
+            {
+              "fileName": "crawler.service.ts",
+              "path": "/packages/crawler/src/",
+              "contentNotes": [
+                "Export `async function runCrawlers(vendorConfigsToProcess: VendorConfig[], temporalClient: Client, options: { forceRecrawlAll?: boolean }): Promise<void>`. Loads `.env`. Initializes `playwrightCrawlerInstances` map.",
+                "For each `vendorConfig` in `vendorConfigsToProcess`:",
+                "  - Log starting crawl for `vendorConfig.displayName`.",
+                "  - Create `PlaywrightCrawler` instance.",
+                "  - Configure `proxyConfiguration` using `HTTP_PROXY_STRING` from env via `proxy-chain` if set. If `vendorConfig.useFlaresolverr` is true, create a `createProxyWithFlaresolverr` function that uses `axios` to call FlareSolverr for each URL, then uses that session in Playwright. This is complex; alternatively, FlareSolverr can be used directly by Playwright's proxy settings if Browserless supports it, or by fetching through FlareSolverr for initial HTML then loading into Playwright.",
+                "  - Simpler FlareSolverr approach: `preNavigationHooks`: if `useFlaresolverr`, fetch page content via FlareSolverr, then use `page.setContent()` in Playwright. This might break SPA navigation.",
+                "  - Set `requestHandlerTimeoutSecs`, `navigationTimeoutSecs`, `maxRequestRetries` from `vendorConfig.crawlerOptions` or defaults.",
+                "  - `requestHandler`: async ({ request, page, enqueueLinks, log, sendRequest }) => {",
+                "    - Log processing `request.url`.",
+                "    - Apply `vendorConfig.playwrightContextOptions` if any.",
+                "    - Use Playwright with stealth (already default in Browserless image usually).",
+                "    - Check if current URL matches `new RegExp(vendorConfig.productUrlDetectRegex)`.",
+                "    - If `vendorConfig.isProductPageChecker`, evaluate it: `const checkerFunc = new Function('url', 'pageContent', `return (${vendorConfig.isProductPageChecker})(url, pageContent)`); await checkerFunc(request.url, await page.content())`.",
+                "    - If it's a product page: ",
+                "      - Log found product page.",
+                "      - `await temporalClient.workflow.start('scrapeProductWorkflow', { args: [request.url, vendorConfig.id], taskQueue: process.env.TEMPORAL_TASK_QUEUE_SCRAPER!, workflowId: `scrape-${vendorConfig.id}-${encodeURIComponent(request.url).slice(0,50)}-${Date.now()}` });`",
+                "    - Else (not a product page):",
+                "      - `await enqueueLinks({ strategy: 'same-domain', pseudoUrls: [ /* construct from baseUrl and patterns if needed */ ] });`",
+                "    - Handle errors in requestHandler, log them.",
+                "  - Add `startUrls` from `vendorConfig` to crawler's request queue.",
+                "  - `await crawler.run();`",
+                "Handle errors for each crawler run. Aggregate results/errors."
+              ]
+            },
+            {
+              "fileName": "utils/proxy.util.ts",
+              "path": "/packages/crawler/src/utils/",
+              "contentNotes": [
+                "Export `async function getProxyConfiguration(proxyString?: string): Promise<ProxyConfiguration | undefined>` using `proxy-chain`."
+              ]
+            },
+            {
+              "fileName": "utils/flaresolverr.client.ts",
+              "path": "/packages/crawler/src/utils/",
+              "contentNotes": [
+                "Export `async function solveWithFlareSolverr(targetUrl: string): Promise<{ solution: { url: string; status: number; headers: any; response: string; cookies: any[]; userAgent: string; }, message: string }>` using `axios` to post to FlareSolverr `v1` endpoint with `cmd: 'request.get'` and `url: targetUrl`."
+              ]
+            }
+          ]
+        },
+        {
+          "taskId": "3.2",
+          "taskTitle": "Scraper Package (`@patriot-rentals/scraper`)",
+          "package": "scraper",
+          "files": [
+            {
+              "fileName": "package.json",
+              "path": "/packages/scraper/",
+              "content": {
+                "name": "@patriot-rentals/scraper",
+                "version": "1.0.0",
+                "private": true,
+                "main": "dist/index.js",
+                "types": "dist/index.d.ts",
+                "scripts": {
+                  "build": "tsc -p tsconfig.build.json",
+                  "dev": "nodemon --watch src --ext ts --exec \"pnpm build && node dist/index.js\"",
+                  "start": "node dist/index.js", // Runs the Temporal worker
+                  "typecheck": "tsc --noEmit",
+                  "test:e2e:scrape-url": "ts-node src/scripts/test-e2e-scrape-url.ts",
+                  "clean": "rm -rf dist tsconfig.tsbuildinfo debug_snapshots"
+                },
+                "dependencies": {
+                  "@temporalio/client": "^1.9.0",
+                  "@temporalio/worker": "^1.9.0",
+                  "@temporalio/workflow": "^1.9.0",
+                  "@temporalio/activity": "^1.9.0", // For Activity Context
+                  "playwright": "^1.45.0",
+                  "@playwright/stealth": "^1.45.0", // Explicitly add if not covered by browserless default
+                  "dotenv": "^16.4.5",
+                  "cheerio": "^1.0.0-rc.12",
+                  "axios": "^1.6.8", // For FlareSolverr if used directly by activity
+                  "fs-extra": "^11.2.0",
+                  "@patriot-rentals/shared-types": "workspace:*"
+                },
+                "devDependencies": {
+                  "typescript": "~5.4.5",
+                  "ts-node": "~10.9.2",
+                  "nodemon": "~3.1.0",
+                  "@types/fs-extra": "^11.0.4",
+                  "@types/cheerio": "^0.22.35",
+                  "commander": "^12.0.0" // For CLI script
+                }
+              }
+            },
+            {
+              "fileName": "tsconfig.json",
+              "path": "/packages/scraper/",
+              "content": {
+                "extends": "../../tsconfig.json",
+                "compilerOptions": { "outDir": "./dist", "rootDir": "./src", "composite": true, "baseUrl": "./src", "paths": { "@/*": ["*"] } },
+                "include": ["src/**/*"],
+                "exclude": ["node_modules", "dist"]
+              }
+            },
+            {
+              "fileName": "tsconfig.build.json",
+              "path": "/packages/scraper/",
+              "content": {
+                "extends": "./tsconfig.json",
+                "compilerOptions": { "noEmit": false },
+                "exclude": ["**/*.test.ts", "**/*.spec.ts", "**/test/**/*", "**/mocks/**", "src/scripts"]
+              }
+            },
+            {
+              "fileName": "configs/index.ts",
+              "path": "/packages/scraper/src/configs/",
+              "contentNotes": ["Import and export all `*.config.ts` files as a map or array. `export const allVendorConfigs: VendorConfig[] = [sunbeltConfig, unitedRentalsConfig, ...];` or `export const vendorConfigMap: Record<string, VendorConfig> = { sunbelt: sunbeltConfig, ... };`"]
+            },
+            {
+              "fileName": "configs/sunbelt.config.ts", // Example, create others similarly
+              "path": "/packages/scraper/src/configs/",
+              "content": "```typescript\nimport { VendorConfig } from '@patriot-rentals/shared-types';\n\nexport const sunbeltConfig: VendorConfig = {\n  id: 'sunbelt',\n  displayName: 'Sunbelt Rentals',\n  baseUrl: 'https://www.sunbeltrentals.com',\n  startUrls: [\n    'https://www.sunbeltrentals.com/equipment/',\n    // Add more specific category start URLs if known\n  ],\n  productUrlDetectRegex: '/equipment/[\\w-]+/\\d+/?$', // Example, needs verification\n  selectors: {\n    productName: 'h1[data-testid=\"pdp-title\"]', // Placeholder, verify actual selector\n    priceDay: 'div[data-testid=\"daily-rate\"] span[data-testid=\"price\"]', // Placeholder\n    priceWeek: 'div[data-testid=\"weekly-rate\"] span[data-testid=\"price\"]', // Placeholder\n    priceMonth: 'div[data-testid=\"four-week-rate\"] span[data-testid=\"price\"]', // Placeholder\n    sku: 'p[data-testid=\"product-sku\"] span',\n    description: 'div[data-testid=\"product-description-full\"]',\n    // imageUrl: 'img[data-testid=\"pdp-main-image\"]::attr(src)', // Example for attribute\n  },\n  // Example network intercept for potential JSON pricing\n  /* networkIntercepts: [\n    {\n      urlPattern: '/api/product/pricing/', \n      resourceType: 'fetch',\n      pricePaths: {\n        day: 'rates.daily.amount',\n        currency: 'rates.currency'\n      }\n    }\n  ], */\n  playwrightContextOptions: {\n    viewport: { width: 1920, height: 1080 },\n    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',\n  },\n  useFlaresolverr: true, // Sunbelt often uses Cloudflare\n  notes: 'Sunbelt uses dynamic content loading and may have strong anti-bot measures. Rate selectors are examples and need verification.'\n};\n```"
+            },
+            {
+              "fileName": "browser/playwright-factory.ts",
+              "path": "/packages/scraper/src/browser/",
+              "contentNotes": [
+                "Export `async function launchPlaywright(options: { browserlessWsEndpoint: string; contextOptions?: Record<string, any>; proxyServer?: string }): Promise<{ page: Page; context: BrowserContext; browser: Browser }>`.",
+                "Uses `playwright.chromium.connect(browserlessWsEndpoint, { browserWSEndpoint: ..., proxy: { server: proxyServer } ... })` or `connectOverCDP`.",
+                "Applies `contextOptions` when creating `browser.newContext(contextOptions)`. Applies stealth plugin from `@playwright/stealth` to the context."
+              ]
+            },
+            {
+              "fileName": "temporal/client.ts",
+              "path": "/packages/scraper/src/temporal/",
+              "contentNotes": ["Loads env vars. Exports `async function getTemporalClient(): Promise<Client>` that creates and returns a `Connection.connect()` and `new Client()`."]
+            },
+            {
+              "fileName": "temporal/activities.ts",
+              "path": "/packages/scraper/src/temporal/",
+              "contentNotes": [
+                "Import types, `launchPlaywright`, vendor configs map, `fs-extra`, `cheerio`.",
+                "Environment variables for snapshot dir, browserless endpoint.",
+                "Export `async function scrapeProductPageActivity(url: string, vendorId: string): Promise<RawScrapedProduct>`:",
+                "  - Get `vendorConfig` from map using `vendorId`.",
+                "  - Construct `RawScrapedProduct` result shell.",
+                "  - Try/catch block for entire operation.",
+                "  - Call `launchPlaywright` with `vendorConfig.playwrightContextOptions`. Handle proxy if `HTTP_PROXY_STRING` is set.",
+                "  - `await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });`",
+                "  - Implement `autoScroll(page)` utility to scroll to bottom slowly, waiting for new content.",
+                "  - `page.on('response', async (response) => { ... })` to check for network intercepts if `vendorConfig.networkIntercepts` defined. Parse JSON, extract price data using `pricePaths`.",
+                "  - `const htmlContent = await page.content();`",
+                "  - `const $ = cheerio.load(htmlContent);`",
+                "  - Extract data using `vendorConfig.selectors`. For each selector, try `$(selector).text().trim()`. Handle attribute selectors like `::attr(href)`.",
+                "  - Call `eval(vendorConfig.customParser)` if defined, passing data and page/cheerio objects.",
+                "  - Populate `RawScrapedProduct` fields.",
+                "  - If error during scrape: `result.error = e.message; result.rawHtmlContent = htmlContent; await fs.ensureDir(...); await page.screenshot(...); await fs.writeFile(...htmlContent...);`",
+                "  - `finally { await browser.close(); }`",
+                "  - Return `result`."
+              ]
+            },
+            {
+              "fileName": "temporal/workflows.ts",
+              "path": "/packages/scraper/src/temporal/",
+              "contentNotes": [
+                "Import `wf` from `@temporalio/workflow`, types, activities type.",
+                "Proxy activities: `const { scrapeProductPageActivity } = wf.proxyActivities<typeof activities.scrapeProductPageActivity>(...)` with timeouts from env vars.",
+                "Export `async function scrapeProductWorkflow(url: string, vendorId: string): Promise<RawScrapedProduct>`:",
+                "  - `wf.log.info('Starting scrapeProductWorkflow', { url, vendorId });`",
+                "  - `const rawProductData = await scrapeProductPageActivity(url, vendorId);`",
+                "  - If `!rawProductData.error`, trigger ETL activity: `await wf.executeChildWorkflow('etlProcessWorkflow', { args: [rawProductData], taskQueue: process.env.TEMPORAL_TASK_QUEUE_ETL!, workflowId: `etl-${vendorId}-${hash(url)}-${Date.now()}` });`",
+                "  - Return `rawProductData` (or just a status, ETL workflow handles the data)."
+              ]
+            },
+            {
+              "fileName": "index.ts", // Temporal Worker entry point
+              "path": "/packages/scraper/src/",
+              "contentNotes": [
+                "Load `dotenv`. Call `getTemporalClient`. Create `NativeConnection`. Create `Worker`.",
+                "Register `scrapeProductWorkflow` and activities from `temporal/activities.ts`.",
+                "Call `worker.run().catch(err => console.error('Scraper worker failed', err));`."
+              ]
+            },
+            {
+              "fileName": "scripts/test-e2e-scrape-url.ts",
+              "path": "/packages/scraper/src/scripts/",
+              "contentNotes": [
+                "Use `commander` for CLI args (`--vendorId <id> --url <url>`).",
+                "Loads dotenv. Directly calls a test wrapper around the core logic of `scrapeProductPageActivity` (without Temporal context, just for testing the scraping).",
+                "Prints extracted `RawScrapedProduct` or error to console. Saves debug snapshots to `DEBUG_SNAPSHOTS_DIR`."
+              ]
+            }
+          ]
+        },
+        {
+          "taskId": "3.3",
+          "taskTitle": "ETL Package (`@patriot-rentals/etl`)",
+          "package": "etl",
+          "files": [
+            {
+              "fileName": "package.json",
+              "path": "/packages/etl/",
+              "content": {
+                "name": "@patriot-rentals/etl",
+                "version": "1.0.0",
+                "private": true,
+                "main": "dist/index.js",
+                "types": "dist/index.d.ts",
+                "scripts": {
+                  "build": "tsc -p tsconfig.build.json",
+                  "dev": "tsc -p tsconfig.build.json --watch", // For standalone worker if developed
+                  "typecheck": "tsc --noEmit",
+                  "start": "node dist/index.js", // If ETL worker is standalone
+                  "clean": "rm -rf dist tsconfig.tsbuildinfo"
+                },
+                "dependencies": {
+                  "pg": "^8.11.5",
+                  "dotenv": "^16.4.5",
+                  "weaviate-ts-client": "^2.0.0", // Or latest v2.x
+                  "instructor-embedding": "^1.2.3", // Or latest for e5 model
+                  "@patriot-rentals/shared-types": "workspace:*",
+                  "@temporalio/activity": "^1.9.0",
+                  "@temporalio/client": "^1.9.0", // If ETL is a separate workflow starter
+                  "@temporalio/worker": "^1.9.0", // If ETL is a separate worker
+                  "@temporalio/workflow": "^1.9.0" // If ETL is a separate workflow
+                },
+                "devDependencies": {
+                  "typescript": "~5.4.5",
+                  "ts-node": "~10.9.2",
+                  "@types/pg": "^8.11.5"
+                }
+              }
+            },
+            {
+              "fileName": "tsconfig.json",
+              "path": "/packages/etl/",
+              "content": {
+                "extends": "../../tsconfig.json",
+                "compilerOptions": { "outDir": "./dist", "rootDir": "./src", "composite": true, "baseUrl": "./src", "paths": { "@/*": ["*"] } },
+                "include": ["src/**/*"],
+                "exclude": ["node_modules", "dist"]
+              }
+            },
+            {
+              "fileName": "tsconfig.build.json",
+              "path": "/packages/etl/",
+              "content": {
+                "extends": "./tsconfig.json",
+                "compilerOptions": { "noEmit": false },
+                "exclude": ["**/*.test.ts", "**/*.spec.ts", "**/test/**/*", "**/mocks/**"]
+              }
+            },
+            {
+              "fileName": "db/postgres.service.ts",
+              "path": "/packages/etl/src/db/",
+              "contentNotes": [
+                "Load `dotenv`. Import `Pool` from `pg`. Export `pgPool` instance (singleton).",
+                "Export `async function saveNormalizedProduct(product: NormalizedProduct): Promise<number>` (inserts into `normalized_products` table, returns `id`). Create table if not exists: `CREATE TABLE IF NOT EXISTS normalized_products (...)` with appropriate columns and types, unique constraint on `(vendorId, url)`.",
+                "Export `async function getProductByUrlAndVendor(url: string, vendorId: string): Promise<NormalizedProduct | null>`.",
+                "Export `async function updateProductMatch(productId: number, patriotSku: string): Promise<void>`."
+              ]
+            },
+            {
+              "fileName": "db/weaviate.service.ts",
+              "path": "/packages/etl/src/db/",
+              "contentNotes": [
+                "Load `dotenv`. Import `weaviate` client. Export Weaviate client instance (singleton).",
+                "Export `async function ensureProductSchemaExists(client: WeaviateClient): Promise<void>` that checks and creates the `ProductVectors` class schema (as defined in `shared-types` thoughts for Phase 2.1, use `text2vec-huggingface` only if Weaviate handles embeddings, otherwise `vectorizer: 'none'`).",
+                "Export `async function upsertProductVector(client: WeaviateClient, product: NormalizedProduct, vector: number[]): Promise<string>` (upserts to Weaviate, data object includes `postgresProductId: product.id`)."
+              ]
+            },
+            {
+              "fileName": "services/normalization.service.ts",
+              "path": "/packages/etl/src/services/",
+              "contentNotes": [
+                "Import types. Export `function normalizeRawProductData(rawProduct: RawScrapedProduct, vendorConfig?: VendorConfig): NormalizedProduct`.",
+                "  - Maps fields from `RawScrapedProduct` to `NormalizedProduct`.",
+                "  - Price parsing logic: Use `vendorConfig.rateParsingConfig` if available. Convert strings like \"$1,234.56\" to `1234.56`. Handle ranges, \"Call for Price\" as null.",
+                "  - Currency normalization (e.g., to USD).",
+                "  - Basic data validation (log warnings for missing critical fields)."
+              ]
+            },
+            {
+              "fileName": "services/embedding.service.ts",
+              "path": "/packages/etl/src/services/",
+              "contentNotes": [
+                "Load `dotenv`. Import `InstructorEmbedding`.",
+                "Export `embeddingClient` instance of `new InstructorEmbedding({ modelName: process.env.EMBEDDING_MODEL_NAME })`.",
+                "Export `async function generateProductEmbedding(product: NormalizedProduct): Promise<number[]>`.",
+                "  - Construct text: `Instruction: Represent the equipment rental product for semantic similarity matching and price comparison. Product: ${product.productName} Description: ${product.description} Category: ${product.category}`.",
+                "  - `return embeddingClient.embed(text);`"
+              ]
+            },
+            {
+              "fileName": "temporal/activities.ts",
+              "path": "/packages/etl/src/temporal/",
+              "contentNotes": [
+                "Import `ActivityContext` from `@temporalio/activity`. Import services.",
+                "Export `async function etlProcessActivity(rawProduct: RawScrapedProduct): Promise<{ success: boolean; productId?: number; error?: string }>`:",
+                "  - `ActivityContext.current().log.info(...)`.",
+                "  - Get `vendorConfig` (needs to be passed or fetched if not in `rawProduct`).",
+                "  - `const normalized = normalizeRawProductData(rawProduct, vendorConfig);`",
+                "  - `const postgresId = await saveNormalizedProduct(normalized); normalized.id = postgresId;`",
+                "  - `const vector = await generateProductEmbedding(normalized);`",
+                "  - `await upsertProductVector(weaviateClient, normalized, vector);`",
+                "  - Return `{ success: true, productId: postgresId }`. Handle errors and return `{ success: false, error: e.message }`."
+              ]
+            },
+            {
+              "fileName": "temporal/workflows.ts", // ETL specific workflow
+              "path": "/packages/etl/src/temporal/",
+              "contentNotes": [
+                "Import `wf` from `@temporalio/workflow`, types, ETL activities type.",
+                "Proxy ETL activities: `const { etlProcessActivity } = wf.proxyActivities<typeof etlActivities>(...)`.",
+                "Export `async function etlProcessWorkflow(rawProduct: RawScrapedProduct): Promise<void>`:",
+                "  - `wf.log.info('Starting etlProcessWorkflow', { url: rawProduct.url });`",
+                "  - `const result = await etlProcessActivity(rawProduct);`",
+                "  - If `!result.success`, throw `wf.ApplicationFailure.create({ message: result.error || 'ETL failed' });`"
+              ]
+            },
+            {
+              "fileName": "index.ts", // Temporal Worker for ETL (if run as separate worker pool)
+              "path": "/packages/etl/src/",
+              "contentNotes": [
+                "Load `dotenv`. Get Temporal Client. Create `NativeConnection`. Create `Worker` for `TEMPORAL_TASK_QUEUE_ETL`.",
+                "Register `etlProcessWorkflow` and `etlProcessActivity`.",
+                "Run worker. This might be combined with the scraper worker if resource contention isn't an issue."
+              ]
+            }
+          ]
+        },
+        {
+          "taskId": "3.4",
+          "taskTitle": "Modify Scraper Workflow to call ETL Workflow/Activity",
+          "package": "scraper",
+          "details": "In `/packages/scraper/src/temporal/workflows.ts` (`scrapeProductWorkflow`): After `rawProductData = await scrapeProductPageActivity(url, vendorId);`, if `!rawProductData.error`, add: `await wf.executeChildWorkflow('etlProcessWorkflow', { args: [rawProductData], taskQueue: process.env.TEMPORAL_TASK_QUEUE_ETL!, workflowId: `etl-${vendorId}-${hashFn(url)}-${Date.now()}`, /* other options */ });`. Define a simple `hashFn` or use a portion of the URL for uniqueness."
+        }
+      ]
+    },
+    {
+      "phaseId": "PHASE 4",
+      "phaseTitle": "DATA ANALYSIS & REPORTING (Content Generation)",
+      "tasks": [
+        {
+          "taskId": "4.1",
+          "taskTitle": "Analytics Package (`@patriot-rentals/analytics`) - Python",
+          "package": "analytics",
+          "files": [
+            {
+              "fileName": "package.json", // Minimal, mostly for scripts
+              "path": "/packages/analytics/",
+              "content": {
+                "name": "@patriot-rentals/analytics",
+                "version": "1.0.0",
+                "private": true,
+                "scripts": {
+                  "setup-venv": "python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt",
+                  "activate-venv": ". .venv/bin/activate",
+                  "match-products": "python src/main_analytics.py --action match_products",
+                  "create-views": "python src/main_analytics.py --action create_views",
+                  "lint": "pylint src/",
+                  "format": "black src/",
+                  "clean": "rm -rf .venv __pycache__ */__pycache__ .pytest_cache"
+                }
+              }
+            },
+            {
+              "fileName": "requirements.txt",
+              "path": "/packages/analytics/",
+              "content": "```\npandas>=2.0.0\npsycopg2-binary>=2.9.0\nweaviate-client>=4.5.0 # Python v4 client\npython-dotenv>=1.0.0\ninstructor-embedders[instructor]>=0.1.0 # Python version for e5\nscikit-learn>=1.3.0 # For cosine similarity if needed for fallback\n# Optional for RLlib later: ray[rllib]\nblack\npylint\n```"
+            },
+            {
+              "fileName": "src/db_utils.py",
+              "path": "/packages/analytics/src/",
+              "contentNotes": ["Python functions to connect to Postgres using `psycopg2` (get connection string from env vars), execute queries, fetch results as DataFrames."]
+            },
+            {
+              "fileName": "src/embedding_utils.py",
+              "path": "/packages/analytics/src/",
+              "contentNotes": ["Python function `generate_embedding_py(text: str, model_name: str) -> list[float]` using `InstructorEmbeddings` from `instructor_embedders`."]
+            },
+            {
+              "fileName": "src/weaviate_utils.py",
+              "path": "/packages/analytics/src/",
+              "contentNotes": ["Python functions to connect to Weaviate v4 client, perform hybrid searches against `ProductVectors` class."]
+            },
+            {
+              "fileName": "src/matching/matcher.py",
+              "path": "/packages/analytics/src/matching/",
+              "contentNotes": [
+                "Class `ProductMatcher`:",
+                "  - `__init__` (db_conn, weaviate_client, patriot_catalog_path, config_path).",
+                "  - `load_patriot_catalog()`: Reads CSV into Pandas DataFrame.",
+                "  - `embed_patriot_catalog()`: Generates embeddings for Patriot items.",
+                "  - `match_all_patriot_products()`: Iterates Patriot items.",
+                "    - For each, query Weaviate: `hybrid` search (nearText with Patriot product embedding + BM25 on name/desc). Limit results, filter by `vendorId != 'patriot'`, apply similarity threshold (e.g., from Weaviate's `_additional { score, distance }`).",
+                "    - `update_postgres_matches(patriot_sku, matched_competitor_postgres_ids)`: Updates `normalized_products` table setting `patriot_sku` column."
+              ]
+            },
+            {
+              "fileName": "src/reporting/db_views.py",
+              "path": "/packages/analytics/src/reporting/",
+              "contentNotes": [
+                "Function `create_price_gaps_view(db_conn)`:",
+                "  - Executes SQL: `CREATE OR REPLACE VIEW price_gaps AS SELECT pnp.product_name AS patriot_product_name, pnp.patriot_sku, pnp.day_rate AS patriot_day_rate, ..., cnp.vendor_id AS competitor_vendor_id, ..., (cnp.day_rate - pnp.day_rate) AS day_rate_gap, ((cnp.day_rate - pnp.day_rate) / pnp.day_rate) * 100 AS day_rate_gap_percent FROM normalized_products pnp JOIN normalized_products cnp ON pnp.patriot_sku = cnp.patriot_sku AND pnp.vendor_id != cnp.vendor_id WHERE pnp.patriot_sku IS NOT NULL AND cnp.vendor_id != (SELECT v.id FROM vendors v WHERE v.is_patriot = TRUE LIMIT 1) ;` (This assumes Patriot's own data is also in `normalized_products` and identifiable, or join with a separate Patriot products table). Simplify: `cnp.patriot_sku` means it's matched TO a patriot SKU."
+              ]
+            },
+            {
+              "fileName": "src/main_analytics.py",
+              "path": "/packages/analytics/src/",
+              "contentNotes": ["CLI using `argparse`. Actions: `match_products`, `create_views`. Loads env vars. Initializes DB/Weaviate clients. Calls relevant modules."]
+            }
+          ]
+        },
+        {
+          "taskId": "4.2",
+          "taskTitle": "Report Package (`@patriot-rentals/report`)",
+          "package": "report",
+          "files": [
+            {
+              "fileName": "package.json",
+              "path": "/packages/report/",
+              "content": {
+                "name": "@patriot-rentals/report",
+                "version": "1.0.0",
+                "private": true,
+                "main": "dist/index.js",
+                "types": "dist/index.d.ts",
+                "scripts": {
+                  "build": "tsc -p tsconfig.build.json",
+                  "dev": "nodemon --watch src --ext ts --exec \"pnpm build && node dist/index.js\"",
+                  "start": "ts-node src/index.ts", // Main entry point for `pnpm generate-report`
+                  "typecheck": "tsc --noEmit",
+                  "clean": "rm -rf dist tsconfig.tsbuildinfo reports"
+                },
+                "dependencies": {
+                  "pg": "^8.11.5",
+                  "dotenv": "^16.4.5",
+                  "handlebars": "^4.7.8",
+                  "marked": "^12.0.1", // Markdown to HTML (if needed, or just pure MD)
+                  "fs-extra": "^11.2.0",
+                  "commander": "^12.0.0",
+                  "axios": "^1.6.8", // If calling python scripts via a local API
+                  "child_process": "npm:@types/node", // For execSync
+                  "@patriot-rentals/shared-types": "workspace:*",
+                  "@temporalio/client": "^1.9.0" // For triggering crawler
+                },
+                "devDependencies": {
+                  "typescript": "~5.4.5",
+                  "ts-node": "~10.9.2",
+                  "nodemon": "~3.1.0",
+                  "@types/pg": "^8.11.5",
+                  "@types/handlebars": "^4.1.0",
+                  "@types/marked": "^6.0.0",
+                  "@types/fs-extra": "^11.0.4"
+                }
+              }
+            },
+            {
+              "fileName": "tsconfig.json",
+              "path": "/packages/report/",
+              "content": {
+                "extends": "../../tsconfig.json",
+                "compilerOptions": { "outDir": "./dist", "rootDir": "./src", "composite": true, "baseUrl": "./src", "paths": { "@/*": ["*"] } },
+                "include": ["src/**/*"],
+                "exclude": ["node_modules", "dist"]
+              }
+            },
+            {
+              "fileName": "tsconfig.build.json",
+              "path": "/packages/report/",
+              "content": {
+                "extends": "./tsconfig.json",
+                "compilerOptions": { "noEmit": false },
+                "exclude": ["**/*.test.ts", "**/*.spec.ts", "**/test/**/*", "**/mocks/**"]
+              }
+            },
+            {
+              "fileName": "services/postgres.service.ts",
+              "path": "/packages/report/src/services/",
+              "contentNotes": ["Exports `pgPool`. Function `fetchReportData(): Promise<any[]>` to query `price_gaps` view and other relevant tables."]
+            },
+            {
+              "fileName": "services/markdown.service.ts",
+              "path": "/packages/report/src/services/",
+              "contentNotes": [
+                "Import `handlebars`. Export `async function generateMarkdownReport(data: any): Promise<string>`.",
+                "  - Read `report.hbs` template.",
+                "  - Compile template with Handlebars.",
+                "  - Apply data to template. Return Markdown string."
+              ]
+            },
+            {
+              "fileName": "templates/report.hbs",
+              "path": "/packages/report/src/templates/",
+              "content": "```handlebars\n# Patriot Rentals - Competitor Price Gap Analysis - {{reportDate}}\n\n## Summary\n- Total Products Matched: {{summary.totalMatched}}\n- Competitors Analyzed: {{summary.competitorsAnalyzedCount}}\n\n## Top Under-Priced Items (Patriot is Cheaper)\n| Patriot SKU | Product Name | Patriot Rate (Day) | Avg. Competitor Rate (Day) | Gap % |\n|---|---|---|---|---|\n{{#each underPricedItems}}\n| {{this.patriotSku}} | {{this.patriotProductName}} | ${{this.patriotDayRate}} | ${{this.avgCompetitorDayRate}} | {{this.gapPercent}}% |\n{{/each}}\n\n## Top Over-Priced Items (Patriot is More Expensive)\n| Patriot SKU | Product Name | Patriot Rate (Day) | Avg. Competitor Rate (Day) | Gap % |\n|---|---|---|---|---|\n{{#each overPricedItems}}\n| {{this.patriotSku}} | {{this.patriotProductName}} | ${{this.patriotDayRate}} | ${{this.avgCompetitorDayRate}} | {{this.gapPercent}}% |\n{{/each}}\n\n## Items with No Competitor Matches\n{{#if noMatchItems}}\n| Patriot SKU | Product Name |\n|---|---|\n{{#each noMatchItems}}\n| {{this.patriotSku}} | {{this.productName}} |\n{{/each}}\n{{else}}\nAll Patriot items have at least one competitor match.\n{{/if}}\n\n## Suggested Actions (Heuristic)\n{{#each suggestedActions}}\n- For **{{this.patriotSku}} ({{this.productName}})**: {{this.suggestion}}\n{{/each}}\n```"
+            },
+            {
+              "fileName": "orchestrator.ts",
+              "path": "/packages/report/src/",
+              "contentNotes": [
+                "Import types, `runCrawlers` (hypothetical, or a way to start Temporal workflows for crawling via client), Python script runner utility, markdown service, db service, `fs-extra`.",
+                "Export `async function runFullReportPipeline(input: ReportGenerationOrchestratorInput): Promise<string>`:",
+                "  - Log start. Load env vars. Create `REPORTS_OUTPUT_DIR` if not exists.",
+                "  - Get Temporal Client.",
+                "  - If `!input.skipCrawling`:",
+                "    - Load `initial_competitors_to_process.json` or use `VENDOR_IDS_TO_PROCESS` env var to get `vendorIds`.",
+                "    - Fetch `VendorConfig[]` for these `vendorIds` from `scraper/src/configs` (e.g., via dynamic import or a build step that makes them available).",
+                "    - Call `runCrawlersFromTemporal(vendorConfigs, temporalClient, { forceRecrawlAll: input.forceRecrawlAll });` (this function will start crawler workflows for each vendor). Need to monitor these workflows for completion.",
+                "  - If `!input.skipMatching`:",
+                "    - `execSync('pnpm --filter @patriot-rentals/analytics match-products', { stdio: 'inherit' });`",
+                "    - `execSync('pnpm --filter @patriot-rentals/analytics create-views', { stdio: 'inherit' });`",
+                "  - `const reportDbData = await fetchReportData();`",
+                "  - `const markdownContent = await generateMarkdownReport(reportDbData);`",
+                "  - `const reportPath = path.join(process.env.REPORTS_OUTPUT_DIR!, \`report-\${new Date().toISOString().split('T')[0]}.md\`);`",
+                "  - `await fs.writeFile(reportPath, markdownContent);` Log path.",
+                "  - Return `reportPath`."
+              ]
+            },
+            {
+              "fileName": "index.ts", // CLI entry point for `pnpm generate-report`
+              "path": "/packages/report/src/",
+              "contentNotes": [
+                "Use `commander` to define CLI options mirroring `ReportGenerationOrchestratorInput` (e.g., `--vendors <ids>`, `--force-recrawl-all`).",
+                "Parse args, call `runFullReportPipeline(options)`. Log success/failure."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "phaseId": "PHASE 5",
+      "phaseTitle": "TESTING, DOCUMENTATION & FINALIZATION (Content Generation)",
+      "tasks": [
+        {
+          "taskId": "5.1",
+          "taskTitle": "Testing Strategy & Implementation (Placeholders for test files)",
+          "details": [
+            "**Shared Types (`packages/shared-types/test/`):** Minimal, types are validated by TSC.",
+            "**Crawler (`packages/crawler/test/`):** Unit tests for utilities. Mock Temporal client for testing `runCrawlers` logic.",
+            "**Scraper (`packages/scraper/test/`):**",
+            "  - `activities.test.ts`: Mock Playwright, Cheerio. Test `scrapeProductPageActivity` with local HTML mock files (e.g., `test/mocks/sunbelt/product1.html`). Assert correct data extraction based on `sunbelt.config.ts` selectors.",
+            "  - `configs/[vendorId].config.validation.test.ts`: Validate regexes in vendor configs.",
+            "**ETL (`packages/etl/test/`):**",
+            "  - `normalization.service.test.ts`: Test `normalizeRawProductData` with various `RawScrapedProduct` inputs.",
+            "  - `embedding.service.test.ts`: Mock `InstructorEmbedding` to test text construction.",
+            "  - `activities.test.ts`: Mock DB and Weaviate services, test `etlProcessActivity` logic.",
+            "**Analytics (`packages/analytics/tests/`):** Python tests using `pytest`.",
+            "  - `test_matcher.py`: Mock Weaviate, DB. Test matching logic with sample data.",
+            "**Report (`packages/report/test/`):**",
+            "  - `markdown.service.test.ts`: Test `generateMarkdownReport` with mock data and assert on Markdown structure."
+          ]
+        },
+        {
+          "taskId": "5.2",
+          "taskTitle": "CI Workflow (`.github/workflows/ci.yml`)",
+          "fileName": "ci.yml",
+          "path": "/.github/workflows/",
+          "content": "```yaml\nname: CI Pipeline\n\non:\n  push:\n    branches: [ main, develop ]\n  pull_request:\n    branches: [ main, develop ]\n\njobs:\n  lint-typecheck-test:\n    runs-on: ubuntu-latest\n    strategy:\n      matrix:\n        node-version: [18.x]\n    steps:\n      - name: Checkout repository\n        uses: actions/checkout@v4\n\n      - name: Setup pnpm\n        uses: pnpm/action-setup@v3\n        with:\n          version: 8 # Use pnpm version from engines\n\n      - name: Setup Node.js ${{ matrix.node-version }}\n        uses: actions/setup-node@v4\n        with:\n          node-version: ${{ matrix.node-version }}\n          cache: 'pnpm'\n\n      - name: Install dependencies\n        run: pnpm install --frozen-lockfile\n\n      - name: Lint code\n        run: pnpm lint\n\n      - name: Check types\n        run: pnpm typecheck\n\n      - name: Run unit & integration tests\n        run: pnpm test\n\n      # Optional: Build step to ensure all packages compile\n      - name: Build all packages\n        run: pnpm build\n```"
+        },
+        {
+          "taskId": "5.3",
+          "taskTitle": "Root README.md",
+          "fileName": "README.md",
+          "path": "/",
+          "content": "```markdown\n# Patriot Equipment Rentals – Competitor Price-Gap Tool\n\nA locally-executable, open-source tool to scrape competitor rental rates, match them against Patriot's catalog, and generate a price gap analysis report.\n\n## Table of Contents\n\n- [Prerequisites](#prerequisites)\n- [Initial Setup](#initial-setup)\n- [Running Docker Services](#running-docker-services)\n- [Generating a Report (Primary Use Case)](#generating-a-report-primary-use-case)\n- [Development](#development)\n  - [Running Individual Packages](#running-individual-packages)\n  - [Linting, Formatting, Type Checking](#linting-formatting-type-checking)\n  - [Running Tests](#running-tests)\n- [Configuring Competitors](#configuring-competitors)\n  - [Vendor Configuration Files](#vendor-configuration-files)\n  - [Finding Selectors](#finding-selectors)\n  - [Testing Individual URL Scrapes](#testing-individual-url-scrapes)\n- [Troubleshooting](#troubleshooting)\n- [Key Considerations for Operator](#key-considerations-for-operator)\n\n## Prerequisites\n\n- [Node.js](https://nodejs.org/) (v18.17.0 or as specified in `.nvmrc`)\n- [pnpm](https://pnpm.io/) (v8.6.0 or as specified in `package.json` engines)\n- [Docker](https://www.docker.com/get-started/) & Docker Compose\n- Git\n\n## Initial Setup\n\n1.  **Clone the repository:**\n    ```bash\n    git clone <repository_url>\n    cd patriot-price-gap-tool\n    ```\n2.  **Install Node.js version (optional, if using nvm):**\n    ```bash\n    nvm use\n    ```\n3.  **Copy environment file:**\n    ```bash\n    cp .env.example .env\n    ```\n    Review `.env` and update any necessary variables (e.g., ports if defaults conflict, `VENDOR_IDS_TO_PROCESS`).\n\n4.  **Install dependencies:**\n    ```bash\n    pnpm install --frozen-lockfile\n    ```\n\n## Running Docker Services\n\nAll backend services (Postgres, Weaviate, Redis, Temporal, Browserless, FlareSolverr) run in Docker.\n\n-   **Start all services (detached mode):**\n    ```bash\n    pnpm db:up\n    # or: docker-compose up -d\n    ```\n-   **View logs:**\n    ```bash\n    pnpm db:logs\n    # or: docker-compose logs -f\n    ```\n-   **Stop all services and remove volumes (for a clean start):**\n    ```bash\n    pnpm db:down\n    # or: docker-compose down --volumes\n    ```\n\nEnsure all services are healthy before proceeding to generate a report.\n\n## Generating a Report (Primary Use Case)\n\nThis is the main command to run the entire pipeline:\n\n```bash\npnpm generate-report\n```\n\n**Optional flags:**\n\n-   `--vendors <ids>`: Comma-separated list of vendor IDs to process (e.g., `sunbelt,unitedrentals`). Overrides `.env` and `config/initial_competitors_to_process.json`.\n-   `--force-recrawl-all`: Force re-crawling and re-scraping of all target URLs.\n-   `--force-rescrape-found`: Force re-scraping of URLs found by crawler, even if recently scraped.\n-   `--skip-crawling`: Skip crawling, re-process existing data.\n-   `--skip-matching`: Skip the SKU matching phase.\n\nExample:\n`pnpm generate-report --vendors sunbelt --force-recrawl-all`\n\nThe generated Markdown report will be saved in the `./reports` directory (configurable via `REPORTS_OUTPUT_DIR` in `.env`).\n\n## Development\n\n### Running Individual Packages\n\nTo run a development server for a specific package (e.g., with hot-reloading if configured):\n\n```bash\npnpm --filter <packageName> dev\n# Example: pnpm --filter @patriot-rentals/scraper dev\n```\n\n### Linting, Formatting, Type Checking\n\n-   **Lint:** `pnpm lint` (will also auto-fix where possible)\n-   **Format:** `pnpm format`\n-   **Type Check:** `pnpm typecheck`\n\n### Running Tests\n\n-   **Run all tests across workspace:** `pnpm test`\n-   **Run tests for a specific package:** `pnpm --filter <packageName> test`\n\n## Configuring Competitors\n\nCompetitor-specific scraping logic is defined in configuration files.\n\n### Vendor Configuration Files\n\n-   Location: `packages/scraper/src/configs/`\n-   Naming: `[vendorId].config.ts` (e.g., `sunbelt.config.ts`). The `vendorId` (e.g., `sunbelt`) is used to reference the competitor.\n-   Structure: Each file exports a `VendorConfig` object (see `packages/shared-types/src/index.ts`).\n-   Key fields to configure:\n    -   `id`, `displayName`, `baseUrl`, `startUrls`\n    -   `productUrlDetectRegex`: Regular expression to identify product pages.\n    -   `selectors`: CSS selectors for extracting data (product name, prices, SKU, etc.).\n    -   `networkIntercepts` (optional): For sites loading price data via XHR/fetch.\n    -   `customParser` (optional): For complex data transformations.\n    -   `playwrightContextOptions`: To set user-agent, viewport, etc.\n    -   `useFlaresolverr`: Set to `true` for sites protected by Cloudflare.\n\n### Finding Selectors\n\nUse your browser's Developer Tools (Inspector) to find appropriate CSS selectors for the data points you want to extract.\n\n### Testing Individual URL Scrapes\n\nTo test the scraping logic for a single URL of a configured vendor:\n\n```bash\npnpm test:e2e:scrape-url --vendorId <id> --url <product_page_url>\n# Example: pnpm test:e2e:scrape-url --vendorId sunbelt --url https://www.sunbeltrentals.com/equipment/some-product/12345/\n```\n\nThis will attempt to scrape the URL using the specified vendor's config and output the extracted data or errors. Debug snapshots (HTML, screenshot) will be saved to `./debug_snapshots` on failure.\n\n## Troubleshooting\n\n-   **Docker services not starting:** Check `pnpm db:logs` for errors. Ensure ports are not conflicting.\n-   **Scrapers failing:** Websites change! Selectors in `*.config.ts` files are the most common point of failure. Use `pnpm test:e2e:scrape-url` to debug. Check saved HTML snapshots.\n-   **Temporal Worker issues:** Check logs from the scraper/ETL worker. Ensure Temporal server is healthy.\n-   **Type errors after pulling changes:** Run `pnpm install` and `pnpm build`.\n\n## Key Considerations for Operator\n\n-   **Scraper Fragility & Maintenance:** Essential. Expect to update selectors regularly.\n-   **Ethical Scraping:** Be respectful. Infrequent, on-demand local runs minimize impact.\n-   **Performance:** Depends on your machine and network.\n-   **Initial Setup Effort:** Configuring new vendors requires time and web scraping knowledge.\n-   **Proxy Use:** For major sites, direct connections might be blocked. Consider `HTTP_PROXY_STRING` in `.env` if needed.\n-   **Data Storage:** Docker volumes will grow. Manage disk space accordingly.\n```"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

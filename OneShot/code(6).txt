@@ -1,0 +1,115 @@
+{
+  "directiveVersion": "V2.1_Final_Action_Directive",
+  "directiveTitle": "ACTION DIRECTIVE FOR CURSOR.AI AGENT: AI-ASSISTED POPULATION OF EXISTING SCRAPER CONFIGURATIONS (Leveraging Initial Data)",
+  "targetAgentPersona": "Cursor.AI Agent with Background Agent capabilities (as per self-assessment V2, considering features up to Changelog v0.50 or later).",
+  "contextAndCurrentState": {
+    "project": "Patriot Equipment Rentals – Competitor Price-Gap Tool",
+    "status": "Project code and structure have been generated. Core files exist.",
+    "keyFilesRequiringAttention": {
+      "vendorConfigs": {
+        "location": "packages/scraper/src/configs/",
+        "description": "Files like `sunbelt.config.ts`, `patriot.config.ts`, etc., exist but contain placeholder values for `productUrlDetectRegex` and CSS `selectors`.",
+        "currentContentSourceGuidance": "These files should ideally already contain embedded directive comments derived from `/INITIAL_VENDOR_TARGET_DATA.md` from the initial project generation's Phase 0."
+      },
+      "initialVendorDataFile": {
+        "path": "/INITIAL_VENDOR_TARGET_DATA.md",
+        "description": "Located in the project root. Contains foundational research, conceptual guidance for selectors, initial regex guesses, and other vendor-specific blueprint data. This is a primary input for your task."
+      }
+    },
+    "agentSelfAssessmentReference": "Your capabilities as outlined in your 'Self-Analysis V2 - Post-Changelog v0.50 Review' are assumed, particularly regarding Background Agent functionality for web investigation and headless browser operation."
+  },
+  "objectiveForAgent": "For each specified vendor: 1) Load its blueprint from `/INITIAL_VENDOR_TARGET_DATA.md`. 2) Autonomously investigate its live website to derive refined `productUrlDetectRegex` and CSS `selectors`. 3) Update the existing `packages/scraper/src/configs/[vendorId].config.ts` file with these AI-derived proposals, integrating them with the blueprint information and clearly marking AI proposals for operator review. 4) Create a comprehensive `AI_CONFIG_INVESTIGATION_REPORT.md` summarizing findings and confidence levels.",
+  "instructionsForAIAssistedConfiguration": {
+    "executionEnvironment": "To be performed by Background Agent(s) where possible for parallelism and autonomous operation.",
+    "iterationInstructions": "Process EACH VENDOR ID specified in the `.env` variable `VENDOR_IDS_TO_PROCESS` (e.g., 'sunbelt', 'unitedrentals', 'patriot', etc.), OR for a specific list of vendor IDs provided if this directive is triggered with an override.",
+    "perVendorProcessingSteps": [
+      {
+        "step": 1,
+        "title": "Load Vendor Blueprint & Existing Configuration File",
+        "actions": [
+          "Read and parse the `/INITIAL_VENDOR_TARGET_DATA.md` file. Locate the data blueprint section corresponding to the current `[vendorId]` being processed. Extract all relevant fields: `id`, `displayName`, `baseUrl`, initial `startUrls`, `productUrlDetectRegex` (including its pattern and rationaleForHumanReview), `selectorsConceptualGuidance`, `useFlaresolverr` flags, `defaultPlaywrightContextOptions` guidance, `rateParsingConfig` guidance, and any `notes` or `operatorActionItems`.",
+          "Read the existing `packages/scraper/src/configs/[vendorId].config.ts` file. Note its current placeholder structure and any embedded directive comments (which should align with the blueprint)."
+        ],
+        "currentVendorContext": "Current Vendor: `[vendorId]`, Target Config File: `packages/scraper/src/configs/[vendorId].config.ts`"
+      },
+      {
+        "step": 2,
+        "title": "Reconnaissance & Product Detail Page (PDP) Discovery",
+        "actions": [
+          "Utilize your Background Agent capabilities for direct web access and headless browser execution (e.g., Playwright via the project's Browserless instance at `ws://localhost:${BROWSERLESS_PORT:-3000}?token=${BROWSERLESS_TOKEN:-localtoken}`, or your agent's native tools). If a relevant web scraping MCP (e.g., Bright Data like capabilities) is configured and available to you, you MUST leverage it for robust HTML fetching, JS rendering, proxy management, and CAPTCHA handling to maximize success.",
+          "Use the `startUrls` extracted from the vendor blueprint (Step 1.a) as primary entry points for investigation. If the blueprint listed 'Operator Action Items' for `startUrls` (e.g., for `patriot.config.ts`), acknowledge this in your final report (Step 6) and proceed by attempting to use any provided placeholder URLs or by performing a targeted search for likely catalog/equipment listing pages on the `baseUrl`.",
+          "Autonomously navigate from these starting points. Identify and **fetch the full, JS-rendered HTML content of at least 3-5 diverse product detail pages (PDPs)** from the target vendor's site. Prioritize pages that appear representative of the site's product offerings.",
+          "Temporarily store these fetched HTML contents within your agent's environment for subsequent analysis.",
+          "Log the exact URLs of the PDPs you selected and successfully fetched for analysis in your final report (Step 6)."
+        ]
+      },
+      {
+        "step": 3,
+        "title": "URL Pattern (`productUrlDetectRegex`) Derivation",
+        "actions": [
+          "Analyze the URLs of the product detail pages discovered and fetched in Step 2.c.",
+          "Compare these observed URL structures with the initial `productUrlDetectRegex.pattern` and its associated `productUrlDetectRegex.rationaleForHumanReview` from the vendor blueprint (Step 1.a).",
+          "Propose a refined `productUrlDetectRegex` string, suitable for the `VendorConfig` type, that accurately identifies PDPs for this vendor. If the blueprint's regex appears robust and accurate after your live analysis, you may retain it (note this decision) or suggest minor improvements for precision or clarity.",
+          "In your final report (Step 6), clearly state your proposed `productUrlDetectRegex`, your confidence level (High/Medium/Low), and a concise rationale for your final proposal (e.g., 'Refined blueprint regex to include optional trailing slash based on observed PDP URLs')."
+        ]
+      },
+      {
+        "step": 4,
+        "title": "CSS Selector Suggestion & Iterative Refinement",
+        "actions": [
+          "For each target data field (`productName`, `priceDay`, `priceWeek`, `priceMonth`, `sku`, `description`, `imageUrl`, `category`) as defined in the `VendorConfig` interface:",
+          "  a. Refer to the `selectorsConceptualGuidance` from the vendor blueprint (Step 1.a) to understand the likely nature and location of the target data.",
+          "  b. Analyze the temporarily stored HTML content of ALL sampled PDPs (from Step 2.c).",
+          "  c. Propose an initial CSS selector for the current data field. Prioritize robust options: `id` attributes, unique `data-*` attributes (especially `data-testid`), stable and semantic class names. Avoid overly positional or generic selectors if possible.",
+          "  d. **CRITICAL: Iteratively test your proposed selector against ALL sampled HTML pages for this vendor within your agent's environment.** Verify that it consistently extracts the intended data (or at least a value) from each page. If a selector fails on some pages, extracts inconsistent data, or is too broad, attempt to refine it for better accuracy and generalizability across the sampled pages. This may involve making it more specific, looking for common parent elements, or identifying alternative attributes.",
+          "  e. For each data field, document your final proposed CSS selector, your confidence level (High/Medium/Low), and the primary basis for your selection (e.g., 'Matched `data-testid=\"product-name\"` on 4/5 pages', 'Common class pattern `.price--daily .amount` observed across all samples', 'Used more general path due to varying child structures'). Record this for the final report (Step 6)."
+        ]
+      },
+      {
+        "step": 5,
+        "title": "Update Existing Configuration File (`packages/scraper/src/configs/[vendorId].config.ts`)",
+        "actions": [
+          "Access and **modify the existing `packages/scraper/src/configs/[vendorId].config.ts`** file.",
+          "Ensure the following fields are correctly populated based on the **vendor blueprint information from Step 1.a**: `id`, `displayName`, `baseUrl`, `startUrls` (use your refined list from Step 2.b if you made improvements, otherwise use blueprint's), `useFlaresolverr`, and `notes`. Add any `operatorActionItems` from the blueprint as a comment within the `notes` field or near the relevant field (e.g., `startUrls`).",
+          "Update the `productUrlDetectRegex` value with your AI-proposed regex from Step 3.c. Add a specific comment next to it: `// AI-PROPOSED REGEX (Confidence: [YourConfidenceLevel] - Rationale: [YourConciseRationale]) - OPERATOR MUST VERIFY` (If you retained the blueprint's regex and confirmed its robustness, note that: `// BLUEPRINT REGEX CONFIRMED (Confidence: High) - OPERATOR TO VERIFY`).",
+          "Populate the `selectors` object with your refined and iteratively tested CSS selector proposals from Step 4.e. For each selector, add a specific comment: `// AI-PROPOSED SELECTOR (Confidence: [YourConfidenceLevel], Basis: [YourBasisForSelection]) - OPERATOR MUST VERIFY`.",
+          "Ensure `playwrightContextOptions` and `rateParsingConfig` objects are present in the configuration. Populate them using any defaults specified in the vendor blueprint or, if none, use standard project defaults (e.g., for `playwrightContextOptions`: `userAgent: 'Mozilla/5.0 ...', viewport: { width: 1920, height: 1080 }`; for `rateParsingConfig`: `{ currencySymbol: '$', decimalSeparator: '.', thousandSeparator: ',' }`).",
+          "Preserve the overall TypeScript structure of the file, ensuring it remains valid and strictly adheres to the `VendorConfig` type from `@patriot-rentals/shared-types`. The original embedded directive comment block (from Phase 0 of project generation, sourced from the blueprint) should remain at the top of the file for operator reference."
+        ]
+      },
+      {
+        "step": 6,
+        "title": "Log Findings for Operator Review",
+        "actions": [
+          "Create (if it doesn't exist) or append to a single Markdown file named `AI_CONFIG_INVESTIGATION_REPORT.md` in the project root.",
+          "For the current `[vendorId]`, add a new, clearly demarcated section containing:",
+          "  - **Vendor:** `[displayName]` (`[id]`)",
+          "  - **Base URL:** `[baseUrl]`",
+          "  - **Date of Investigation:** Current timestamp (ISO 8601).",
+          "  - **Sampled Product Detail Page URLs:** List the exact URLs of the 3-5 PDPs you fetched and analyzed.",
+          "  - **Proposed `productUrlDetectRegex`:**",
+          "    - Regex: `` `[YourProposedRegex]` ``",
+          "    - Confidence: `[High/Medium/Low]`",
+          "    - Rationale/Notes: `[YourRationale, and if/how it differs from the blueprint's initial guess]`",
+          "  - **Proposed CSS Selectors:** (For each target field like `productName`, `priceDay`, etc.)",
+          "    - Field: `productName`",
+          "    - Selector: `` `[YourProposedSelectorForProductName]` ``",
+          "    - Confidence: `[High/Medium/Low]`",
+          "    - Basis/Notes: `[YourBasisForSelection, e.g., 'Matched data-testid on X/Y pages', 'Common class pattern .xyz observed']`",
+          "    - ... (repeat for all selector fields)",
+          "  - **Outstanding Operator Action Items (from blueprint):** List any `operatorActionItems` noted in the blueprint for this vendor that still require attention (e.g., 'Verify sitemap URL for United Rentals').",
+          "  - **Significant Challenges or Assumptions:** Document any difficulties encountered (e.g., 'Prices appear highly dynamic and seem location-dependent, could not confirm fixed price elements without location simulation', 'Multiple strong selector candidates for `productName`, selected the one appearing most consistently across sampled pages', 'Website structure for `[specific_element]` varied significantly across PDPs, proposed selector is a best-effort generalization')."
+        ]
+      }
+    ],
+    "finalOutput": [
+      "Updated `packages/scraper/src/configs/[vendorId].config.ts` files for each processed vendor, containing AI-proposed values for `productUrlDetectRegex` and `selectors`, clearly commented for operator review.",
+      "A comprehensive `AI_CONFIG_INVESTIGATION_REPORT.md` file in the project root, detailing the investigation process, findings, confidence levels, and any challenges for each vendor."
+    ],
+    "postTaskExpectationForOperator": [
+      "The operator will use your AI-generated proposals and the `AI_CONFIG_INVESTIGATION_REPORT.md` as a significantly advanced and informed starting point.",
+      "The operator MUST thoroughly review and test each AI-proposed `productUrlDetectRegex` and CSS selector using browser developer tools and the project's testing script: `pnpm test:e2e:scrape-url --vendorId [vendorId] --url [pdpUrl]`.",
+      "The operator will make necessary corrections, refinements, and final decisions on all configurations to ensure accuracy and robustness before relying on them for production scraping."
+    ]
+  }
+}
