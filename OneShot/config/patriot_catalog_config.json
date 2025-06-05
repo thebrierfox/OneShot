@@ -1,0 +1,11 @@
+{
+  "filePath": "./config/patriot_catalog.csv",
+  "skuColumnName": "PatriotSKU",
+  "nameColumnName": "ProductName",
+  "descriptionColumnName": "ProductDescription",
+  "categoryColumnName": "Category",
+  "priceDayColumnName": "DailyRate",
+  "priceWeekColumnName": "WeeklyRate",
+  "priceMonthColumnName": "MonthlyRate",
+  "currencyColumnName": "Currency"
+} 

@@ -1,0 +1,9 @@
+pandas>=2.0.0
+psycopg2-binary>=2.9.0
+weaviate-client>=4.5.0 # Python v4 client
+python-dotenv>=1.0.0
+instructor-embedders[instructor]>=0.1.0 # Python version for e5
+scikit-learn>=1.3.0 # For cosine similarity if needed for fallback
+# Optional for RLlib later: ray[rllib]
+black
+pylint 
