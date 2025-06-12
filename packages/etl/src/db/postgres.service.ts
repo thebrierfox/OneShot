@@ -94,10 +94,10 @@ function getPgPool(): Pool {
  * Saves a normalized product to the database.
  * Performs an UPSERT operation based on the unique constraint (vendor_id, url).
  * @param product The NormalizedProduct object to save.
- * @returns The ID of the saved product (either newly inserted or existing updated).
+ * @returns The saved product object, including the database-generated ID.
  * @throws Error if the database operation fails.
  */
-export async function saveNormalizedProduct(product: NormalizedProduct): Promise<number> {
+export async function saveNormalizedProduct(product: NormalizedProduct): Promise<NormalizedProduct> {
   const pool = getPgPool();
   const {
     vendorId,
@@ -133,10 +133,9 @@ export async function saveNormalizedProduct(product: NormalizedProduct): Promise
       description = EXCLUDED.description,
       image_url = EXCLUDED.image_url,
       category = EXCLUDED.category,
-      patriot_sku = COALESCE(normalized_products.patriot_sku, EXCLUDED.patriot_sku), -- Preserve existing match if new data doesn't have one
+      patriot_sku = COALESCE(normalized_products.patriot_sku, EXCLUDED.patriot_sku),
       last_matched_at = COALESCE(normalized_products.last_matched_at, EXCLUDED.last_matched_at)
-      -- updated_at is handled by trigger
-    RETURNING id;
+    RETURNING id, vendor_id AS "vendorId", url, scraped_at AS "scrapedAt", product_name AS "productName", day_rate AS "dayRate", week_rate AS "weekRate", month_rate AS "monthRate", currency, sku, description, image_url AS "imageUrl", category, patriot_sku AS "patriotSku", last_matched_at AS "lastMatchedAt";
   `;
 
   const values = [
@@ -157,11 +156,11 @@ export async function saveNormalizedProduct(product: NormalizedProduct): Promise
   ];
 
   try {
-    const res: QueryResult<{ id: number }> = await pool.query(query, values);
+    const res: QueryResult<NormalizedProduct> = await pool.query(query, values);
     if (res.rows.length > 0) {
-      return res.rows[0].id;
+      return res.rows[0];
     }
-    throw new Error('Failed to save product, no ID returned.');
+    throw new Error('Failed to save product, no data returned.');
   } catch (error) {
     console.error('Error saving normalized product:', error);
     throw error;

@@ -4,8 +4,8 @@ import { Page } from 'playwright';
 import * as cheerio from 'cheerio';
 import fs from 'fs-extra';
 import path from 'path';
-import { launchPlaywright, PlaywrightHandles } from '../../browser/playwright-factory'; // Adjusted path
-import { vendorConfigMap } from '../../configs'; // Adjusted path
+import { launchPlaywright, PlaywrightHandles } from '../browser/playwright-factory';
+import { vendorConfigMap } from '../configs';
 import type { RawScrapedProduct, VendorConfig, Price, RentalRates } from '@patriot-rentals/shared-types';
 
 dotenv.config({ path: path.resolve(__dirname, '../../../../.env') }); // Ensure .env is loaded from project root

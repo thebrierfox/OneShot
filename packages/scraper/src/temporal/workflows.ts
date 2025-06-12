@@ -5,8 +5,13 @@ import { createHash } from 'crypto';
 
 // Activity A requires a namespace import to be type-safe, so we proxy
 // activities directly from the imported namespace.
+const activityTimeoutSeconds = process.env.TEMPORAL_ACTIVITY_TIMEOUT_MS
+  ? Number(process.env.TEMPORAL_ACTIVITY_TIMEOUT_MS) / 1000
+  : 300; // default 5 minutes
+
 const { scrapeProductPageActivity } = wf.proxyActivities<typeof activities>({
-  startToCloseTimeout: process.env.TEMPORAL_ACTIVITY_TIMEOUT_MS || '5 minutes',
+  // Temporal TS SDK typing accepts string or Duration; use seconds string to satisfy inference.
+  startToCloseTimeout: `${activityTimeoutSeconds}s` as any,
   // Other activity options like heartbeats, retries, etc., can be configured here or in activity implementation.
 });
 
@@ -41,7 +46,7 @@ export async function scrapeProductWorkflow(
       try {
         // Not waiting for the child workflow to complete: fire-and-forget style from scraper's perspective
         // The ETL workflow will handle its own lifecycle.
-        await wf.startChildWorkflow('etlProcessWorkflow', {
+        await wf.startChild('etlProcessWorkflow' as any, {
           args: [rawProductData], // Pass the entire RawScrapedProduct object
           taskQueue: etlTaskQueue,
           workflowId: etlWorkflowId,

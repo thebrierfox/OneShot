@@ -5,7 +5,9 @@
     "rootDir": "./src",
     "composite": true,
     "baseUrl": "./src",
-    "paths": { "@/*": ["*"] }
+    "paths": { "@/*": ["*"] },
+    "declaration": true,
+    "declarationMap": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"]

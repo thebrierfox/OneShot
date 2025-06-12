@@ -20,11 +20,9 @@ export async function getProxyConfiguration(
       console.warn(`Failed to anonymize proxy: ${proxyString}`);
       return undefined;
     }
-    return new ProxyConfiguration({
-      proxyUrls: [anonymizedProxyUrl],
-    });
+    return { proxyUrls: [anonymizedProxyUrl] } as any;
   } catch (error) {
     console.error(`Error configuring proxy with string "${proxyString}":`, error);
     return undefined;
   }
-} 
+}

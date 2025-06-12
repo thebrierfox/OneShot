@@ -1,0 +1,21 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "packages/shared-types"
+    },
+    {
+      "path": "packages/etl"
+    },
+    {
+      "path": "packages/scraper"
+    },
+    {
+      "path": "packages/crawler"
+    }
+  ],
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "types": ["node"]
+  }
+}

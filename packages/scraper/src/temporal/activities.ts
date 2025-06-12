@@ -1,12 +1,12 @@
 import * as dotenv from 'dotenv';
-import { Page } from 'playwright';
 import * as cheerio from 'cheerio';
 import fs from 'fs-extra';
 import path from 'path';
 import { launchPlaywright, PlaywrightHandles } from '../browser/playwright-factory';
 import { vendorConfigMap } from '../configs';
 import type { RawScrapedProduct, VendorConfig, Price, RentalRates } from '@patriot-rentals/shared-types';
-import { ActivityExecutionContext } from '@temporalio/activity';
+import { Context } from '@temporalio/activity';
+import { safeClick, autoScroll } from '../utils/page.utils';
 
 dotenv.config();
 
@@ -14,25 +14,6 @@ const DEBUG_SNAPSHOTS_DIR = process.env.DEBUG_SNAPSHOTS_DIR || './debug_snapshot
 const BROWSERLESS_WS_ENDPOINT = process.env.BROWSERLESS_HOST 
   ? `ws://${process.env.BROWSERLESS_HOST}:${process.env.BROWSERLESS_PORT || 3000}?token=${process.env.BROWSERLESS_TOKEN || 'localtoken'}`
   : process.env.BROWSERLESS_WS_ENDPOINT; // Allow direct full WS endpoint override
-
-async function autoScroll(page: Page): Promise<void> {
-  await page.evaluate(async () => {
-    await new Promise<void>((resolve) => {
-      let totalHeight = 0;
-      const distance = 100;
-      const timer = setInterval(() => {
-        const scrollHeight = document.body.scrollHeight;
-        window.scrollBy(0, distance);
-        totalHeight += distance;
-
-        if (totalHeight >= scrollHeight - window.innerHeight) {
-          clearInterval(timer);
-          resolve();
-        }
-      }, 100);
-    });
-  });
-}
 
 function extractPriceValue(text: string | null | undefined, vendorConfig: VendorConfig): number | null {
   if (!text) return null;
@@ -54,7 +35,7 @@ function extractPriceValue(text: string | null | undefined, vendorConfig: Vendor
 
 
 export async function scrapeProductPageActivity(url: string, vendorId: string): Promise<RawScrapedProduct> {
-  const context = ActivityExecutionContext.current();
+  const context = Context.current();
   context.heartbeat('Scraper activity started');
 
   const vendorConfig = vendorConfigMap[vendorId];
@@ -158,6 +139,11 @@ export async function scrapeProductPageActivity(url: string, vendorId: string): 
       // More robust: page.waitForResponse after action, or specific condition.
     }
     
+    context.heartbeat('Handling cookie and modal banners');
+    await safeClick(page, 'button:has-text("Accept")');
+    await safeClick(page, 'button:has-text("Close"), [aria-label="close"], button[aria-label="Close"]');
+    await page.waitForLoadState('networkidle');
+
     context.heartbeat('Performing auto-scroll');
     await autoScroll(page);
     context.heartbeat('Auto-scroll complete');
@@ -166,43 +152,6 @@ export async function scrapeProductPageActivity(url: string, vendorId: string): 
     const $ = cheerio.load(htmlContent);
 
     context.heartbeat('Extracting data using selectors');
-    // Helper to extract text or attribute
-    const extract = (selector: string): string | null => {
-      if (!selector) return null;
-      const [sel, attr] = selector.split('::attr(');
-      if (attr) {
-        return $(sel).attr(attr.slice(0, -1))?.trim() || null;
-      }
-      return $(sel).first().text()?.trim() || null;
-    };
-    
-    // Only overwrite if not already populated by network intercept
-    if (!result.productName) result.productName = extract(vendorConfig.selectors.productName);
-    if (!result.sku) result.sku = extract(vendorConfig.selectors.sku);
-    if (!result.description) result.description = extract(vendorConfig.selectors.description);
-    if (!result.imageUrl) result.imageUrl = extract(vendorConfig.selectors.imageUrl);
-    if (!result.category) result.category = extract(vendorConfig.selectors.category);
-    
-    const ratesFromSelectors: RentalRates = result.rates || {};
-    let currencyFromSelectors: string | undefined = vendorConfig.rateParsingConfig?.currencySymbol === '$' ? 'USD' : undefined;
-
-    if (!ratesFromSelectors.perDay && vendorConfig.selectors.priceDay) {
-      const dayPriceText = extract(vendorConfig.selectors.priceDay);
-      const amount = extractPriceValue(dayPriceText, vendorConfig);
-       if (amount !== null && currencyFromSelectors) ratesFromSelectors.perDay = { amount, currency: currencyFromSelectors };
-    }
-    if (!ratesFromSelectors.perWeek && vendorConfig.selectors.priceWeek) {
-      const weekPriceText = extract(vendorConfig.selectors.priceWeek);
-      const amount = extractPriceValue(weekPriceText, vendorConfig);
-      if (amount !== null && currencyFromSelectors) ratesFromSelectors.perWeek = { amount, currency: currencyFromSelectors };
-    }
-    if (!ratesFromSelectors.perMonth && vendorConfig.selectors.priceMonth) {
-      const monthPriceText = extract(vendorConfig.selectors.priceMonth);
-      const amount = extractPriceValue(monthPriceText, vendorConfig);
-      if (amount !== null && currencyFromSelectors) ratesFromSelectors.perMonth = { amount, currency: currencyFromSelectors };
-    }
-     if(Object.keys(ratesFromSelectors).length > 0) result.rates = ratesFromSelectors;
-
 
     if (vendorConfig.customParser) {
       context.heartbeat('Running custom parser');
@@ -219,6 +168,7 @@ export async function scrapeProductPageActivity(url: string, vendorId: string): 
         result.error = `Custom parser error: ${e instanceof Error ? e.message : String(e)}`;
       }
     }
+
     context.heartbeat('Data extraction complete');
 
   } catch (e) {

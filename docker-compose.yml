@@ -19,7 +19,8 @@ services:
   redis:
     image: redis:7.0-alpine
     container_name: patriot_redis
-    ports: ["${REDIS_PORT:-6379}:6379"]
+    # Host port 6380 is mapped to container port 6379 to avoid conflicts with local Redis instances.
+    ports: ["6380:6379"]
     volumes: ["patriot_redis_data:/data"]
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
@@ -50,7 +51,7 @@ services:
     restart: unless-stopped
 
   browserless:
-    image: browserless/playwright:1.45.0-playwright-1.45.0 # Fixed version
+    image: ghcr.io/browserless/chromium
     container_name: patriot_browserless
     ports: ["${BROWSERLESS_PORT:-3000}:3000"]
     environment:
@@ -97,6 +98,80 @@ services:
       postgres: { condition: service_healthy }
     volumes: ["./infra/temporal/config:/etc/temporal/config"]
     restart: unless-stopped
+
+  temporal-ui:
+    image: temporalio/ui:2.37.0
+    container_name: patriot_temporal_ui
+    ports:
+      - "${TEMPORAL_UI_PORT:-8088}:8080"
+    environment:
+      - TEMPORAL_ADDRESS=temporal:7233
+      - TEMPORAL_NAMESPACE=${TEMPORAL_NS:-default}
+    depends_on:
+      - temporal
+    restart: unless-stopped
+
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    container_name: patriot_mailhog
+    ports:
+      - "1025:1025" # SMTP
+      - "8025:8025" # Web UI
+    restart: unless-stopped
+
+  python-analytics:
+    build:
+      context: .
+      dockerfile: ./packages/analytics/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - postgres
+      - weaviate
+
+  typescript-crawler:
+    build:
+      context: .
+      dockerfile: ./packages/crawler/Dockerfile
+    restart: unless-stopped
+    init: true
+    depends_on:
+      - postgres
+      - redis
+      - weaviate
+      - temporal
+
+  typescript-etl:
+    build:
+      context: .
+      dockerfile: ./packages/etl/Dockerfile
+    restart: unless-stopped
+    init: true
+    depends_on:
+      - postgres
+      - weaviate
+      - temporal
+
+  typescript-report:
+    build:
+      context: .
+      dockerfile: ./packages/report/Dockerfile
+    restart: unless-stopped
+    init: true
+    depends_on:
+      - postgres
+
+  typescript-scraper:
+    build:
+      context: .
+      dockerfile: ./packages/scraper/Dockerfile
+    restart: unless-stopped
+    init: true
+    depends_on:
+      - redis
+      - weaviate
+      - temporal
+    ports:
+      - "3001:3000"
 
 volumes:
   patriot_pg_data:

@@ -1,44 +1,51 @@
-name: CI Pipeline
+name: CI
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: ["develop", "feat/**", "bugfix/**"]
   pull_request:
-    branches: [ main, develop ]
 
 jobs:
-  lint-typecheck-test:
+  build-test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x]
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_USER: patriot_user
+          POSTGRES_PASSWORD: patriot_pass
+          POSTGRES_DB: patriot_rentals
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U patriot_user -d patriot_rentals" --health-interval 10s --health-timeout 5s --health-retries 5
+
+      redis:
+        image: redis:7-alpine
+        ports: ["6379:6379"]
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v3
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
         with:
-          version: 8 # Use pnpm version from engines
-
-      - name: Setup Node.js ${{ matrix.node-version }}
+          version: 9
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-
-      - name: Install dependencies
+          node-version: 20
+          cache: "pnpm"
+      - name: Install deps
         run: pnpm install --frozen-lockfile
-
-      - name: Lint code
-        run: pnpm lint
-
-      - name: Check types
-        run: pnpm typecheck
-
-      - name: Run unit & integration tests
+      - name: Build
+        run: pnpm turbo run build
+      - name: Typecheck & unit/integration tests
         run: pnpm test
-
-      # Optional: Build step to ensure all packages compile
-      - name: Build all packages
-        run: pnpm build
+      - name: End-to-end test
+        run: pnpm run e2e
+        env:
+          CI_NO_DOCKER: "true" # Stack already provided by GA services, skip docker-compose
+      - name: Upload coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/

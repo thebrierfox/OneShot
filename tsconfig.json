@@ -16,10 +16,11 @@
     "paths": {
       "@patriot-rentals/*": [
         "packages/*/src"
+      ],
+      "@patriot-rentals/common/*": [
+        "packages/common/src/*"
       ]
     },
-    "outDir": "./dist",
-    "rootDir": "./src",
     "composite": false,
     "moduleResolution": "node",
     "resolveJsonModule": true,

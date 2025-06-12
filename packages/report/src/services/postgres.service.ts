@@ -1,4 +1,4 @@
-import { Pool, Client } from 'pg';
+import { Pool } from 'pg';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -16,7 +16,7 @@ export const pgPool = new Pool({
   port: parseInt(process.env.POSTGRES_PORT || '5432', 10),
 });
 
-pgPool.on('error', (err: Error, _client: Client) => {
+pgPool.on('error', (err: Error /* , _client: any */) => {
   console.error('[PostgresService] Unexpected error on idle client', err);
   // process.exit(-1); // Optionally exit if pool errors are critical
 });

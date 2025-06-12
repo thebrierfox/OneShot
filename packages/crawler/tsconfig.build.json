@@ -1,5 +1,9 @@
 {
   "extends": "./tsconfig.json",
-  "compilerOptions": { "noEmit": false },
-  "exclude": ["**/*.test.ts", "**/*.spec.ts", "**/test/**/*", "**/mocks/**"]
+  "compilerOptions": {
+    "noEmit": false,
+    "paths": {}
+  },
+  "exclude": ["**/*.test.ts", "**/*.spec.ts", "**/test/**/*", "**/mocks/**"],
+  "skipLibCheck": true
 } 

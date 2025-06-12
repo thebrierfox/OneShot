@@ -12,14 +12,18 @@
     "clean": "rm -rf dist tsconfig.tsbuildinfo"
   },
   "dependencies": {
-    "crawlee": "^3.9.2",
     "@crawlee/playwright": "^3.9.2",
-    "playwright": "^1.45.0",
-    "dotenv": "^16.4.5",
-    "axios": "^1.6.8",
-    "proxy-chain": "^2.4.0",
+    "@patriot-rentals/shared-types": "workspace:*",
     "@temporalio/client": "^1.9.0",
-    "@patriot-rentals/shared-types": "workspace:*"
+    "axios": "^1.6.8",
+    "crawlee": "^3.10.2",
+    "dotenv": "^16.4.5",
+    "p-queue": "^8.0.1",
+    "playwright": "^1.45.0",
+    "proxy-chain": "^2.5.9"
   },
-  "devDependencies": { "typescript": "~5.4.5", "ts-node": "~10.9.2", "@types/node": "^20" }
-} 
+  "devDependencies": {
+    "ts-node": "~10.9.2",
+    "typescript": "~5.4.5"
+  }
+}

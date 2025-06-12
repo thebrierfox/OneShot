@@ -1,0 +1,116 @@
+# Version control
+.git/
+.gitignore
+.svn/
+.hg/
+
+# Node.js dependencies and build artifacts
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+build/
+**/build/
+out/
+**/out/
+.turbo/
+**/.turbo/
+
+# Python cache and test artifacts
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+**/.pytest_cache/
+.coverage
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Test directories and files
+test/
+**/test/
+tests/
+**/tests/
+*.test.ts
+*.test.js
+*.test.py
+
+# Debug and log files
+*.log
+npm-debug.log
+yarn-debug.log
+
+# IDE/editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment and secrets
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.crt
+
+# Local and temp files
+.local/
+local/
+tmp/
+temp/
+*.tmp
+
+# Project-specific config and docs
+docs/
+**/docs/
+README*
+*.md
+*.MD
+
+# Docker and Compose files
+Dockerfile*
+docker-compose*
+
+# Miscellaneous
+*.cookie
+
+# Ignore config overrides
+config.local.*
+*.local.yml
+
+# Ignore CSVs and data files (if not needed in build)
+*.csv
+
+# Ignore OneShot workspace and VSCode workspace files
+*.code-workspace
+
+# Ignore report outputs and large HTML artifacts
+*.html
+
+# Ignore turbo cache
+.turbo/
+**/.turbo/
+
+# Ignore green baseline patch artifacts
+green_baseline_patch/
+
+# Ignore REPORTS directory (docs/reports)
+REPORTS/
+
+# Ignore OneShot and related project assessment files
+OneShot/
+INITIAL_VENDOR_TARGET_DATA.md
+OneShotRef.jsonc
+PROJECT_ASSESSMENT_REPORT.md
+UpdateOnProject&PrimaryRecurringIssues.md
+
+# Ignore any other hidden files not explicitly needed
+.*
+!/.dockerignore
+!/.env.example
+!/.eslintrc.js
+!/.prettierrc.js
+!/.nvmrc

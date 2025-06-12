@@ -1,0 +1,11 @@
+# Basic Temporal server configuration template for local development.
+# This file is intentionally minimal – the auto-setup image will merge in
+# sensible defaults. Our only goal is to reference the dynamic-config file
+# that already lives in this same directory so that the server starts.
+
+dynamicConfigClient:
+  filepath: config/dynamicconfig/development.yaml
+
+# All other settings fall back to Temporal's internal defaults for the
+# auto-setup container. Feel free to extend if you need custom ports or
+# advanced persistence settings. 

@@ -1,5 +1,4 @@
 import { chromium, Page, BrowserContext, Browser, ConnectOptions } from 'playwright';
-import { applyStealth, StealthOptions } from '@playwright/stealth';
 
 export interface LaunchPlaywrightOptions {
   /** WebSocket endpoint of the Browserless.io service (e.g., wss://chrome.browserless.io?token=YOUR_TOKEN) */
@@ -10,8 +9,6 @@ export interface LaunchPlaywrightOptions {
   proxyServer?: string;
   /** Additional options for playwright.chromium.connect() */
   connectOptions?: ConnectOptions;
-  /** Options for the stealth plugin */
-  stealthPluginOptions?: StealthOptions;
 }
 
 export interface PlaywrightHandles {
@@ -22,10 +19,7 @@ export interface PlaywrightHandles {
 
 /**
  * Launches a Playwright browser instance connected to a Browserless service,
- * creates a new context with stealth and optional proxy, and returns browser handles.
- * @param options Configuration options for launching Playwright.
- * @returns A promise resolving to an object containing the page, context, and browser.
- * @throws Will throw an error if connection to Browserless fails or context/page creation fails.
+ * creates a new context (optionally behind a proxy), and returns browser handles.
  */
 export async function launchPlaywright(
   options: LaunchPlaywrightOptions,
@@ -35,22 +29,23 @@ export async function launchPlaywright(
     contextOptions = {},
     proxyServer,
     connectOptions: userConnectOptions = {},
-    stealthPluginOptions = {},
   } = options;
 
   const finalConnectOptions: ConnectOptions = {
     ...userConnectOptions,
-    timeout: userConnectOptions.timeout || 60000, // Default timeout for connect
+    timeout: userConnectOptions.timeout || 60_000,
   };
-  // Note: If the browserlessWsEndpoint itself needs a proxy to be reached (rare),
-  // it would be set in finalConnectOptions.proxy, but that's not what proxyServer option is for.
 
   let browser: Browser;
   try {
     browser = await chromium.connect(browserlessWsEndpoint, finalConnectOptions);
   } catch (error) {
     console.error(`Failed to connect to Browserless endpoint: ${browserlessWsEndpoint}`, error);
-    throw new Error(`Playwright connection failed: ${error instanceof Error ? error.message : String(error)}`);
+    throw new Error(
+      `Playwright connection failed: ${
+        error instanceof Error ? error.message : String(error)
+      }`,
+    );
   }
 
   const finalContextOptions = { ...contextOptions };
@@ -61,11 +56,14 @@ export async function launchPlaywright(
   let context: BrowserContext;
   try {
     context = await browser.newContext(finalContextOptions);
-    await applyStealth(context, stealthPluginOptions);
   } catch (error) {
-    console.error('Failed to create Playwright browser context, apply stealth, or set proxy', error);
-    if (browser) await browser.close(); 
-    throw new Error(`Playwright context/stealth/proxy failed: ${error instanceof Error ? error.message : String(error)}`);
+    console.error('Failed to create Playwright browser context or set proxy', error);
+    await browser.close();
+    throw new Error(
+      `Playwright context/proxy failed: ${
+        error instanceof Error ? error.message : String(error)
+      }`,
+    );
   }
 
   let page: Page;
@@ -73,10 +71,14 @@ export async function launchPlaywright(
     page = await context.newPage();
   } catch (error) {
     console.error('Failed to create new page in Playwright context', error);
-    if (context) await context.close();
-    if (browser) await browser.close();
-    throw new Error(`Playwright page creation failed: ${error instanceof Error ? error.message : String(error)}`);
+    await context.close();
+    await browser.close();
+    throw new Error(
+      `Playwright page creation failed: ${
+        error instanceof Error ? error.message : String(error)
+      }`,
+    );
   }
-  
+
   return { page, context, browser };
-} 
+}

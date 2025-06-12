@@ -1,27 +1,24 @@
 import * as dotenv from 'dotenv';
-import { 
-  PlaywrightCrawler, 
-  ProxyConfiguration, 
-  Configuration as CrawleeConfiguration, 
-  type PlaywrightCrawlingContext, 
-  type RequestHandler,
-  type PlaywrightLaunchContext,
-  type PlaywrightHook,
-  type PlaywrightFailedRequestHandler,
-  type PlaywrightGotoOptions,
-  type Request
-} from 'crawlee';
+import type { PlaywrightLaunchContext, PlaywrightGotoOptions } from 'crawlee';
+import { PlaywrightCrawler, type PlaywrightCrawlingContext } from 'crawlee';
 import { Client } from '@temporalio/client';
-import type { VendorConfig } from '@patriot-rentals/shared-types';
+import type { ScraperVendorConfig as VendorConfig } from '@patriot-rentals/shared-types';
 import { getProxyConfiguration } from './utils/proxy.util';
 import { solveWithFlareSolverr, FlareSolverrResponse } from './utils/flaresolverr.client';
 import { URL } from 'node:url';
+import { Page } from 'playwright';
 
 dotenv.config();
 
 const DEFAULT_MAX_REQUEST_RETRIES = 3;
 const DEFAULT_NAVIGATION_TIMEOUT_SECS = 120;
 const DEFAULT_REQUEST_HANDLER_TIMEOUT_SECS = 120;
+
+const DEFAULT_CRAWLER_OPTIONS = {
+  maxRequestsPerCrawl: 1000,
+  navigationTimeoutSecs: 120,
+  maxRequestRetries: 5,
+};
 
 /**
  * Runs crawlers for the specified vendor configurations.
@@ -60,6 +57,7 @@ export async function runCrawlers(
         requestHandlerTimeoutSecs: vendorConfig.crawlerOptions?.requestHandlerTimeoutSecs || DEFAULT_REQUEST_HANDLER_TIMEOUT_SECS,
         navigationTimeoutSecs: vendorConfig.crawlerOptions?.navigationTimeoutSecs || DEFAULT_NAVIGATION_TIMEOUT_SECS,
         maxRequestRetries: vendorConfig.crawlerOptions?.maxRequestRetries || DEFAULT_MAX_REQUEST_RETRIES,
+        maxRequestsPerCrawl: DEFAULT_CRAWLER_OPTIONS.maxRequestsPerCrawl,
         
         preNavigationHooks: [
           async (crawlingContext: PlaywrightCrawlingContext, gotoOptions?: PlaywrightGotoOptions) => {
@@ -161,7 +159,8 @@ export async function runCrawlers(
           }
         },
         failedRequestHandler: async ({ request, log, error }: PlaywrightCrawlingContext & { error: Error }) => {
-          log.error(`Request failed for ${request.url} (Vendor: ${request.userData.vendorId || vendorConfig.id}) after ${request.retryCount} retries. Error: ${error.message}`);
+          log.error(`Request ${request.url} failed.`, { error: error.message });
+          await handleFailedRequest(request.url, error.message, vendorConfig.id);
         },
       });
 
@@ -179,4 +178,8 @@ export async function runCrawlers(
     }
   }
   console.log('All vendor crawls initiated or completed.');
+}
+
+async function handleFailedRequest(url: string, errorMessage: string, vendorId: string): Promise<void> {
+  // Implementation of handleFailedRequest function
 } 

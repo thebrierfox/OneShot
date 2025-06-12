@@ -1,0 +1,11 @@
+{
+  "vendorId": "sunbelt",
+  "sku": "857",
+  "productName": "Mini Excavator 7000 lb",
+  "rates": {
+    "perDay": { "amount": 250, "currency": "USD" },
+    "perWeek": { "amount": 800, "currency": "USD" },
+    "perMonth": { "amount": 2200, "currency": "USD" }
+  },
+  "scrapedAt": "2024-01-01T00:00:00.000Z"
+} 
