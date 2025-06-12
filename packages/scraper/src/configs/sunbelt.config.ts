@@ -12,9 +12,15 @@ export const sunbeltConfig: VendorConfig = {
   // ISPRODUCTPAGECHECKER_PLACEHOLDER
   selectors: {
     productName: 'h1[data-testid="pdp-title"], h1.product-title', // Placeholder based on guidance
-    priceDay: 'div[data-testid="daily-rate"] span[data-testid="price"], .price-daily .amount', // Placeholder
-    priceWeek: 'div[data-testid="weekly-rate"] span[data-testid="price"], .price-weekly .amount', // Placeholder
-    priceMonth: 'div[data-testid="monthly-rate"] span[data-testid="price"], .price-monthly .amount', // Placeholder
+    /**
+     * Sunbelt's PDP renders a pricing table like:
+     *   <tr><td>Daily</td><td data-testid="daily-rate">$123</td></tr>
+     * We target the second cell in the row that contains the term.
+     * Playwright supports the :has-text() pseudo for fast lookup.
+     */
+    priceDay:  'tr:has-text("Daily")  td:nth-of-type(2)',
+    priceWeek: 'tr:has-text("Weekly") td:nth-of-type(2)',
+    priceMonth: 'tr:has-text("Monthly") td:nth-of-type(2)',
     sku: 'p[data-testid="product-sku"] span, .product-sku .value', // Placeholder
     description: 'div[data-testid="product-description-full"], .product-description', // Placeholder
     imageUrl: 'img.product-image, img[data-testid="main-product-image"]::attr(src)', // Placeholder
