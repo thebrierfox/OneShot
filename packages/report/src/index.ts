@@ -15,6 +15,7 @@ interface CliOptions {
   forceRescrapeFound: boolean;
   skipCrawling: boolean;
   skipMatching: boolean;
+  local: boolean;
 }
 
 program
@@ -28,7 +29,8 @@ program
   .option('--force-rescrape-found', 'Force re-scraping of URLs found by crawler, even if recently scraped.', false)
   .option('--skip-crawling', 'Skip crawling, re-process existing data.', false)
   .option('--skip-matching', 'Skip the SKU matching phase.', false)
-  .action(async (cliOptions: CliOptions) => {
+  .option('--local', 'Run scraper/ETL/report in-process without Temporal', false)
+  .action(async (cliOptions: CliOptions & { local: boolean }) => {
     const orchestratorInput: ReportGenerationOrchestratorInput = {
       vendorIdsToProcess: cliOptions.vendors ? cliOptions.vendors.split(',').map((id: string) => id.trim()) : undefined,
       forceRecrawlAll: cliOptions.forceRecrawlAll,
@@ -39,7 +41,9 @@ program
 
     console.log('[CLI] Starting report generation with options:', orchestratorInput);
     try {
-      const reportPath = await runFullReportPipeline(orchestratorInput);
+      const reportPath = cliOptions.local
+        ? await (await import('./local-run')).runLocalPipeline()
+        : await runFullReportPipeline(orchestratorInput);
       console.log(`[CLI] Report generation successful! Report saved to: ${reportPath}`);
       process.exit(0);
     } catch (error) {
