@@ -36,11 +36,21 @@ export async function launchPlaywright(
     timeout: userConnectOptions.timeout || 60_000,
   };
 
+  // Ensure we hit the Browserless Playwright proxy path.  The Docker image registers
+  // WebSocket routes like "/playwright/chromium".  Connecting to the bare root
+  // (`ws://host:3000?token=foo`) often results in an immediate disconnect, so we
+  // add "/playwright" when it's absent.
+  let connectEndpoint = browserlessWsEndpoint;
+  if (!/\/playwright\b/.test(connectEndpoint)) {
+    const [base, query = ""] = connectEndpoint.split("?");
+    connectEndpoint = `${base.replace(/\/$/, "")}/playwright${query ? `?${query}` : ""}`;
+  }
+
   let browser: Browser;
   try {
-    browser = await chromium.connect(browserlessWsEndpoint, finalConnectOptions);
+    browser = await chromium.connect(connectEndpoint, finalConnectOptions);
   } catch (error) {
-    console.error(`Failed to connect to Browserless endpoint: ${browserlessWsEndpoint}`, error);
+    console.error(`Failed to connect to Browserless endpoint: ${connectEndpoint}`, error);
     throw new Error(
       `Playwright connection failed: ${
         error instanceof Error ? error.message : String(error)
