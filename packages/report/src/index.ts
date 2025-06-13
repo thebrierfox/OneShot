@@ -45,7 +45,7 @@ program
     try {
       // If auto-targets requested, regenerate targets.yaml first
       if (cliOptions.autoTargets) {
-        const { buildTargetsFromCatalog } = await import('@patriot-rentals/orchestrator/src/targets');
+        const { buildTargetsFromCatalog } = await import('../../orchestrator/src/targets');
         const yaml = await import('yaml');
         const fs = await import('fs');
         const path = await import('path');

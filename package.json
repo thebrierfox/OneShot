@@ -12,6 +12,7 @@
     "generate-report": "pnpm --filter @patriot-rentals/report start",
     "test": "turbo run test --concurrency=4",
     "test:e2e:scrape-url": "pnpm --filter @patriot-rentals/scraper test:e2e:scrape-url",
+    "crawl": "pnpm --filter @patriot-rentals/crawler start",
     "db:up": "docker-compose up -d postgres weaviate redis temporal flaresolverr",
     "db:down": "docker-compose down --volumes",
     "db:logs": "docker-compose logs -f",
