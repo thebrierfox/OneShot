@@ -1,0 +1,5 @@
+# Default minimal target list used by smoke tests and CI
+# Add more entries or override this file when running a full scrape.
+
+- vendor: sunbelt
+  sku: "857" 
