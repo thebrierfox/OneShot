@@ -1,4 +1,5 @@
 import { executeChild } from '@temporalio/workflow';
+import { loadTargets } from '../targets';
 
 // We invoke child workflows by name to avoid cross-package value imports which complicate build references.
 
@@ -8,14 +9,22 @@ import { executeChild } from '@temporalio/workflow';
  * @param input arbitrary input understood by the scraper workflow
  */
 export async function main(input: unknown): Promise<string> {
-  // Step 1 – run scraper workflow
-  const raw = await executeChild('scrapeProductWorkflow' as any, {
-    args: [input],
-  });
+  // If caller passes explicit targets, honour them; otherwise load default config
+  const targets = Array.isArray(input) && input.length > 0 ? (input as any[]) : loadTargets();
 
-  // Step 2 – ETL workflow
+  // Step 1 – scrape each target in parallel child workflows
+  const rawResults: any[] = [];
+  for (const target of targets) {
+    // Using `executeChild` sequentially keeps resource usage predictable in the smoke test.
+    const raw = await executeChild('scrapeProductWorkflow' as any, {
+      args: [target],
+    });
+    rawResults.push(raw);
+  }
+
+  // Step 2 – ETL workflow (batch)
   const cleaned = await executeChild('etlProcessWorkflow' as any, {
-    args: [raw],
+    args: [rawResults],
   });
 
   // Step 3 – Report workflow → CSV path
