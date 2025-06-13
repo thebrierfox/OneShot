@@ -19,6 +19,7 @@
     "fs-extra": "^11.2.0",
     "commander": "^12.0.0",
     "axios": "^1.6.8",
+    "yaml": "^2.3.2",
     "@patriot-rentals/shared-types": "workspace:*",
     "@patriot-rentals/crawler": "workspace:*",
     "@patriot-rentals/scraper": "workspace:*",
