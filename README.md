@@ -9,8 +9,10 @@ For local development, first ensure the infrastructure is running:
 docker compose up -d
 ```
 
-Then, set up your environment and run the development servers:
+Install dependencies and build the workspace packages before starting any service:
 ```bash
+pnpm install
+pnpm turbo run build
 cp .env.example .env && pnpm turbo run dev
 ```
 
