@@ -1,0 +1,279 @@
+{
+  "usableSessionsCount": 3,
+  "retiredSessionsCount": 0,
+  "sessions": [
+    {
+      "id": "session_VJ7UP7q9uI",
+      "cookieJar": {
+        "version": "tough-cookie@5.1.2",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "utm_source",
+            "expires": "2025-08-13T16:39:57.000Z",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:39:59.452Z",
+            "lastAccessed": "2025-06-14T16:39:59.452Z"
+          },
+          {
+            "key": "utm_medium",
+            "expires": "2025-08-13T16:39:57.000Z",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:39:59.452Z",
+            "lastAccessed": "2025-06-14T16:39:59.452Z"
+          },
+          {
+            "key": "utm_campaign",
+            "expires": "2025-08-13T16:39:57.000Z",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:39:59.452Z",
+            "lastAccessed": "2025-06-14T16:39:59.452Z"
+          },
+          {
+            "key": "utm_term",
+            "expires": "2025-08-13T16:39:57.000Z",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:39:59.452Z",
+            "lastAccessed": "2025-06-14T16:39:59.452Z"
+          },
+          {
+            "key": "store_setting_id",
+            "value": "19940",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:39:59.453Z",
+            "lastAccessed": "2025-06-14T16:39:59.453Z"
+          },
+          {
+            "key": "listing_view",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:39:59.453Z",
+            "lastAccessed": "2025-06-14T16:39:59.453Z"
+          },
+          {
+            "key": "_EZRentOut_session",
+            "value": "sGmK6JsGKuuwFx%2BGgzUS%2BVDrBLhJUQtO3jjYA90G0CcHWT%2FwInNRs712N1iuImWRZgKOKZqJnjriBQDeBMvNvb8rVRCJSHvne5noB7156btp9DnOLwJYjO%2B83%2BBUVU1fClfDNMT%2BFQUVWFUkOfzWIKPv5rwNMvmkFm3mcckY95utJcyyzJS0i4nDl4Xt%2BINl54XiTB6YpNan7CKY8fmadoIOmLt6DUYGcHxNQ6xAg%2Bope0lDwToyFV3ZXiHsxpEP1cVQu%2BFwHT1zRIDjgXH08dHSgnFvPB3vp6og428iqJpVpOGNOQmtDz4UHNC9frTEeaUPRhShnrnA00aGdnmv5gbJ92LJCDp%2FkjhGphOgscRVoAc6kHRpQFJt%2Fls3IpVVvb09w2NG9f8Six1lyJzANWZ7k%2Fiqgo6ZDLY2z%2FpZcxLXMtdRo8t%2FUMWvzbbPCIN48H8Nm3teajcSN0WgMkw98RU0dh3BXlFDUB7xjc%2BMBuDTGJr5TrMCi%2BjzdBU1yANtQ4yHQ2dwO8HRE8dulREOIZpT0cnAd9QRA0hNB5JHAqgMQR%2FeGBFPrWXsr3zwBgNdQKUSjCEoCSZ7g9R8hKIZTwuNV%2BaHsZ4fwbcQz8UrK5zkNiKe66IwqTuNBKE1MjtpYC4IkCOdQU7sUml4x%2FNpkOVuuByeLLOMYgIqEUpkhFawA9478hEHj2Lpq7eauSoI0ufkwo1xEmBSmM%2Bla7Yd5VSwRPY4QgZcOkih9agdYhSjvJWFPVa519zxIxZ5apQGo3hU6lPanIFKmPBtYjE%3D--NBER0cCZT4%2F86ugX--83BuHr09I76NqQvMilouXg%3D%3D",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:39:59.453Z",
+            "lastAccessed": "2025-06-14T16:39:59.453Z"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-06-14T17:29:53.991Z",
+      "createdAt": "2025-06-14T16:39:53.991Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_S9EZJVMf3J",
+      "cookieJar": {
+        "version": "tough-cookie@5.1.2",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "utm_source",
+            "expires": "2025-08-13T16:40:00.000Z",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:40:02.142Z",
+            "lastAccessed": "2025-06-14T16:40:02.142Z"
+          },
+          {
+            "key": "utm_medium",
+            "expires": "2025-08-13T16:40:00.000Z",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:40:02.142Z",
+            "lastAccessed": "2025-06-14T16:40:02.142Z"
+          },
+          {
+            "key": "utm_campaign",
+            "expires": "2025-08-13T16:40:00.000Z",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:40:02.142Z",
+            "lastAccessed": "2025-06-14T16:40:02.142Z"
+          },
+          {
+            "key": "utm_term",
+            "expires": "2025-08-13T16:40:00.000Z",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:40:02.142Z",
+            "lastAccessed": "2025-06-14T16:40:02.142Z"
+          },
+          {
+            "key": "store_setting_id",
+            "value": "19940",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:40:02.142Z",
+            "lastAccessed": "2025-06-14T16:40:02.142Z"
+          },
+          {
+            "key": "listing_view",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:40:02.143Z",
+            "lastAccessed": "2025-06-14T16:40:02.143Z"
+          },
+          {
+            "key": "_EZRentOut_session",
+            "value": "kvksVJRXoYO2AVDvaaptcuO31Dpy%2BmUfJFoa36G3hfz1WVglv7ccTApE%2F3s9z%2FZNXiQ%2FEErhpP6W732NNqBVhpvJ2Ih3c4tMk7vc1L%2Bx3aKysxwsQlFBUq142HAuaVL6UwYln1HPjWqceDsUJBm%2FlkL5fZghDHP4zXa2UfUtrpHHcL%2F%2Fff01I9GWgYGXDNekRQP1U%2FM65ClvCau4J%2FP%2B0roAhMMZqmgOHmNzdjxUUjyYx%2FTGOkZBAN%2FlDJbt%2BvjGO2D8M5nzvMNlRP1%2Fah9NGBiRXhxNs8GiZMZ9O46PXzbUaGr%2Fz%2BxRtHmdRAGqC%2FNC5pOjutNxwViFVOAUBU9L5Zo7rsFegEs4eLhkmXkJH1ZGUqd2bdXe6ArbFQWko0mAvLdxoPRL%2BzqLSsdRmsrrPkkHcfLF8buncQiBbIYR0Adfp1UPRqkWaPQTQJN8guR66cXvSCje3F3TBD4byHAjZr6sQGjnWLbYfsgorrqMeE8%2BH2HyBvhD2WBJENPXVPJ6Ulli%2BTMIcvMZwb7ewUtNPETV1WJWPU5o5PkFLn%2BZYPmRlPWsiAz9We8CfCyuFW3FshlBmvlB3fH7k5u2cVUA1T4OF6P4LXTYPtxeLiPhTyeOGTlTp0ebGaFWJ6bhT5fvGIQby6jta%2FwHD4U1DuLpfRyhPYKvyhNCWyZyUkPPPazzPj1%2FcSIA%2BMIWiCzthMKXfMgOXf14w7npSpkhpq4koc9cZdicbyc6l5E9sCK%2FvWWVe2YhTYZ%2FQPw9PbAJC2Io0j2jfSoQOUef%2BRW3SeU%3D--goknj0Y7ct3Kjy%2FC--shiS3Id1IJjyd9NFyOIN5Q%3D%3D",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:40:02.144Z",
+            "lastAccessed": "2025-06-14T16:40:02.144Z"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-06-14T17:29:59.657Z",
+      "createdAt": "2025-06-14T16:39:59.657Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_Qfw46MO4du",
+      "cookieJar": {
+        "version": "tough-cookie@5.1.2",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "utm_source",
+            "expires": "2025-08-13T16:40:03.000Z",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:40:03.524Z",
+            "lastAccessed": "2025-06-14T16:40:03.524Z"
+          },
+          {
+            "key": "utm_medium",
+            "expires": "2025-08-13T16:40:03.000Z",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:40:03.524Z",
+            "lastAccessed": "2025-06-14T16:40:03.524Z"
+          },
+          {
+            "key": "utm_campaign",
+            "expires": "2025-08-13T16:40:03.000Z",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:40:03.524Z",
+            "lastAccessed": "2025-06-14T16:40:03.524Z"
+          },
+          {
+            "key": "utm_term",
+            "expires": "2025-08-13T16:40:03.000Z",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:40:03.524Z",
+            "lastAccessed": "2025-06-14T16:40:03.524Z"
+          },
+          {
+            "key": "store_setting_id",
+            "value": "19940",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:40:03.525Z",
+            "lastAccessed": "2025-06-14T16:40:03.525Z"
+          },
+          {
+            "key": "listing_view",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:40:03.525Z",
+            "lastAccessed": "2025-06-14T16:40:03.525Z"
+          },
+          {
+            "key": "_EZRentOut_session",
+            "value": "rCtCynCiTPeM2B%2FaQ8pOTjq%2FmRAgL4F%2BQbp%2BhCyFUioDtaDWfmEmNW3nijQ2uG58Wl0IKvkU%2FoRJR%2FHLM0dToH%2FRsvlR3KHZMxAgUaVrx1tjFWekfbinjWi7CcErX%2FjaLkNNWP1c6qMR6HmZ1YCe%2BnhA%2BwQzrK4Pp6F9dJjdOXJCF41HMWjmJvlD%2BbH6xpskUwbLOIiz23pC8kH65S2HC96oaxT8M31ijouxWLXcOttVG06kuB8nwFm1v%2FwD5MtaWDn182QkeLOHBBMG4cenfLp6QXEwSab7kLJmsEjOeZkgaid68k28WGexKusUGfN1yOBN4OSPC1r11%2FS5U9KvdPDDc3NM0LCLzBr%2FIc1awE1BZgitBibjUK7S%2BCswk1nKq5BQEcDekr1BtmQqOWqrLc35gJwE0Ja30fz3hBPy%2FZNZoDvrcQ4vv4y4U26QzGcwge9U7kaLjwcbS1RZoLXmNRH5mgZ7PXUCe6GfTutEahDL%2FCTxUmui%2Fx6jzeUqthdzUtFKLJaGSDWOc4kXVjnxPxOkaYq9jkv6JxwUR3QaImggTTfxz86j9BXU%2BlMvRP3WTim4JlIEWLkDQTAb5BWaEaPdAMjirJ7PQRz8VNH%2FFw6meYsYIAo2aSOvlLMfZMWGp2Fd4jjdYRM%2FvjZE7VQF5d%2BEZEgS%2FN3XMZgVE7rk5f7YOU0r0%2B%2BFoBdWBHS8XCFQDf5Kq%2ByNQdG3ah%2FL4OE0%2BfiLhaphQpxKzKH1BrqjkPzqMUDqqezHd6jxPfpcaSQcm%2Fnl5Hjl--w2oTSlvDPw8yeA4T--YP0JeEdN4PIxFzV2otA6xg%3D%3D",
+            "domain": "patriotequipmentrentals.ezrentalstore.com",
+            "path": "/",
+            "secure": true,
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2025-06-14T16:40:03.525Z",
+            "lastAccessed": "2025-06-14T16:40:03.525Z"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2025-06-14T17:30:02.415Z",
+      "createdAt": "2025-06-14T16:40:02.415Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    }
+  ]
+}

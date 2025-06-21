@@ -30,7 +30,7 @@ export function normalizeRawProductData(
 
   return {
     id: undefined, // Will be set by Postgres
-    vendorId: rawProduct.vendorId,
+    vendorId: rawProduct.vendorId || vendorConfig?.id || (() => { throw new Error('vendorId missing in rawProduct and vendorConfig'); })(),
     url: rawProduct.url,
     scrapedAt: rawProduct.scrapedAt || new Date().toISOString(),
     productName: rawProduct.productName || null,

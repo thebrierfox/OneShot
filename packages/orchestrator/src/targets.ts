@@ -23,4 +23,47 @@ export function loadTargets(filePath = path.resolve(process.cwd(), 'config', 'ta
   }
   // Fallback
   return [{ vendor: 'sunbelt', sku: '857' }];
+}
+
+// ---------------------------------------------------------------------------
+// Auto-target generator
+// ---------------------------------------------------------------------------
+
+/** CSV helper (very naive – skeleton implementation). */
+function readCsv(filePath: string): string[][] {
+  if (!fs.existsSync(filePath)) return [];
+  return fs
+    .readFileSync(filePath, 'utf8')
+    .trim()
+    .split(/\r?\n/)
+    .map((line) => line.split(','));
+}
+
+/**
+ * Build targets by cross-joining Patriot catalogue and sku_map.csv.
+ *   patriot_catalog.csv columns: patriot_sku,name,category,price_day,price_week,price_month
+ *   sku_map.csv columns: patriot_sku,competitor_id,competitor_sku
+ */
+export function buildTargetsFromCatalog(): Target[] {
+  const catalogPath = path.resolve(process.cwd(), 'config', 'patriot_catalog.csv');
+  const mapPath = path.resolve(process.cwd(), 'config', 'sku_map.csv');
+  const catalogRows = readCsv(catalogPath);
+  const mapRows = readCsv(mapPath);
+  if (catalogRows.length === 0 || mapRows.length === 0) {
+    console.warn('[targets] patriot_catalog.csv or sku_map.csv missing or empty – falling back to default seed');
+    return [{ vendor: 'sunbelt', sku: '857' }];
+  }
+
+  const mapByPatriot: Record<string, { vendor: string; sku: string }[]> = {};
+  for (const [patriotSku, competitorId, competitorSku] of mapRows.slice(1)) {
+    if (!mapByPatriot[patriotSku]) mapByPatriot[patriotSku] = [];
+    mapByPatriot[patriotSku].push({ vendor: competitorId, sku: competitorSku });
+  }
+
+  const targets: Target[] = [];
+  for (const [patriotSku] of catalogRows.slice(1)) {
+    const mappings = mapByPatriot[patriotSku];
+    if (mappings) targets.push(...mappings);
+  }
+  return targets.length > 0 ? targets : [{ vendor: 'sunbelt', sku: '857' }];
 } 

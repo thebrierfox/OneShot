@@ -1,10 +1,13 @@
 import * as dotenv from 'dotenv';
+import path from 'path';
+// Load environment variables **before** importing any other modules that may rely on them
+dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
+
 import { NativeConnection, Worker } from '@temporalio/worker';
 import { Context as ActivityContext } from '@temporalio/activity'; // Corrected import for 'activity' and alias
+// Now that env vars are loaded, safely import modules that use them
 import * as activities from './temporal/activities';
 import * as workflows from './temporal/workflows';
-
-dotenv.config();
 
 async function runWorker() {
   if (!process.env.TEMPORAL_ADDRESS) {
@@ -33,6 +36,7 @@ async function runWorker() {
     activities,
     // Graceful shutdown options, etc.
     shutdownGraceTime: '1m',
+    bundlerOptions: { ignoreModules: ['crypto'] },
   });
 
   console.log(`Scraper worker started. Listening on task queue: ${process.env.TEMPORAL_TASK_QUEUE_SCRAPER}`);

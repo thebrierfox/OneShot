@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { axiosProxy } from './utils/axiosProxy';
 import fs from 'fs/promises';
 import path from 'path';
 
@@ -48,7 +49,9 @@ export async function fetchRatesViaApi(args: SunbeltRateArgs): Promise<any> {
     console.log("DEBUG params about to send:", params);
     console.log(`Making request to: ${apiUrl}`);
     console.log('With params:', params);
-    const response = await axios.get(apiUrl, {
+    const response = await axiosProxy({
+      url: apiUrl,
+      method: 'GET',
       params,
       headers,
     });

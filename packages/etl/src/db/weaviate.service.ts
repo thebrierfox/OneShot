@@ -19,12 +19,8 @@ export function getWeaviateClient(): WeaviateClient {
   }
 
   const scheme = process.env.WEAVIATE_SCHEME || 'http';
-  const host = process.env.WEAVIATE_HOST;
+  const host = process.env.WEAVIATE_HOST || 'localhost:8080';
   const apiKey = process.env.WEAVIATE_API_KEY ? new ApiKey(process.env.WEAVIATE_API_KEY) : undefined;
-
-  if (!host) {
-    throw new Error('WEAVIATE_HOST environment variable is not set.');
-  }
 
   const connectionParams: ConnectionParams = {
     scheme: scheme as 'http' | 'https',

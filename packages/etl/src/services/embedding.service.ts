@@ -1,4 +1,5 @@
-import { pipeline, Pipeline } from '@xenova/transformers';
+// @xenova/transformers is ESM-only; load at runtime via dynamic import to stay compatible with CommonJS build.
+import type { Pipeline } from '@xenova/transformers';
 import type { NormalizedProduct } from '@patriot-rentals/shared-types';
 
 const DEFAULT_EMBEDDING_MODEL = 'Xenova/all-MiniLM-L6-v2';
@@ -11,10 +12,21 @@ class EmbeddingPipeline {
 
   static async getInstance(progress_callback?: Function) {
     if (this.instance === null) {
-      this.instance = await pipeline(this.task as any, this.model as any, { progress_callback });
+      const pipelineFn = await getPipeline();
+      this.instance = await pipelineFn(this.task as any, this.model as any, { progress_callback });
     }
     return this.instance;
   }
+}
+
+let _pipeline: typeof import('@xenova/transformers').pipeline | null = null;
+
+async function getPipeline() {
+  if (!_pipeline) {
+    const mod = await import('@xenova/transformers');
+    _pipeline = mod.pipeline;
+  }
+  return _pipeline!;
 }
 
 /**

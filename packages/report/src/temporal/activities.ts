@@ -3,8 +3,8 @@ import path from 'path';
 import { format } from 'date-fns';
 
 export async function writeCsvReport(cleaned: any[]): Promise<string> {
-  const dateStr = format(new Date(), 'yyyyMMdd');
-  const outputDir = path.resolve('/output');
+  const dateStr = format(new Date(), 'yyyyMMdd-HHmmss');
+  const outputDir = path.resolve(process.env.REPORT_OUTPUT_DIR || path.join(process.cwd(), 'output'));
   await fs.ensureDir(outputDir);
   const filePath = path.join(outputDir, `report-${dateStr}.csv`);
   const header = 'name,price,sku,vendor';

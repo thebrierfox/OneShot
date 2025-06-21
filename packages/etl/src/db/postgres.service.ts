@@ -16,10 +16,13 @@ function getPgPool(): Pool {
     return pgPool;
   }
 
-  const { POSTGRES_USER, POSTGRES_HOST, POSTGRES_DB, POSTGRES_PASSWORD, POSTGRES_PORT } = process.env;
-  if (!POSTGRES_USER || !POSTGRES_HOST || !POSTGRES_DB || !POSTGRES_PASSWORD || !POSTGRES_PORT) {
-    throw new Error('PostgreSQL connection environment variables are not fully set.');
-  }
+  const {
+    POSTGRES_USER = 'patriot_user',
+    POSTGRES_HOST = 'localhost',
+    POSTGRES_DB = 'patriot_rentals',
+    POSTGRES_PASSWORD = 'patriot_pass',
+    POSTGRES_PORT = '5432',
+  } = process.env as Record<string, string>;
 
   pgPool = new Pool({
     user: POSTGRES_USER,

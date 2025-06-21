@@ -96,7 +96,7 @@ services:
       - LOG_LEVEL=${LOG_LEVEL:-info}
     depends_on:
       postgres: { condition: service_healthy }
-    volumes: ["./infra/temporal/config:/etc/temporal/config"]
+    volumes: ["./infra/temporal/config/dynamicconfig:/etc/temporal/config/dynamicconfig"]
     restart: unless-stopped
 
   temporal-ui:
@@ -172,6 +172,28 @@ services:
       - temporal
     ports:
       - "3001:3000"
+
+  torproxy:
+    image: dperson/torproxy
+    container_name: patriot_torproxy
+    ports:
+      - "9050:9050" # Expose SOCKS5 proxy on host
+    environment:
+      - TZ=UTC
+    restart: unless-stopped
+
+  proxy-manager:
+    image: lumjj/proxy-manager:latest # lightweight Bright Data Proxy Manager fork
+    container_name: patriot_brightdata_proxy
+    ports:
+      - "24000:24000"   # Bright Data proxy manager web UI
+      - "24001:24001"   # main SOCKS/HTTP gateway port
+    environment:
+      - LPM_USER=${BRIGHTDATA_USER:-}
+      - LPM_PASSWORD=${BRIGHTDATA_PASS:-}
+    restart: unless-stopped
+    networks:
+      - default
 
 volumes:
   patriot_pg_data:

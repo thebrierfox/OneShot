@@ -1,4 +1,4 @@
-import { chromium, Page, BrowserContext, Browser, ConnectOptions } from 'playwright';
+import { chromium as vanillaChromium, Page, BrowserContext, Browser, ConnectOptions } from 'playwright';
 
 export interface LaunchPlaywrightOptions {
   /** WebSocket endpoint of the Browserless.io service (e.g., wss://chrome.browserless.io?token=YOUR_TOKEN) */
@@ -9,6 +9,8 @@ export interface LaunchPlaywrightOptions {
   proxyServer?: string;
   /** Additional options for playwright.chromium.connect() */
   connectOptions?: ConnectOptions;
+  /** If true, launch Playwright locally with stealth plugin (ignores browserlessWsEndpoint) */
+  useStealth?: boolean;
 }
 
 export interface PlaywrightHandles {
@@ -29,6 +31,7 @@ export async function launchPlaywright(
     contextOptions = {},
     proxyServer,
     connectOptions: userConnectOptions = {},
+    useStealth = false,
   } = options;
 
   const finalConnectOptions: ConnectOptions = {
@@ -36,26 +39,35 @@ export async function launchPlaywright(
     timeout: userConnectOptions.timeout || 60_000,
   };
 
-  // Ensure we hit the Browserless Playwright proxy path.  The Docker image registers
-  // WebSocket routes like "/playwright/chromium".  Connecting to the bare root
-  // (`ws://host:3000?token=foo`) often results in an immediate disconnect, so we
-  // add "/playwright" when it's absent.
-  let connectEndpoint = browserlessWsEndpoint;
-  if (!/\/playwright\b/.test(connectEndpoint)) {
-    const [base, query = ""] = connectEndpoint.split("?");
-    connectEndpoint = `${base.replace(/\/$/, "")}/playwright${query ? `?${query}` : ""}`;
-  }
-
   let browser: Browser;
-  try {
-    browser = await chromium.connect(connectEndpoint, finalConnectOptions);
-  } catch (error) {
-    console.error(`Failed to connect to Browserless endpoint: ${connectEndpoint}`, error);
-    throw new Error(
-      `Playwright connection failed: ${
-        error instanceof Error ? error.message : String(error)
-      }`,
-    );
+
+  if (useStealth && !browserlessWsEndpoint) {
+    // Dynamically import playwright-extra and stealth plugin to avoid type clashes
+    try {
+      const { chromium: chromiumExtra } = (await import('playwright-extra')) as any;
+      const stealthPlugin = ((await import('puppeteer-extra-plugin-stealth')) as any).default;
+      // register plugin then launch
+      (chromiumExtra as any).use(stealthPlugin());
+      browser = (await (chromiumExtra as any).launch({ headless: true })) as any;
+    } catch (error) {
+      console.error('Failed to launch local stealth Playwright', error);
+      throw error;
+    }
+  } else if (browserlessWsEndpoint) {
+    const connectEndpoint = browserlessWsEndpoint;
+    try {
+      browser = await vanillaChromium.connect(connectEndpoint, finalConnectOptions);
+    } catch (error) {
+      console.error(`Failed to connect to Browserless endpoint: ${connectEndpoint}`, error);
+      throw new Error(
+        `Playwright connection failed: ${
+          error instanceof Error ? error.message : String(error)
+        }`,
+      );
+    }
+  } else {
+    // vanilla local launch
+    browser = await vanillaChromium.launch({ headless: true });
   }
 
   const finalContextOptions = { ...contextOptions };

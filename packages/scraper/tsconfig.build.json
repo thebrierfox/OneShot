@@ -2,7 +2,9 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "noEmit": false,
-    "paths": {}
+    "paths": {},
+    "rootDir": "./src",
+    "outDir": "./dist"
   },
   "exclude": ["**/*.test.ts", "**/*.spec.ts", "**/test/**/*", "**/mocks/**", "src/scripts"],
   "skipLibCheck": true

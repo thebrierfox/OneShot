@@ -4,24 +4,8 @@
 # that already lives in this same directory so that the server starts.
 
 dynamicConfigClient:
-  filepath: config/dynamicconfig/development.yaml
+  filepath: dynamicconfig/development.yaml
 
 # All other settings fall back to Temporal's internal defaults for the
 # auto-setup container. Feel free to extend if you need custom ports or
-# advanced persistence settings.
-
-persistence:
-  defaultStore: postgres
-  visibilityStore: postgres
-  numHistoryShards: 1
-  dataStores:
-    postgres:
-      sql:
-        pluginName: "postgres"
-        databaseName: ${POSTGRES_DB:-patriot_rentals}
-        connectAddr: postgres:5432
-        connectProtocol: "tcp"
-        user: ${POSTGRES_USER:-patriot_user}
-        password: ${POSTGRES_PASSWORD:-patriot_pass}
-        maxConns: 20
-        maxIdleConns: 20 
+# advanced persistence settings. 
