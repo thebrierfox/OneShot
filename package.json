@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "turbo run dev --parallel",
     "build": "turbo run build",
-    "lint": "eslint . --ext .ts,.tsx --fix",
+    "lint": "eslint . --ext .ts,.tsx --fix --no-error-on-unmatched-pattern",
     "format": "prettier --write \"**/*.{ts,tsx,js,json,md,yaml}\"",
     "typecheck": "turbo run typecheck",
     "generate-report": "pnpm --filter @patriot-rentals/report start",

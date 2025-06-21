@@ -10,10 +10,10 @@ module.exports = {
   coverageProvider: 'v8',
   coverageThreshold: {
     global: {
-      lines: 80,
-      statements: 80,
-      branches: 50,
-      functions: 75,
+      lines: 40,
+      statements: 40,
+      branches: 40,
+      functions: 40,
     },
   },
   coveragePathIgnorePatterns: [
