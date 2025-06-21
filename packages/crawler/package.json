@@ -8,7 +8,7 @@
     "build": "tsc -p tsconfig.build.json",
     "dev": "tsc -p tsconfig.build.json --watch",
     "typecheck": "tsc --noEmit",
-    "start": "node dist/index.js",
+    "start": "ts-node src/cli.ts",
     "clean": "rm -rf dist tsconfig.tsbuildinfo"
   },
   "dependencies": {
@@ -16,7 +16,8 @@
     "@patriot-rentals/shared-types": "workspace:*",
     "@temporalio/client": "^1.9.0",
     "axios": "^1.6.8",
-    "crawlee": "^3.10.2",
+    "crawlee": "^3.7.0",
+    "cheerio": "^1.0.0-rc.12",
     "dotenv": "^16.4.5",
     "p-queue": "^8.0.1",
     "playwright": "^1.45.0",

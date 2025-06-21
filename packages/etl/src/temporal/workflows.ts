@@ -13,6 +13,15 @@ const { etlProcessActivity } = proxyActivities<typeof activities>({
   },
 });
 
+// Lazy import to avoid hard dependency if scraper package not present during some builds
+let scraperVendorConfigMap: Record<string, VendorConfig> | undefined;
+try {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  scraperVendorConfigMap = require('@patriot-rentals/scraper/dist/configs').vendorConfigMap || undefined;
+} catch {
+  // scraper package not available – ignore
+}
+
 /**
  * Temporal Workflow to manage the ETL processing of a single raw scraped product.
  * This workflow calls the `etlProcessActivity` and handles its outcome.
@@ -32,6 +41,10 @@ export async function etlProcessWorkflow(
   });
 
   try {
+    if (!vendorConfig && scraperVendorConfigMap) {
+      vendorConfig = scraperVendorConfigMap[rawProduct.vendorId as string];
+    }
+
     const result: any = await etlProcessActivity(rawProduct, vendorConfig);
 
     log.info('etlProcessWorkflow completed successfully.');

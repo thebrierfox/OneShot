@@ -6,14 +6,19 @@ import fs from 'fs-extra';
 import path from 'path';
 import { launchPlaywright, PlaywrightHandles } from '../browser/playwright-factory';
 import { vendorConfigMap } from '../configs';
-import type { RawScrapedProduct, VendorConfig, Price, RentalRates } from '@patriot-rentals/shared-types';
+import type { RawScrapedProduct, VendorConfig, RentalRates } from '@patriot-rentals/shared-types';
+import { setDefaultLocation } from '../utils/page.utils.ts';
 
 dotenv.config({ path: path.resolve(__dirname, '../../../../.env') }); // Ensure .env is loaded from project root
 
 const DEBUG_SNAPSHOTS_DIR = process.env.DEBUG_SNAPSHOTS_DIR || './debug_snapshots';
-const BROWSERLESS_WS_ENDPOINT = process.env.BROWSERLESS_HOST
-  ? `ws://${process.env.BROWSERLESS_HOST}:${process.env.BROWSERLESS_PORT || 3000}?token=${process.env.BROWSERLESS_TOKEN || 'localtoken'}`
-  : process.env.BROWSERLESS_WS_ENDPOINT;
+
+// Determine Browserless endpoint – prefer explicit full endpoint over constructed host
+const BROWSERLESS_WS_ENDPOINT = process.env.BROWSERLESS_WS_ENDPOINT
+  ? process.env.BROWSERLESS_WS_ENDPOINT
+  : process.env.BROWSERLESS_HOST
+      ? `ws://${process.env.BROWSERLESS_HOST}:${process.env.BROWSERLESS_PORT || 3000}/chromium/playwright?token=${process.env.BROWSERLESS_TOKEN || 'localtoken'}`
+      : undefined;
 
 // Duplicating these from activities.ts for standalone script execution
 // In a real scenario, you might refactor them into a shared util if they become more complex
@@ -77,9 +82,10 @@ async function testScrapeProductPage(
 
   try {
     playwrightHandles = await launchPlaywright({
-      browserlessWsEndpoint: BROWSERLESS_WS_ENDPOINT,
+      browserlessWsEndpoint: process.env.BROWSERLESS_WS_ENDPOINT || '',
       contextOptions: vendorConfig.playwrightContextOptions,
-      proxyServer: process.env.HTTP_PROXY_STRING || undefined,
+      proxyServer: process.env.HTTP_PROXY_STRING,
+      useStealth: vendorId === 'sunbelt' && !process.env.BROWSERLESS_WS_ENDPOINT,
     });
     const { page } = playwrightHandles;
     result.httpStatus = (await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 })).status();
@@ -92,27 +98,32 @@ async function testScrapeProductPage(
             try {
               const json = await response.json();
               result.networkJsonPayload = json;
-              if (intercept.pricePaths.productName && json[intercept.pricePaths.productName]) result.productName = String(json[intercept.pricePaths.productName]);
-              if (intercept.pricePaths.sku && json[intercept.pricePaths.sku]) result.sku = String(json[intercept.pricePaths.sku]);
+              const getNested = (obj: any, path: string | undefined): any => path?.split('.').reduce((a, k) => (a ? a[k] : undefined), obj);
+
+              const nameVal = getNested(json, intercept.pricePaths.productName);
+              if (nameVal != null) result.productName = String(nameVal);
+              const skuVal = getNested(json, intercept.pricePaths.sku);
+              if (skuVal != null) result.sku = String(skuVal);
               const rates: RentalRates = result.rates || {};
               let currency: string | undefined;
               if (intercept.pricePaths.currency) {
-                if (json[intercept.pricePaths.currency]) currency = String(json[intercept.pricePaths.currency]);
+                const curVal = getNested(json, intercept.pricePaths.currency);
+                if (curVal != null) currency = String(curVal);
                 else if (!Object.keys(json).includes(intercept.pricePaths.currency) && /^[A-Z]{3}$/.test(intercept.pricePaths.currency)) currency = intercept.pricePaths.currency;
               }
               if(!currency) currency = vendorConfig.rateParsingConfig?.currencySymbol === '$' ? 'USD' : undefined;
               if (intercept.pricePaths.day) {
-                const dayPriceText = json[intercept.pricePaths.day];
+                const dayPriceText = getNested(json, intercept.pricePaths.day);
                 const amount = typeof dayPriceText === 'number' ? dayPriceText : extractPriceValue(String(dayPriceText), vendorConfig);
                 if (amount !== null && currency) rates.perDay = { amount, currency };
               }
               if (intercept.pricePaths.week) {
-                const weekPriceText = json[intercept.pricePaths.week];
+                const weekPriceText = getNested(json, intercept.pricePaths.week);
                 const amount = typeof weekPriceText === 'number' ? weekPriceText : extractPriceValue(String(weekPriceText), vendorConfig);
                 if (amount !== null && currency) rates.perWeek = { amount, currency };
               }
               if (intercept.pricePaths.month) {
-                const monthPriceText = json[intercept.pricePaths.month];
+                const monthPriceText = getNested(json, intercept.pricePaths.month);
                 const amount = typeof monthPriceText === 'number' ? monthPriceText : extractPriceValue(String(monthPriceText), vendorConfig);
                 if (amount !== null && currency) rates.perMonth = { amount, currency };
               }
@@ -122,6 +133,11 @@ async function testScrapeProductPage(
           }
         }
       });
+    }
+
+    // Trigger location modal for Sunbelt once listeners are ready
+    if (vendorId === 'sunbelt') {
+      await setDefaultLocation(page!, '32805');
     }
 
     await autoScroll(page);

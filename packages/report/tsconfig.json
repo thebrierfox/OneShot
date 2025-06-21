@@ -1,6 +1,15 @@
 {
   "extends": "../../tsconfig.json",
-  "compilerOptions": { "outDir": "./dist", "rootDir": "./src", "composite": true, "baseUrl": "./src", "paths": { "@/*": ["*"] } },
+  "compilerOptions": {
+    "outDir": "./dist",
+    "composite": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"],
+      "@patriot-rentals/orchestrator/src/*": ["../orchestrator/src/*"],
+      "@patriot-rentals/orchestrator/dist/*": ["../orchestrator/dist/*"]
+    }
+  },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 } 

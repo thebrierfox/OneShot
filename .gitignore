@@ -16,4 +16,8 @@ patriot_weaviate_data/
 
 # IDE specific
 .idea/
-.vscode/ 
+.vscode/
+
+# ignore debug artifacts
+debug_artifacts/*
+!debug_artifacts/README.md 

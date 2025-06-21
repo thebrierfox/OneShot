@@ -6,16 +6,23 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "clean": "rimraf dist tsconfig.tsbuildinfo"
+    "clean": "rimraf dist tsconfig.tsbuildinfo",
+    "start": "node dist/worker.js",
+    "dev": "ts-node src/worker.ts",
+    "run:main": "ts-node src/scripts/start-main.ts",
+    "status": "ts-node src/scripts/status.ts"
   },
   "dependencies": {
-    "@temporalio/workflow": "^1.9.0"
+    "@temporalio/workflow": "^1.9.0",
+    "dotenv": "^16.5.0",
+    "proxy-chain": "^2.5.9",
+    "yaml": "^2.3.2"
   },
   "devDependencies": {
-    "typescript": "~5.4.5",
-    "rimraf": "^5.0.5",
-    "@temporalio/worker": "^1.9.0",
     "@temporalio/client": "^1.9.0",
+    "@temporalio/worker": "^1.9.0",
+    "rimraf": "^5.0.5",
+    "typescript": "~5.4.5",
     "uuid": "^9.0.1"
   }
-} 
+}
