@@ -8,20 +8,21 @@ export const mikesRentalsConfig: VendorConfig = {
     'http://www.mikerentalsinc.com/',
     'http://www.mikerentalsinc.com/rental-equipment/'
   ],
-  productUrlDetectRegex: '/(?:rental-categories|equipment|item)/[\\w-]+(?:/[\\w-]+)?/?$',
-  // ISPRODUCTPAGECHECKER_PLACEHOLDER
+  productUrlDetectRegex: '/equipment\.asp\?action=category&category=\\d+&key=[^/]+$',
+  isProductPageChecker: (url: string) =>
+    /equipment\.asp\?action=category&category=\d+&key=[^/]+$/.test(url),
   selectors: {
-    productName: 'h1.entry-title, .product-title', // Placeholder
-    priceDay: '.price-daily, .rate-day', // Placeholder
-    priceWeek: '.price-weekly, .rate-week', // Placeholder
-    priceMonth: '.price-monthly, .rate-month', // Placeholder
-    sku: '.sku, .product-id', // Placeholder
-    description: '.product-description, .entry-content', // Placeholder
-    imageUrl: 'img.main-product-img::attr(src), .wp-post-image::attr(src)', // Placeholder
-    category: '.current-category, .breadcrumbs .last' // Placeholder for category
+    productName: 'h1',
+    priceDay: 'input[name="intDaily1"]',
+    priceWeek: 'input[name="intWeekly1"]',
+    priceMonth: 'input[name="intMonthly1"]',
+    sku: '.por-item-detail-model',
+    description: '.por-item-detail-comments',
+    imageUrl: '.por-item-detail-image',
+    category: '.por-item-detail-name'
   },
-  // NETWORKINTERCEPTS_PLACEHOLDER
-  // CUSTOMPARSER_PLACEHOLDER
+  networkIntercepts: [],
+  customParser: undefined,
   playwrightContextOptions: {},
   useFlaresolverr: false, // Not expected to be needed for a simpler site
   notes: "Local business in Sikeston, MO. Website is stated to have prices and availability. Expected to be a simpler site structure with less aggressive anti-bot measures compared to national chains.",

@@ -10,20 +10,21 @@ export const fabickRentsConfig: VendorConfig = {
     'https://www.fabickcat.com/rental/equipment-rental/earthmoving-equipment/',
     'https://www.fabickcat.com/rental/equipment-rental/light-towers/'
   ],
-  productUrlDetectRegex: '/rental/equipment/[\\w-]+/[\\w-]+(?:/[A-Z0-9]+)?/?$',
-  // ISPRODUCTPAGECHECKER_PLACEHOLDER
+  productUrlDetectRegex: '/rental/equipment-rental/[\\w-]+/[\\w-]+(?:/[A-Z0-9-]+)?/?$',
+  isProductPageChecker: (url: string) =>
+    /\/rental\/equipment-rental\/[^/]+\/[^/]+(?:\/[A-Z0-9-]+)?\/?$/.test(url),
   selectors: {
-    productName: 'h1.product-title, .product-detail-header h1', // Placeholder
-    priceDay: '.daily-rate-value, .price-info .day-price', // Placeholder, may not exist
-    priceWeek: '.weekly-rate-value, .price-info .week-price', // Placeholder, may not exist
-    priceMonth: '.monthly-rate-value, .price-info .month-price', // Placeholder, may not exist
-    sku: '.product-sku, [itemprop="sku"]', // Placeholder for CAT Model or SKU
-    description: '.product-description, #overview-tab-content', // Placeholder
-    imageUrl: 'img.product-main-image::attr(src), .product-image-gallery img::attr(src)', // Placeholder
-    category: '.breadcrumbs .active, .product-category-link' // Placeholder for category
+    productName: 'h1',
+    priceDay: '.daily-rate-value',
+    priceWeek: '.weekly-rate-value',
+    priceMonth: '.monthly-rate-value',
+    sku: '[itemprop="sku"]',
+    description: '#overview-tab-content',
+    imageUrl: '.product-image-gallery img',
+    category: '.breadcrumbs .active'
   },
-  // NETWORKINTERCEPTS_PLACEHOLDER
-  // CUSTOMPARSER_PLACEHOLDER
+  networkIntercepts: [],
+  customParser: undefined,
   playwrightContextOptions: {},
   useFlaresolverr: true, // Might be useful if they have bot detection on category pages
   notes: "Part of the 'Cat Rental Store' network. May share platform similarities with other Cat dealers. Pricing information might not be directly listed and often requires a quote request. If prices are consistently not listed online, this vendor cannot be fully scraped for rates and may need to be excluded or handled differently. Verify if XML sitemaps are available.",

@@ -43,7 +43,6 @@ export const sunbeltConfig = {
       },
     },
   ],
-  // CUSTOMPARSER_PLACEHOLDER
   playwrightContextOptions: (() => {
     const ua = getRandomDesktopUA();
     return {

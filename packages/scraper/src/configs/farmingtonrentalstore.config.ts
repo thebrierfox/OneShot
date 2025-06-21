@@ -9,20 +9,20 @@ export const farmingtonRentalStoreConfig: VendorConfig = {
     'https://www.truevaluerentalfarmington.com/equipment-rentals/',
     'https://www.truevaluerentalfarmington.com/event-party-rentals/'
   ],
-  productUrlDetectRegex: '/rentals/(?:equipment|tools|event-party)/[\\w-]+(?:/[\\w-]+)?/?$',
-  // ISPRODUCTPAGECHECKER_PLACEHOLDER
+  productUrlDetectRegex: '/products/[\\w-]+/?$',
+  isProductPageChecker: (url: string) => /\/products\/[^/]+\/?$/.test(url),
   selectors: {
-    productName: 'h1.page-title, .product_title', // Placeholder
-    priceDay: '.price-daily .amount, .rental-rate-day', // Placeholder
-    priceWeek: '.price-weekly .amount, .rental-rate-week', // Placeholder
-    priceMonth: '.price-monthly .amount, .rental-rate-month', // Placeholder, check for '4 week'
-    sku: '.sku, .product-meta .sku', // Placeholder
-    description: '.product-description, .woocommerce-product-details__short-description', // Placeholder
-    imageUrl: 'img.wp-post-image::attr(src), .product-image img::attr(src)', // Placeholder
-    category: '.breadcrumbs .trail-end, .product_meta .posted_in a' // Placeholder for category
+    productName: 'h1[itemprop="name"]',
+    priceDay: 'div.option[data-title*="1 Day"]',
+    priceWeek: 'div.option[data-title*="1 Week"]',
+    priceMonth: 'div.option[data-title*="4 Week"], div.option[data-title*="1 Month"]',
+    sku: 'meta[itemprop="sku"]',
+    description: '.product-single__description',
+    imageUrl: 'meta[property="og:image"]',
+    category: '.breadcrumb .is-active'
   },
-  // NETWORKINTERCEPTS_PLACEHOLDER
-  // CUSTOMPARSER_PLACEHOLDER
+  networkIntercepts: [],
+  customParser: undefined,
   playwrightContextOptions: {},
   useFlaresolverr: false,
   notes: "Affiliated with True Value, located in Farmington, MO. May use a True Value provided rental website platform. Pricing seems to be available. Site structure expected to be simpler than national chains.",
