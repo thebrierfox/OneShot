@@ -21,3 +21,6 @@ patriot_weaviate_data/
 # ignore debug artifacts
 debug_artifacts/*
 !debug_artifacts/README.md 
+# Build artifacts
+*.tsbuildinfo
+coverage/

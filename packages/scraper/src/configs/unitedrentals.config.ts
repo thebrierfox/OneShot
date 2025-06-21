@@ -9,19 +9,20 @@ export const unitedRentalsConfig: VendorConfig = {
     // Operator Action Item: Investigate and add the primary equipment sitemap URL for United Rentals if available.
   ],
   productUrlDetectRegex: '/equipment-rentals/[\\w-]+(?:/[\\w-]+)?/[\\w\\d-]+(?:/\\d+)?/?$',
-  // ISPRODUCTPAGECHECKER_PLACEHOLDER
+  isProductPageChecker: (url: string) =>
+    /\/equipment-rentals\/[\w-]+(?:\/[\w-]+)?\/[\w\d-]+(?:\/\d+)?\/?$/.test(url),
   selectors: {
-    productName: 'h1.pdp-title, h1.product-name', // Placeholder based on guidance
-    priceDay: '.price-daily .amount, [data-price-type="daily"] .price', // Placeholder
-    priceWeek: '.price-weekly .amount, [data-price-type="weekly"] .price', // Placeholder
-    priceMonth: '.price-monthly .amount, [data-price-type="monthly"] .price', // Placeholder
-    sku: '.product-sku .value, [data-testid="product-sku"]', // Placeholder
-    description: '.product-description-full, [data-testid="product-description"]', // Placeholder
-    imageUrl: 'img.product-main-image::attr(src), .pdp-image-gallery img::attr(src)', // Placeholder
-    category: '.breadcrumb-item:last-child a, .current-category-breadcrumb' // Placeholder for category
+    productName: 'h1.pdp-title',
+    priceDay: '[data-testid="pdp_productOneDay_price"]',
+    priceWeek: '[data-testid="pdp_productOneWeek_price"]',
+    priceMonth: '[data-testid="pdp_productFourWeek_price"]',
+    sku: '[data-testid="product-sku"]',
+    description: '[data-testid="product-description"]',
+    imageUrl: '.pdp-image-gallery img',
+    category: '.breadcrumb-item:last-child a'
   },
-  // NETWORKINTERCEPTS_PLACEHOLDER
-  // CUSTOMPARSER_PLACEHOLDER
+  networkIntercepts: [],
+  customParser: undefined,
   playwrightContextOptions: {
     // geolocation: { latitude: 40.7128, longitude: -74.0060 }, // Example: New York, NY
     // locale: 'en-US',
