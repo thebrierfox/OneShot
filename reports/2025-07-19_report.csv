@@ -1,0 +1,1106 @@
+patriot_sku,name,price_day,competitor,competitor_price,diff_abs,diff_pct,alert_flag
+SKU0001,10' Tilt Trailer,60.0,Sunbelt Rentals,,,,False
+SKU0001,10' Tilt Trailer,60.0,United Rentals,,,,False
+SKU0001,10' Tilt Trailer,60.0,Farmington Rental,,,,False
+SKU0001,10' Tilt Trailer,60.0,Mike's Rentals,,,,False
+SKU0001,10' Tilt Trailer,60.0,Fabick Rents,,,,False
+SKU0002,14' Load Trail 14...,120.0,Sunbelt Rentals,,,,False
+SKU0002,14' Load Trail 14...,120.0,United Rentals,,,,False
+SKU0002,14' Load Trail 14...,120.0,Farmington Rental,,,,False
+SKU0002,14' Load Trail 14...,120.0,Mike's Rentals,,,,False
+SKU0002,14' Load Trail 14...,120.0,Fabick Rents,,,,False
+SKU0003,14' Rice Trailer,70.0,Sunbelt Rentals,,,,False
+SKU0003,14' Rice Trailer,70.0,United Rentals,,,,False
+SKU0003,14' Rice Trailer,70.0,Farmington Rental,,,,False
+SKU0003,14' Rice Trailer,70.0,Mike's Rentals,,,,False
+SKU0003,14' Rice Trailer,70.0,Fabick Rents,,,,False
+SKU0004,14k GVWR Rice Equ...,85.0,Sunbelt Rentals,,,,False
+SKU0004,14k GVWR Rice Equ...,85.0,United Rentals,,,,False
+SKU0004,14k GVWR Rice Equ...,85.0,Farmington Rental,,,,False
+SKU0004,14k GVWR Rice Equ...,85.0,Mike's Rentals,,,,False
+SKU0004,14k GVWR Rice Equ...,85.0,Fabick Rents,,,,False
+SKU0005,14k Rice Equipmen...,85.0,Sunbelt Rentals,,,,False
+SKU0005,14k Rice Equipmen...,85.0,United Rentals,,,,False
+SKU0005,14k Rice Equipmen...,85.0,Farmington Rental,,,,False
+SKU0005,14k Rice Equipmen...,85.0,Mike's Rentals,,,,False
+SKU0005,14k Rice Equipmen...,85.0,Fabick Rents,,,,False
+SKU0006,16' Big Tex 14K D...,150.0,Sunbelt Rentals,,,,False
+SKU0006,16' Big Tex 14K D...,150.0,United Rentals,,,,False
+SKU0006,16' Big Tex 14K D...,150.0,Farmington Rental,,,,False
+SKU0006,16' Big Tex 14K D...,150.0,Mike's Rentals,,,,False
+SKU0006,16' Big Tex 14K D...,150.0,Fabick Rents,,,,False
+SKU0007,16' Enclosed Carg...,120.0,Sunbelt Rentals,,,,False
+SKU0007,16' Enclosed Carg...,120.0,United Rentals,,,,False
+SKU0007,16' Enclosed Carg...,120.0,Farmington Rental,,,,False
+SKU0007,16' Enclosed Carg...,120.0,Mike's Rentals,,,,False
+SKU0007,16' Enclosed Carg...,120.0,Fabick Rents,,,,False
+SKU0008,20' Genie Single ...,125.0,Sunbelt Rentals,,,,False
+SKU0008,20' Genie Single ...,125.0,United Rentals,,,,False
+SKU0008,20' Genie Single ...,125.0,Farmington Rental,,,,False
+SKU0008,20' Genie Single ...,125.0,Mike's Rentals,,,,False
+SKU0008,20' Genie Single ...,125.0,Fabick Rents,,,,False
+SKU0009,20' TILT RICE TRA...,95.0,Sunbelt Rentals,,,,False
+SKU0009,20' TILT RICE TRA...,95.0,United Rentals,,,,False
+SKU0009,20' TILT RICE TRA...,95.0,Farmington Rental,,,,False
+SKU0009,20' TILT RICE TRA...,95.0,Mike's Rentals,,,,False
+SKU0009,20' TILT RICE TRA...,95.0,Fabick Rents,,,,False
+SKU0010,24' Enclosed Carg...,140.0,Sunbelt Rentals,,,,False
+SKU0010,24' Enclosed Carg...,140.0,United Rentals,,,,False
+SKU0010,24' Enclosed Carg...,140.0,Farmington Rental,,,,False
+SKU0010,24' Enclosed Carg...,140.0,Mike's Rentals,,,,False
+SKU0010,24' Enclosed Carg...,140.0,Fabick Rents,,,,False
+SKU0011,3 PT 5' Box Blade,85.0,Sunbelt Rentals,,,,False
+SKU0011,3 PT 5' Box Blade,85.0,United Rentals,,,,False
+SKU0011,3 PT 5' Box Blade,85.0,Farmington Rental,,,,False
+SKU0011,3 PT 5' Box Blade,85.0,Mike's Rentals,,,,False
+SKU0011,3 PT 5' Box Blade,85.0,Fabick Rents,,,,False
+SKU0012,3 PT 6' Disc,60.0,Sunbelt Rentals,,,,False
+SKU0012,3 PT 6' Disc,60.0,United Rentals,,,,False
+SKU0012,3 PT 6' Disc,60.0,Farmington Rental,,,,False
+SKU0012,3 PT 6' Disc,60.0,Mike's Rentals,,,,False
+SKU0012,3 PT 6' Disc,60.0,Fabick Rents,,,,False
+SKU0013,3 Pt Broadcast Se...,60.0,Sunbelt Rentals,,,,False
+SKU0013,3 Pt Broadcast Se...,60.0,United Rentals,,,,False
+SKU0013,3 Pt Broadcast Se...,60.0,Farmington Rental,,,,False
+SKU0013,3 Pt Broadcast Se...,60.0,Mike's Rentals,,,,False
+SKU0013,3 Pt Broadcast Se...,60.0,Fabick Rents,,,,False
+SKU0014,3-Point Hitch Auger,95.0,Sunbelt Rentals,,,,False
+SKU0014,3-Point Hitch Auger,95.0,United Rentals,,,,False
+SKU0014,3-Point Hitch Auger,95.0,Farmington Rental,,,,False
+SKU0014,3-Point Hitch Auger,95.0,Mike's Rentals,,,,False
+SKU0014,3-Point Hitch Auger,95.0,Fabick Rents,,,,False
+SKU0015,3-Point Rock Rake,85.0,Sunbelt Rentals,,,,False
+SKU0015,3-Point Rock Rake,85.0,United Rentals,,,,False
+SKU0015,3-Point Rock Rake,85.0,Farmington Rental,,,,False
+SKU0015,3-Point Rock Rake,85.0,Mike's Rentals,,,,False
+SKU0015,3-Point Rock Rake,85.0,Fabick Rents,,,,False
+SKU0016,"3/4"" Air Compreso...",20.0,Sunbelt Rentals,,,,False
+SKU0016,"3/4"" Air Compreso...",20.0,United Rentals,,,,False
+SKU0016,"3/4"" Air Compreso...",20.0,Farmington Rental,,,,False
+SKU0016,"3/4"" Air Compreso...",20.0,Mike's Rentals,,,,False
+SKU0016,"3/4"" Air Compreso...",20.0,Fabick Rents,,,,False
+SKU0017,32' Fiberglass Ex...,45.0,Sunbelt Rentals,,,,False
+SKU0017,32' Fiberglass Ex...,45.0,United Rentals,,,,False
+SKU0017,32' Fiberglass Ex...,45.0,Farmington Rental,,,,False
+SKU0017,32' Fiberglass Ex...,45.0,Mike's Rentals,,,,False
+SKU0017,32' Fiberglass Ex...,45.0,Fabick Rents,,,,False
+SKU0018,32' Skyjack 4632 ...,185.0,Sunbelt Rentals,,,,False
+SKU0018,32' Skyjack 4632 ...,185.0,United Rentals,,,,False
+SKU0018,32' Skyjack 4632 ...,185.0,Farmington Rental,,,,False
+SKU0018,32' Skyjack 4632 ...,185.0,Mike's Rentals,,,,False
+SKU0018,32' Skyjack 4632 ...,185.0,Fabick Rents,,,,False
+SKU0019,4 Wheel Furniture...,10.0,Sunbelt Rentals,,,,False
+SKU0019,4 Wheel Furniture...,10.0,United Rentals,,,,False
+SKU0019,4 Wheel Furniture...,10.0,Farmington Rental,,,,False
+SKU0019,4 Wheel Furniture...,10.0,Mike's Rentals,,,,False
+SKU0019,4 Wheel Furniture...,10.0,Fabick Rents,,,,False
+SKU0020,40' BIG TEX 25GN ...,205.0,Sunbelt Rentals,,,,False
+SKU0020,40' BIG TEX 25GN ...,205.0,United Rentals,,,,False
+SKU0020,40' BIG TEX 25GN ...,205.0,Farmington Rental,,,,False
+SKU0020,40' BIG TEX 25GN ...,205.0,Mike's Rentals,,,,False
+SKU0020,40' BIG TEX 25GN ...,205.0,Fabick Rents,,,,False
+SKU0021,40' BIG TEX 25GN ...,205.0,Sunbelt Rentals,,,,False
+SKU0021,40' BIG TEX 25GN ...,205.0,United Rentals,,,,False
+SKU0021,40' BIG TEX 25GN ...,205.0,Farmington Rental,,,,False
+SKU0021,40' BIG TEX 25GN ...,205.0,Mike's Rentals,,,,False
+SKU0021,40' BIG TEX 25GN ...,205.0,Fabick Rents,,,,False
+SKU0022,5' 3 PT Bush Hog,90.0,Sunbelt Rentals,,,,False
+SKU0022,5' 3 PT Bush Hog,90.0,United Rentals,,,,False
+SKU0022,5' 3 PT Bush Hog,90.0,Farmington Rental,,,,False
+SKU0022,5' 3 PT Bush Hog,90.0,Mike's Rentals,,,,False
+SKU0022,5' 3 PT Bush Hog,90.0,Fabick Rents,,,,False
+SKU0023,6' Box Blade Atta...,95.0,Sunbelt Rentals,,,,False
+SKU0023,6' Box Blade Atta...,95.0,United Rentals,,,,False
+SKU0023,6' Box Blade Atta...,95.0,Farmington Rental,,,,False
+SKU0023,6' Box Blade Atta...,95.0,Mike's Rentals,,,,False
+SKU0023,6' Box Blade Atta...,95.0,Fabick Rents,,,,False
+SKU0024,9000W Portable Ge...,85.0,Sunbelt Rentals,,,,False
+SKU0024,9000W Portable Ge...,85.0,United Rentals,,,,False
+SKU0024,9000W Portable Ge...,85.0,Farmington Rental,,,,False
+SKU0024,9000W Portable Ge...,85.0,Mike's Rentals,,,,False
+SKU0024,9000W Portable Ge...,85.0,Fabick Rents,,,,False
+SKU0025,Air Compressor Ho...,10.0,Sunbelt Rentals,,,,False
+SKU0025,Air Compressor Ho...,10.0,United Rentals,,,,False
+SKU0025,Air Compressor Ho...,10.0,Farmington Rental,,,,False
+SKU0025,Air Compressor Ho...,10.0,Mike's Rentals,,,,False
+SKU0025,Air Compressor Ho...,10.0,Fabick Rents,,,,False
+SKU0026,Air Hose,10.0,Sunbelt Rentals,,,,False
+SKU0026,Air Hose,10.0,United Rentals,,,,False
+SKU0026,Air Hose,10.0,Farmington Rental,,,,False
+SKU0026,Air Hose,10.0,Mike's Rentals,,,,False
+SKU0026,Air Hose,10.0,Fabick Rents,,,,False
+SKU0027,American Sanders ...,65.0,Sunbelt Rentals,,,,False
+SKU0027,American Sanders ...,65.0,United Rentals,,,,False
+SKU0027,American Sanders ...,65.0,Farmington Rental,,,,False
+SKU0027,American Sanders ...,65.0,Mike's Rentals,,,,False
+SKU0027,American Sanders ...,65.0,Fabick Rents,,,,False
+SKU0028,Barreto 3X4 Tilt ...,40.0,Sunbelt Rentals,,,,False
+SKU0028,Barreto 3X4 Tilt ...,40.0,United Rentals,,,,False
+SKU0028,Barreto 3X4 Tilt ...,40.0,Farmington Rental,,,,False
+SKU0028,Barreto 3X4 Tilt ...,40.0,Mike's Rentals,,,,False
+SKU0028,Barreto 3X4 Tilt ...,40.0,Fabick Rents,,,,False
+SKU0029,Barreto 3X4 Tilt ...,40.0,Sunbelt Rentals,,,,False
+SKU0029,Barreto 3X4 Tilt ...,40.0,United Rentals,,,,False
+SKU0029,Barreto 3X4 Tilt ...,40.0,Farmington Rental,,,,False
+SKU0029,Barreto 3X4 Tilt ...,40.0,Mike's Rentals,,,,False
+SKU0029,Barreto 3X4 Tilt ...,40.0,Fabick Rents,,,,False
+SKU0030,Bauer Heat Gun,10.0,Sunbelt Rentals,,,,False
+SKU0030,Bauer Heat Gun,10.0,United Rentals,,,,False
+SKU0030,Bauer Heat Gun,10.0,Farmington Rental,,,,False
+SKU0030,Bauer Heat Gun,10.0,Mike's Rentals,,,,False
+SKU0030,Bauer Heat Gun,10.0,Fabick Rents,,,,False
+SKU0031,Bauer Jack Hammer,85.0,Sunbelt Rentals,,,,False
+SKU0031,Bauer Jack Hammer,85.0,United Rentals,,,,False
+SKU0031,Bauer Jack Hammer,85.0,Farmington Rental,,,,False
+SKU0031,Bauer Jack Hammer,85.0,Mike's Rentals,,,,False
+SKU0031,Bauer Jack Hammer,85.0,Fabick Rents,,,,False
+SKU0032,Billy Goat Plugr ...,65.0,Sunbelt Rentals,,,,False
+SKU0032,Billy Goat Plugr ...,65.0,United Rentals,,,,False
+SKU0032,Billy Goat Plugr ...,65.0,Farmington Rental,,,,False
+SKU0032,Billy Goat Plugr ...,65.0,Mike's Rentals,,,,False
+SKU0032,Billy Goat Plugr ...,65.0,Fabick Rents,,,,False
+SKU0033,Bobcat 553 Skid S...,225.0,Sunbelt Rentals,,,,False
+SKU0033,Bobcat 553 Skid S...,225.0,United Rentals,,,,False
+SKU0033,Bobcat 553 Skid S...,225.0,Farmington Rental,,,,False
+SKU0033,Bobcat 553 Skid S...,225.0,Mike's Rentals,,,,False
+SKU0033,Bobcat 553 Skid S...,225.0,Fabick Rents,,,,False
+SKU0034,Bobcat Dingo Jack...,185.0,Sunbelt Rentals,,,,False
+SKU0034,Bobcat Dingo Jack...,185.0,United Rentals,,,,False
+SKU0034,Bobcat Dingo Jack...,185.0,Farmington Rental,,,,False
+SKU0034,Bobcat Dingo Jack...,185.0,Mike's Rentals,,,,False
+SKU0034,Bobcat Dingo Jack...,185.0,Fabick Rents,,,,False
+SKU0035,Bobcat Log Grappl...,125.0,Sunbelt Rentals,,,,False
+SKU0035,Bobcat Log Grappl...,125.0,United Rentals,,,,False
+SKU0035,Bobcat Log Grappl...,125.0,Farmington Rental,,,,False
+SKU0035,Bobcat Log Grappl...,125.0,Mike's Rentals,,,,False
+SKU0035,Bobcat Log Grappl...,125.0,Fabick Rents,,,,False
+SKU0036,Bobcat Skid Steer...,190.0,Sunbelt Rentals,,,,False
+SKU0036,Bobcat Skid Steer...,190.0,United Rentals,,,,False
+SKU0036,Bobcat Skid Steer...,190.0,Farmington Rental,,,,False
+SKU0036,Bobcat Skid Steer...,190.0,Mike's Rentals,,,,False
+SKU0036,Bobcat Skid Steer...,190.0,Fabick Rents,,,,False
+SKU0037,Bomag 55W Vibrato...,105.0,Sunbelt Rentals,,,,False
+SKU0037,Bomag 55W Vibrato...,105.0,United Rentals,,,,False
+SKU0037,Bomag 55W Vibrato...,105.0,Farmington Rental,,,,False
+SKU0037,Bomag 55W Vibrato...,105.0,Mike's Rentals,,,,False
+SKU0037,Bomag 55W Vibrato...,105.0,Fabick Rents,,,,False
+SKU0038,Bomag Plate Compa...,55.0,Sunbelt Rentals,,,,False
+SKU0038,Bomag Plate Compa...,55.0,United Rentals,,,,False
+SKU0038,Bomag Plate Compa...,55.0,Farmington Rental,,,,False
+SKU0038,Bomag Plate Compa...,55.0,Mike's Rentals,,,,False
+SKU0038,Bomag Plate Compa...,55.0,Fabick Rents,,,,False
+SKU0039,Bostitch Nail Gun,20.0,Sunbelt Rentals,,,,False
+SKU0039,Bostitch Nail Gun,20.0,United Rentals,,,,False
+SKU0039,Bostitch Nail Gun,20.0,Farmington Rental,,,,False
+SKU0039,Bostitch Nail Gun,20.0,Mike's Rentals,,,,False
+SKU0039,Bostitch Nail Gun,20.0,Fabick Rents,,,,False
+SKU0040,Bostitch Pancake ...,20.0,Sunbelt Rentals,,,,False
+SKU0040,Bostitch Pancake ...,20.0,United Rentals,,,,False
+SKU0040,Bostitch Pancake ...,20.0,Farmington Rental,,,,False
+SKU0040,Bostitch Pancake ...,20.0,Mike's Rentals,,,,False
+SKU0040,Bostitch Pancake ...,20.0,Fabick Rents,,,,False
+SKU0041,Box Blade - 10' P...,95.0,Sunbelt Rentals,,,,False
+SKU0041,Box Blade - 10' P...,95.0,United Rentals,,,,False
+SKU0041,Box Blade - 10' P...,95.0,Farmington Rental,,,,False
+SKU0041,Box Blade - 10' P...,95.0,Mike's Rentals,,,,False
+SKU0041,Box Blade - 10' P...,95.0,Fabick Rents,,,,False
+SKU0042,Branson Tractor 2...,180.0,Sunbelt Rentals,,,,False
+SKU0042,Branson Tractor 2...,180.0,United Rentals,,,,False
+SKU0042,Branson Tractor 2...,180.0,Farmington Rental,,,,False
+SKU0042,Branson Tractor 2...,180.0,Mike's Rentals,,,,False
+SKU0042,Branson Tractor 2...,180.0,Fabick Rents,,,,False
+SKU0043,Carpet Knee Kicker,15.0,Sunbelt Rentals,,,,False
+SKU0043,Carpet Knee Kicker,15.0,United Rentals,,,,False
+SKU0043,Carpet Knee Kicker,15.0,Farmington Rental,,,,False
+SKU0043,Carpet Knee Kicker,15.0,Mike's Rentals,,,,False
+SKU0043,Carpet Knee Kicker,15.0,Fabick Rents,,,,False
+SKU0044,Concrete Float - 4',15.0,Sunbelt Rentals,,,,False
+SKU0044,Concrete Float - 4',15.0,United Rentals,,,,False
+SKU0044,Concrete Float - 4',15.0,Farmington Rental,,,,False
+SKU0044,Concrete Float - 4',15.0,Mike's Rentals,,,,False
+SKU0044,Concrete Float - 4',15.0,Fabick Rents,,,,False
+SKU0045,"Concrete Float -3'9""",15.0,Sunbelt Rentals,,,,False
+SKU0045,"Concrete Float -3'9""",15.0,United Rentals,,,,False
+SKU0045,"Concrete Float -3'9""",15.0,Farmington Rental,,,,False
+SKU0045,"Concrete Float -3'9""",15.0,Mike's Rentals,,,,False
+SKU0045,"Concrete Float -3'9""",15.0,Fabick Rents,,,,False
+SKU0046,Concrete Jitterbu...,20.0,Sunbelt Rentals,,,,False
+SKU0046,Concrete Jitterbu...,20.0,United Rentals,,,,False
+SKU0046,Concrete Jitterbu...,20.0,Farmington Rental,,,,False
+SKU0046,Concrete Jitterbu...,20.0,Mike's Rentals,,,,False
+SKU0046,Concrete Jitterbu...,20.0,Fabick Rents,,,,False
+SKU0047,Concrete Vibratin...,60.0,Sunbelt Rentals,,,,False
+SKU0047,Concrete Vibratin...,60.0,United Rentals,,,,False
+SKU0047,Concrete Vibratin...,60.0,Farmington Rental,,,,False
+SKU0047,Concrete Vibratin...,60.0,Mike's Rentals,,,,False
+SKU0047,Concrete Vibratin...,60.0,Fabick Rents,,,,False
+SKU0048,Concrete Vibrator,80.0,Sunbelt Rentals,,,,False
+SKU0048,Concrete Vibrator,80.0,United Rentals,,,,False
+SKU0048,Concrete Vibrator,80.0,Farmington Rental,,,,False
+SKU0048,Concrete Vibrator,80.0,Mike's Rentals,,,,False
+SKU0048,Concrete Vibrator,80.0,Fabick Rents,,,,False
+SKU0049,Cotton Candy Machine,40.0,Sunbelt Rentals,,,,False
+SKU0049,Cotton Candy Machine,40.0,United Rentals,,,,False
+SKU0049,Cotton Candy Machine,40.0,Farmington Rental,,,,False
+SKU0049,Cotton Candy Machine,40.0,Mike's Rentals,,,,False
+SKU0049,Cotton Candy Machine,40.0,Fabick Rents,,,,False
+SKU0050,"Cub Cadet 22"" Rea...",60.0,Sunbelt Rentals,,,,False
+SKU0050,"Cub Cadet 22"" Rea...",60.0,United Rentals,,,,False
+SKU0050,"Cub Cadet 22"" Rea...",60.0,Farmington Rental,,,,False
+SKU0050,"Cub Cadet 22"" Rea...",60.0,Mike's Rentals,,,,False
+SKU0050,"Cub Cadet 22"" Rea...",60.0,Fabick Rents,,,,False
+SKU0051,DeWalt Jackhammer,85.0,Sunbelt Rentals,,,,False
+SKU0051,DeWalt Jackhammer,85.0,United Rentals,,,,False
+SKU0051,DeWalt Jackhammer,85.0,Farmington Rental,,,,False
+SKU0051,DeWalt Jackhammer,85.0,Mike's Rentals,,,,False
+SKU0051,DeWalt Jackhammer,85.0,Fabick Rents,,,,False
+SKU0052,Diamond Bush Hog ...,315.0,Sunbelt Rentals,,,,False
+SKU0052,Diamond Bush Hog ...,315.0,United Rentals,,,,False
+SKU0052,Diamond Bush Hog ...,315.0,Farmington Rental,,,,False
+SKU0052,Diamond Bush Hog ...,315.0,Mike's Rentals,,,,False
+SKU0052,Diamond Bush Hog ...,315.0,Fabick Rents,,,,False
+SKU0053,Diamond C 14K Equ...,85.0,Sunbelt Rentals,,,,False
+SKU0053,Diamond C 14K Equ...,85.0,United Rentals,,,,False
+SKU0053,Diamond C 14K Equ...,85.0,Farmington Rental,,,,False
+SKU0053,Diamond C 14K Equ...,85.0,Mike's Rentals,,,,False
+SKU0053,Diamond C 14K Equ...,85.0,Fabick Rents,,,,False
+SKU0054,Dingo Forks Attac...,60.0,Sunbelt Rentals,,,,False
+SKU0054,Dingo Forks Attac...,60.0,United Rentals,,,,False
+SKU0054,Dingo Forks Attac...,60.0,Farmington Rental,,,,False
+SKU0054,Dingo Forks Attac...,60.0,Mike's Rentals,,,,False
+SKU0054,Dingo Forks Attac...,60.0,Fabick Rents,,,,False
+SKU0055,Dingo Trencher At...,125.0,Sunbelt Rentals,,,,False
+SKU0055,Dingo Trencher At...,125.0,United Rentals,,,,False
+SKU0055,Dingo Trencher At...,125.0,Farmington Rental,,,,False
+SKU0055,Dingo Trencher At...,125.0,Mike's Rentals,,,,False
+SKU0055,Dingo Trencher At...,125.0,Fabick Rents,,,,False
+SKU0056,Ditch Witch 1820 ...,140.0,Sunbelt Rentals,,,,False
+SKU0056,Ditch Witch 1820 ...,140.0,United Rentals,,,,False
+SKU0056,Ditch Witch 1820 ...,140.0,Farmington Rental,,,,False
+SKU0056,Ditch Witch 1820 ...,140.0,Mike's Rentals,,,,False
+SKU0056,Ditch Witch 1820 ...,140.0,Fabick Rents,,,,False
+SKU0057,Ditch Witch HT25 ...,345.0,Sunbelt Rentals,,,,False
+SKU0057,Ditch Witch HT25 ...,345.0,United Rentals,,,,False
+SKU0057,Ditch Witch HT25 ...,345.0,Farmington Rental,,,,False
+SKU0057,Ditch Witch HT25 ...,345.0,Mike's Rentals,,,,False
+SKU0057,Ditch Witch HT25 ...,345.0,Fabick Rents,,,,False
+SKU0058,Doolittle 12' SA ...,80.0,Sunbelt Rentals,,,,False
+SKU0058,Doolittle 12' SA ...,80.0,United Rentals,,,,False
+SKU0058,Doolittle 12' SA ...,80.0,Farmington Rental,,,,False
+SKU0058,Doolittle 12' SA ...,80.0,Mike's Rentals,,,,False
+SKU0058,Doolittle 12' SA ...,80.0,Fabick Rents,,,,False
+SKU0059,Drywall and Sheet...,20.0,Sunbelt Rentals,,,,False
+SKU0059,Drywall and Sheet...,20.0,United Rentals,,,,False
+SKU0059,Drywall and Sheet...,20.0,Farmington Rental,,,,False
+SKU0059,Drywall and Sheet...,20.0,Mike's Rentals,,,,False
+SKU0059,Drywall and Sheet...,20.0,Fabick Rents,,,,False
+SKU0060,Drywall Sander an...,50.0,Sunbelt Rentals,,,,False
+SKU0060,Drywall Sander an...,50.0,United Rentals,,,,False
+SKU0060,Drywall Sander an...,50.0,Farmington Rental,,,,False
+SKU0060,Drywall Sander an...,50.0,Mike's Rentals,,,,False
+SKU0060,Drywall Sander an...,50.0,Fabick Rents,,,,False
+SKU0061,Drywall Sheetrock...,35.0,Sunbelt Rentals,,,,False
+SKU0061,Drywall Sheetrock...,35.0,United Rentals,,,,False
+SKU0061,Drywall Sheetrock...,35.0,Farmington Rental,,,,False
+SKU0061,Drywall Sheetrock...,35.0,Mike's Rentals,,,,False
+SKU0061,Drywall Sheetrock...,35.0,Fabick Rents,,,,False
+SKU0062,Drywall Sheetrock...,35.0,Sunbelt Rentals,,,,False
+SKU0062,Drywall Sheetrock...,35.0,United Rentals,,,,False
+SKU0062,Drywall Sheetrock...,35.0,Farmington Rental,,,,False
+SKU0062,Drywall Sheetrock...,35.0,Mike's Rentals,,,,False
+SKU0062,Drywall Sheetrock...,35.0,Fabick Rents,,,,False
+SKU0063,EDCO Tile Scraper,80.0,Sunbelt Rentals,,,,False
+SKU0063,EDCO Tile Scraper,80.0,United Rentals,,,,False
+SKU0063,EDCO Tile Scraper,80.0,Farmington Rental,,,,False
+SKU0063,EDCO Tile Scraper,80.0,Mike's Rentals,,,,False
+SKU0063,EDCO Tile Scraper,80.0,Fabick Rents,,,,False
+SKU0064,Electric Eel Sewe...,135.0,Sunbelt Rentals,,,,False
+SKU0064,Electric Eel Sewe...,135.0,United Rentals,,,,False
+SKU0064,Electric Eel Sewe...,135.0,Farmington Rental,,,,False
+SKU0064,Electric Eel Sewe...,135.0,Mike's Rentals,,,,False
+SKU0064,Electric Eel Sewe...,135.0,Fabick Rents,,,,False
+SKU0065,FFC Preparator So...,185.0,Sunbelt Rentals,,,,False
+SKU0065,FFC Preparator So...,185.0,United Rentals,,,,False
+SKU0065,FFC Preparator So...,185.0,Farmington Rental,,,,False
+SKU0065,FFC Preparator So...,185.0,Mike's Rentals,,,,False
+SKU0065,FFC Preparator So...,185.0,Fabick Rents,,,,False
+SKU0066,Floor Drying Fan,25.0,Sunbelt Rentals,,,,False
+SKU0066,Floor Drying Fan,25.0,United Rentals,,,,False
+SKU0066,Floor Drying Fan,25.0,Farmington Rental,,,,False
+SKU0066,Floor Drying Fan,25.0,Mike's Rentals,,,,False
+SKU0066,Floor Drying Fan,25.0,Fabick Rents,,,,False
+SKU0067,Fork Extensions - 6',60.0,Sunbelt Rentals,,,,False
+SKU0067,Fork Extensions - 6',60.0,United Rentals,,,,False
+SKU0067,Fork Extensions - 6',60.0,Farmington Rental,,,,False
+SKU0067,Fork Extensions - 6',60.0,Mike's Rentals,,,,False
+SKU0067,Fork Extensions - 6',60.0,Fabick Rents,,,,False
+SKU0068,Gas-Powered Press...,50.0,Sunbelt Rentals,,,,False
+SKU0068,Gas-Powered Press...,50.0,United Rentals,,,,False
+SKU0068,Gas-Powered Press...,50.0,Farmington Rental,,,,False
+SKU0068,Gas-Powered Press...,50.0,Mike's Rentals,,,,False
+SKU0068,Gas-Powered Press...,50.0,Fabick Rents,,,,False
+SKU0069,Gehl R6-34 Teleha...,345.0,Sunbelt Rentals,,,,False
+SKU0069,Gehl R6-34 Teleha...,345.0,United Rentals,,,,False
+SKU0069,Gehl R6-34 Teleha...,345.0,Farmington Rental,,,,False
+SKU0069,Gehl R6-34 Teleha...,345.0,Mike's Rentals,,,,False
+SKU0069,Gehl R6-34 Teleha...,345.0,Fabick Rents,,,,False
+SKU0070,Gehl RS5-19 5500#...,300.0,Sunbelt Rentals,,,,False
+SKU0070,Gehl RS5-19 5500#...,300.0,United Rentals,,,,False
+SKU0070,Gehl RS5-19 5500#...,300.0,Farmington Rental,,,,False
+SKU0070,Gehl RS5-19 5500#...,300.0,Mike's Rentals,,,,False
+SKU0070,Gehl RS5-19 5500#...,300.0,Fabick Rents,,,,False
+SKU0071,Generac Magnum 25...,285.0,Sunbelt Rentals,,,,False
+SKU0071,Generac Magnum 25...,285.0,United Rentals,,,,False
+SKU0071,Generac Magnum 25...,285.0,Farmington Rental,,,,False
+SKU0071,Generac Magnum 25...,285.0,Mike's Rentals,,,,False
+SKU0071,Generac Magnum 25...,285.0,Fabick Rents,,,,False
+SKU0072,Genie 1930 2 Man ...,165.0,Sunbelt Rentals,,,,False
+SKU0072,Genie 1930 2 Man ...,165.0,United Rentals,,,,False
+SKU0072,Genie 1930 2 Man ...,165.0,Farmington Rental,,,,False
+SKU0072,Genie 1930 2 Man ...,165.0,Mike's Rentals,,,,False
+SKU0072,Genie 1930 2 Man ...,165.0,Fabick Rents,,,,False
+SKU0073,Genie 1930 Two Ma...,165.0,Sunbelt Rentals,,,,False
+SKU0073,Genie 1930 Two Ma...,165.0,United Rentals,,,,False
+SKU0073,Genie 1930 Two Ma...,165.0,Farmington Rental,,,,False
+SKU0073,Genie 1930 Two Ma...,165.0,Mike's Rentals,,,,False
+SKU0073,Genie 1930 Two Ma...,165.0,Fabick Rents,,,,False
+SKU0074,Genie 4390 Rough ...,225.0,Sunbelt Rentals,,,,False
+SKU0074,Genie 4390 Rough ...,225.0,United Rentals,,,,False
+SKU0074,Genie 4390 Rough ...,225.0,Farmington Rental,,,,False
+SKU0074,Genie 4390 Rough ...,225.0,Mike's Rentals,,,,False
+SKU0074,Genie 4390 Rough ...,225.0,Fabick Rents,,,,False
+SKU0075,Genie s-65 Boom L...,325.0,Sunbelt Rentals,,,,False
+SKU0075,Genie s-65 Boom L...,325.0,United Rentals,,,,False
+SKU0075,Genie s-65 Boom L...,325.0,Farmington Rental,,,,False
+SKU0075,Genie s-65 Boom L...,325.0,Mike's Rentals,,,,False
+SKU0075,Genie s-65 Boom L...,325.0,Fabick Rents,,,,False
+SKU0076,Genie S40 4X4 Boo...,290.0,Sunbelt Rentals,,,,False
+SKU0076,Genie S40 4X4 Boo...,290.0,United Rentals,,,,False
+SKU0076,Genie S40 4X4 Boo...,290.0,Farmington Rental,,,,False
+SKU0076,Genie S40 4X4 Boo...,290.0,Mike's Rentals,,,,False
+SKU0076,Genie S40 4X4 Boo...,290.0,Fabick Rents,,,,False
+SKU0077,Genie S40 Boom Lift,290.0,Sunbelt Rentals,,,,False
+SKU0077,Genie S40 Boom Lift,290.0,United Rentals,,,,False
+SKU0077,Genie S40 Boom Lift,290.0,Farmington Rental,,,,False
+SKU0077,Genie S40 Boom Lift,290.0,Mike's Rentals,,,,False
+SKU0077,Genie S40 Boom Lift,290.0,Fabick Rents,,,,False
+SKU0078,Genie TZ50 Towabl...,275.0,Sunbelt Rentals,,,,False
+SKU0078,Genie TZ50 Towabl...,275.0,United Rentals,,,,False
+SKU0078,Genie TZ50 Towabl...,275.0,Farmington Rental,,,,False
+SKU0078,Genie TZ50 Towabl...,275.0,Mike's Rentals,,,,False
+SKU0078,Genie TZ50 Towabl...,275.0,Fabick Rents,,,,False
+SKU0079,Ground Hog 2 Man ...,80.0,Sunbelt Rentals,,,,False
+SKU0079,Ground Hog 2 Man ...,80.0,United Rentals,,,,False
+SKU0079,Ground Hog 2 Man ...,80.0,Farmington Rental,,,,False
+SKU0079,Ground Hog 2 Man ...,80.0,Mike's Rentals,,,,False
+SKU0079,Ground Hog 2 Man ...,80.0,Fabick Rents,,,,False
+SKU0080,Harley Rake Skid ...,185.0,Sunbelt Rentals,,,,False
+SKU0080,Harley Rake Skid ...,185.0,United Rentals,,,,False
+SKU0080,Harley Rake Skid ...,185.0,Farmington Rental,,,,False
+SKU0080,Harley Rake Skid ...,185.0,Mike's Rentals,,,,False
+SKU0080,Harley Rake Skid ...,185.0,Fabick Rents,,,,False
+SKU0081,Hay Spear Attachment,60.0,Sunbelt Rentals,,,,False
+SKU0081,Hay Spear Attachment,60.0,United Rentals,,,,False
+SKU0081,Hay Spear Attachment,60.0,Farmington Rental,,,,False
+SKU0081,Hay Spear Attachment,60.0,Mike's Rentals,,,,False
+SKU0081,Hay Spear Attachment,60.0,Fabick Rents,,,,False
+SKU0082,Heavy Duty Applia...,20.0,Sunbelt Rentals,,,,False
+SKU0082,Heavy Duty Applia...,20.0,United Rentals,,,,False
+SKU0082,Heavy Duty Applia...,20.0,Farmington Rental,,,,False
+SKU0082,Heavy Duty Applia...,20.0,Mike's Rentals,,,,False
+SKU0082,Heavy Duty Applia...,20.0,Fabick Rents,,,,False
+SKU0083,Heavy Duty Dolly,20.0,Sunbelt Rentals,,,,False
+SKU0083,Heavy Duty Dolly,20.0,United Rentals,,,,False
+SKU0083,Heavy Duty Dolly,20.0,Farmington Rental,,,,False
+SKU0083,Heavy Duty Dolly,20.0,Mike's Rentals,,,,False
+SKU0083,Heavy Duty Dolly,20.0,Fabick Rents,,,,False
+SKU0084,Hilti Jack Hammer,85.0,Sunbelt Rentals,,,,False
+SKU0084,Hilti Jack Hammer,85.0,United Rentals,,,,False
+SKU0084,Hilti Jack Hammer,85.0,Farmington Rental,,,,False
+SKU0084,Hilti Jack Hammer,85.0,Mike's Rentals,,,,False
+SKU0084,Hilti Jack Hammer,85.0,Fabick Rents,,,,False
+SKU0085,Honda Trash Pump,55.0,Sunbelt Rentals,,,,False
+SKU0085,Honda Trash Pump,55.0,United Rentals,,,,False
+SKU0085,Honda Trash Pump,55.0,Farmington Rental,,,,False
+SKU0085,Honda Trash Pump,55.0,Mike's Rentals,,,,False
+SKU0085,Honda Trash Pump,55.0,Fabick Rents,,,,False
+SKU0086,Hotsy Pressure Wa...,245.0,Sunbelt Rentals,,,,False
+SKU0086,Hotsy Pressure Wa...,245.0,United Rentals,,,,False
+SKU0086,Hotsy Pressure Wa...,245.0,Farmington Rental,,,,False
+SKU0086,Hotsy Pressure Wa...,245.0,Mike's Rentals,,,,False
+SKU0086,Hotsy Pressure Wa...,245.0,Fabick Rents,,,,False
+SKU0087,"Husqvarna 2"" Tras...",55.0,Sunbelt Rentals,,,,False
+SKU0087,"Husqvarna 2"" Tras...",55.0,United Rentals,,,,False
+SKU0087,"Husqvarna 2"" Tras...",55.0,Farmington Rental,,,,False
+SKU0087,"Husqvarna 2"" Tras...",55.0,Mike's Rentals,,,,False
+SKU0087,"Husqvarna 2"" Tras...",55.0,Fabick Rents,,,,False
+SKU0088,"Husqvarna 48"" Pow...",85.0,Sunbelt Rentals,,,,False
+SKU0088,"Husqvarna 48"" Pow...",85.0,United Rentals,,,,False
+SKU0088,"Husqvarna 48"" Pow...",85.0,Farmington Rental,,,,False
+SKU0088,"Husqvarna 48"" Pow...",85.0,Mike's Rentals,,,,False
+SKU0088,"Husqvarna 48"" Pow...",85.0,Fabick Rents,,,,False
+SKU0089,Husqvarna Concret...,160.0,Sunbelt Rentals,,,,False
+SKU0089,Husqvarna Concret...,160.0,United Rentals,,,,False
+SKU0089,Husqvarna Concret...,160.0,Farmington Rental,,,,False
+SKU0089,Husqvarna Concret...,160.0,Mike's Rentals,,,,False
+SKU0089,Husqvarna Concret...,160.0,Fabick Rents,,,,False
+SKU0090,Husqvarna Sod Cutter,80.0,Sunbelt Rentals,,,,False
+SKU0090,Husqvarna Sod Cutter,80.0,United Rentals,,,,False
+SKU0090,Husqvarna Sod Cutter,80.0,Farmington Rental,,,,False
+SKU0090,Husqvarna Sod Cutter,80.0,Mike's Rentals,,,,False
+SKU0090,Husqvarna Sod Cutter,80.0,Fabick Rents,,,,False
+SKU0091,Husqvarna Wacker ...,70.0,Sunbelt Rentals,,,,False
+SKU0091,Husqvarna Wacker ...,70.0,United Rentals,,,,False
+SKU0091,Husqvarna Wacker ...,70.0,Farmington Rental,,,,False
+SKU0091,Husqvarna Wacker ...,70.0,Mike's Rentals,,,,False
+SKU0091,Husqvarna Wacker ...,70.0,Fabick Rents,,,,False
+SKU0092,Indoor Scaffolding 1,20.0,Sunbelt Rentals,,,,False
+SKU0092,Indoor Scaffolding 1,20.0,United Rentals,,,,False
+SKU0092,Indoor Scaffolding 1,20.0,Farmington Rental,,,,False
+SKU0092,Indoor Scaffolding 1,20.0,Mike's Rentals,,,,False
+SKU0092,Indoor Scaffolding 1,20.0,Fabick Rents,,,,False
+SKU0093,Indoor Scaffolding 2,20.0,Sunbelt Rentals,,,,False
+SKU0093,Indoor Scaffolding 2,20.0,United Rentals,,,,False
+SKU0093,Indoor Scaffolding 2,20.0,Farmington Rental,,,,False
+SKU0093,Indoor Scaffolding 2,20.0,Mike's Rentals,,,,False
+SKU0093,Indoor Scaffolding 2,20.0,Fabick Rents,,,,False
+SKU0094,Indoor Scaffolding 3,20.0,Sunbelt Rentals,,,,False
+SKU0094,Indoor Scaffolding 3,20.0,United Rentals,,,,False
+SKU0094,Indoor Scaffolding 3,20.0,Farmington Rental,,,,False
+SKU0094,Indoor Scaffolding 3,20.0,Mike's Rentals,,,,False
+SKU0094,Indoor Scaffolding 3,20.0,Fabick Rents,,,,False
+SKU0095,Indoor Scaffolding 4,20.0,Sunbelt Rentals,,,,False
+SKU0095,Indoor Scaffolding 4,20.0,United Rentals,,,,False
+SKU0095,Indoor Scaffolding 4,20.0,Farmington Rental,,,,False
+SKU0095,Indoor Scaffolding 4,20.0,Mike's Rentals,,,,False
+SKU0095,Indoor Scaffolding 4,20.0,Fabick Rents,,,,False
+SKU0096,Indoor Scaffolding 5,20.0,Sunbelt Rentals,,,,False
+SKU0096,Indoor Scaffolding 5,20.0,United Rentals,,,,False
+SKU0096,Indoor Scaffolding 5,20.0,Farmington Rental,,,,False
+SKU0096,Indoor Scaffolding 5,20.0,Mike's Rentals,,,,False
+SKU0096,Indoor Scaffolding 5,20.0,Fabick Rents,,,,False
+SKU0097,Ingersoll-Rand 18...,160.0,Sunbelt Rentals,,,,False
+SKU0097,Ingersoll-Rand 18...,160.0,United Rentals,,,,False
+SKU0097,Ingersoll-Rand 18...,160.0,Farmington Rental,,,,False
+SKU0097,Ingersoll-Rand 18...,160.0,Mike's Rentals,,,,False
+SKU0097,Ingersoll-Rand 18...,160.0,Fabick Rents,,,,False
+SKU0098,Iron Bull 14K Equ...,100.0,Sunbelt Rentals,,,,False
+SKU0098,Iron Bull 14K Equ...,100.0,United Rentals,,,,False
+SKU0098,Iron Bull 14K Equ...,100.0,Farmington Rental,,,,False
+SKU0098,Iron Bull 14K Equ...,100.0,Mike's Rentals,,,,False
+SKU0098,Iron Bull 14K Equ...,100.0,Fabick Rents,,,,False
+SKU0099,Ironcraft 3/4 Yar...,195.0,Sunbelt Rentals,,,,False
+SKU0099,Ironcraft 3/4 Yar...,195.0,United Rentals,,,,False
+SKU0099,Ironcraft 3/4 Yar...,195.0,Farmington Rental,,,,False
+SKU0099,Ironcraft 3/4 Yar...,195.0,Mike's Rentals,,,,False
+SKU0099,Ironcraft 3/4 Yar...,195.0,Fabick Rents,,,,False
+SKU0100,JLG 300AJP Articu...,255.0,Sunbelt Rentals,,,,False
+SKU0100,JLG 300AJP Articu...,255.0,United Rentals,,,,False
+SKU0100,JLG 300AJP Articu...,255.0,Farmington Rental,,,,False
+SKU0100,JLG 300AJP Articu...,255.0,Mike's Rentals,,,,False
+SKU0100,JLG 300AJP Articu...,255.0,Fabick Rents,,,,False
+SKU0101,JLG 600AJ Articul...,365.0,Sunbelt Rentals,,,,False
+SKU0101,JLG 600AJ Articul...,365.0,United Rentals,,,,False
+SKU0101,JLG 600AJ Articul...,365.0,Farmington Rental,,,,False
+SKU0101,JLG 600AJ Articul...,365.0,Mike's Rentals,,,,False
+SKU0101,JLG 600AJ Articul...,365.0,Fabick Rents,,,,False
+SKU0102,JLG 610 Scissor L...,100.0,Sunbelt Rentals,,,,False
+SKU0102,JLG 610 Scissor L...,100.0,United Rentals,,,,False
+SKU0102,JLG 610 Scissor L...,100.0,Farmington Rental,,,,False
+SKU0102,JLG 610 Scissor L...,100.0,Mike's Rentals,,,,False
+SKU0102,JLG 610 Scissor L...,100.0,Fabick Rents,,,,False
+SKU0103,JLG 712 Scissor L...,95.0,Sunbelt Rentals,,,,False
+SKU0103,JLG 712 Scissor L...,95.0,United Rentals,,,,False
+SKU0103,JLG 712 Scissor L...,95.0,Farmington Rental,,,,False
+SKU0103,JLG 712 Scissor L...,95.0,Mike's Rentals,,,,False
+SKU0103,JLG 712 Scissor L...,95.0,Fabick Rents,,,,False
+SKU0104,JLG 9-43 TELEHAND...,595.0,Sunbelt Rentals,,,,False
+SKU0104,JLG 9-43 TELEHAND...,595.0,United Rentals,,,,False
+SKU0104,JLG 9-43 TELEHAND...,595.0,Farmington Rental,,,,False
+SKU0104,JLG 9-43 TELEHAND...,595.0,Mike's Rentals,,,,False
+SKU0104,JLG 9-43 TELEHAND...,595.0,Fabick Rents,,,,False
+SKU0105,JLG T350 35' Towa...,240.0,Sunbelt Rentals,,,,False
+SKU0105,JLG T350 35' Towa...,240.0,United Rentals,,,,False
+SKU0105,JLG T350 35' Towa...,240.0,Farmington Rental,,,,False
+SKU0105,JLG T350 35' Towa...,240.0,Mike's Rentals,,,,False
+SKU0105,JLG T350 35' Towa...,240.0,Fabick Rents,,,,False
+SKU0106,JLG Telehandler W...,115.0,Sunbelt Rentals,,,,False
+SKU0106,JLG Telehandler W...,115.0,United Rentals,,,,False
+SKU0106,JLG Telehandler W...,115.0,Farmington Rental,,,,False
+SKU0106,JLG Telehandler W...,115.0,Mike's Rentals,,,,False
+SKU0106,JLG Telehandler W...,115.0,Fabick Rents,,,,False
+SKU0107,John Deere 17G Mi...,255.0,Sunbelt Rentals,,,,False
+SKU0107,John Deere 17G Mi...,255.0,United Rentals,,,,False
+SKU0107,John Deere 17G Mi...,255.0,Farmington Rental,,,,False
+SKU0107,John Deere 17G Mi...,255.0,Mike's Rentals,,,,False
+SKU0107,John Deere 17G Mi...,255.0,Fabick Rents,,,,False
+SKU0108,John Deere 4066R ...,395.0,Sunbelt Rentals,,,,False
+SKU0108,John Deere 4066R ...,395.0,United Rentals,,,,False
+SKU0108,John Deere 4066R ...,395.0,Farmington Rental,,,,False
+SKU0108,John Deere 4066R ...,395.0,Mike's Rentals,,,,False
+SKU0108,John Deere 4066R ...,395.0,Fabick Rents,,,,False
+SKU0109,John Deere CA25 S...,185.0,Sunbelt Rentals,,,,False
+SKU0109,John Deere CA25 S...,185.0,United Rentals,,,,False
+SKU0109,John Deere CA25 S...,185.0,Farmington Rental,,,,False
+SKU0109,John Deere CA25 S...,185.0,Mike's Rentals,,,,False
+SKU0109,John Deere CA25 S...,185.0,Fabick Rents,,,,False
+SKU0110,John Deere D105 M...,125.0,Sunbelt Rentals,,,,False
+SKU0110,John Deere D105 M...,125.0,United Rentals,,,,False
+SKU0110,John Deere D105 M...,125.0,Farmington Rental,,,,False
+SKU0110,John Deere D105 M...,125.0,Mike's Rentals,,,,False
+SKU0110,John Deere D105 M...,125.0,Fabick Rents,,,,False
+SKU0111,Kubota KX008-3 Mi...,235.0,Sunbelt Rentals,,,,False
+SKU0111,Kubota KX008-3 Mi...,235.0,United Rentals,,,,False
+SKU0111,Kubota KX008-3 Mi...,235.0,Farmington Rental,,,,False
+SKU0111,Kubota KX008-3 Mi...,235.0,Mike's Rentals,,,,False
+SKU0111,Kubota KX008-3 Mi...,235.0,Fabick Rents,,,,False
+SKU0112,Kubota KX040 Mini...,315.0,Sunbelt Rentals,,,,False
+SKU0112,Kubota KX040 Mini...,315.0,United Rentals,,,,False
+SKU0112,Kubota KX040 Mini...,315.0,Farmington Rental,,,,False
+SKU0112,Kubota KX040 Mini...,315.0,Mike's Rentals,,,,False
+SKU0112,Kubota KX040 Mini...,315.0,Fabick Rents,,,,False
+SKU0113,Kubota Mini Excav...,295.0,Sunbelt Rentals,,,,False
+SKU0113,Kubota Mini Excav...,295.0,United Rentals,,,,False
+SKU0113,Kubota Mini Excav...,295.0,Farmington Rental,,,,False
+SKU0113,Kubota Mini Excav...,295.0,Mike's Rentals,,,,False
+SKU0113,Kubota Mini Excav...,295.0,Fabick Rents,,,,False
+SKU0114,Kubota SCL1000 St...,265.0,Sunbelt Rentals,,,,False
+SKU0114,Kubota SCL1000 St...,265.0,United Rentals,,,,False
+SKU0114,Kubota SCL1000 St...,265.0,Farmington Rental,,,,False
+SKU0114,Kubota SCL1000 St...,265.0,Mike's Rentals,,,,False
+SKU0114,Kubota SCL1000 St...,265.0,Fabick Rents,,,,False
+SKU0115,Kubota Skid Steer...,185.0,Sunbelt Rentals,,,,False
+SKU0115,Kubota Skid Steer...,185.0,United Rentals,,,,False
+SKU0115,Kubota Skid Steer...,185.0,Farmington Rental,,,,False
+SKU0115,Kubota Skid Steer...,185.0,Mike's Rentals,,,,False
+SKU0115,Kubota Skid Steer...,185.0,Fabick Rents,,,,False
+SKU0116,Kubota Skid Steer...,185.0,Sunbelt Rentals,,,,False
+SKU0116,Kubota Skid Steer...,185.0,United Rentals,,,,False
+SKU0116,Kubota Skid Steer...,185.0,Farmington Rental,,,,False
+SKU0116,Kubota Skid Steer...,185.0,Mike's Rentals,,,,False
+SKU0116,Kubota Skid Steer...,185.0,Fabick Rents,,,,False
+SKU0117,Kubota SVL 65-2 S...,340.0,Sunbelt Rentals,,,,False
+SKU0117,Kubota SVL 65-2 S...,340.0,United Rentals,,,,False
+SKU0117,Kubota SVL 65-2 S...,340.0,Farmington Rental,,,,False
+SKU0117,Kubota SVL 65-2 S...,340.0,Mike's Rentals,,,,False
+SKU0117,Kubota SVL 65-2 S...,340.0,Fabick Rents,,,,False
+SKU0118,Kubota SVL 75-2 S...,370.0,Sunbelt Rentals,,,,False
+SKU0118,Kubota SVL 75-2 S...,370.0,United Rentals,,,,False
+SKU0118,Kubota SVL 75-2 S...,370.0,Farmington Rental,,,,False
+SKU0118,Kubota SVL 75-2 S...,370.0,Mike's Rentals,,,,False
+SKU0118,Kubota SVL 75-2 S...,370.0,Fabick Rents,,,,False
+SKU0119,Kubota SVL 95-2S ...,385.0,Sunbelt Rentals,,,,False
+SKU0119,Kubota SVL 95-2S ...,385.0,United Rentals,,,,False
+SKU0119,Kubota SVL 95-2S ...,385.0,Farmington Rental,,,,False
+SKU0119,Kubota SVL 95-2S ...,385.0,Mike's Rentals,,,,False
+SKU0119,Kubota SVL 95-2S ...,385.0,Fabick Rents,,,,False
+SKU0120,Kubota SVL 97-2 S...,415.0,Sunbelt Rentals,,,,False
+SKU0120,Kubota SVL 97-2 S...,415.0,United Rentals,,,,False
+SKU0120,Kubota SVL 97-2 S...,415.0,Farmington Rental,,,,False
+SKU0120,Kubota SVL 97-2 S...,415.0,Mike's Rentals,,,,False
+SKU0120,Kubota SVL 97-2 S...,415.0,Fabick Rents,,,,False
+SKU0121,Kubota U55-5 Exca...,415.0,Sunbelt Rentals,,,,False
+SKU0121,Kubota U55-5 Exca...,415.0,United Rentals,,,,False
+SKU0121,Kubota U55-5 Exca...,415.0,Farmington Rental,,,,False
+SKU0121,Kubota U55-5 Exca...,415.0,Mike's Rentals,,,,False
+SKU0121,Kubota U55-5 Exca...,415.0,Fabick Rents,,,,False
+SKU0122,Ladder Stabilizer...,15.0,Sunbelt Rentals,,,,False
+SKU0122,Ladder Stabilizer...,15.0,United Rentals,,,,False
+SKU0122,Ladder Stabilizer...,15.0,Farmington Rental,,,,False
+SKU0122,Ladder Stabilizer...,15.0,Mike's Rentals,,,,False
+SKU0122,Ladder Stabilizer...,15.0,Fabick Rents,,,,False
+SKU0123,Land Pride 3 PT 6...,175.0,Sunbelt Rentals,,,,False
+SKU0123,Land Pride 3 PT 6...,175.0,United Rentals,,,,False
+SKU0123,Land Pride 3 PT 6...,175.0,Farmington Rental,,,,False
+SKU0123,Land Pride 3 PT 6...,175.0,Mike's Rentals,,,,False
+SKU0123,Land Pride 3 PT 6...,175.0,Fabick Rents,,,,False
+SKU0124,Item # 234,55.0,Sunbelt Rentals,,,,False
+SKU0124,Item # 234,55.0,United Rentals,,,,False
+SKU0124,Item # 234,55.0,Farmington Rental,,,,False
+SKU0124,Item # 234,55.0,Mike's Rentals,,,,False
+SKU0124,Item # 234,55.0,Fabick Rents,,,,False
+SKU0125,Load N Lift Sciss...,95.0,Sunbelt Rentals,,,,False
+SKU0125,Load N Lift Sciss...,95.0,United Rentals,,,,False
+SKU0125,Load N Lift Sciss...,95.0,Farmington Rental,,,,False
+SKU0125,Load N Lift Sciss...,95.0,Mike's Rentals,,,,False
+SKU0125,Load N Lift Sciss...,95.0,Fabick Rents,,,,False
+SKU0126,Load Trailer 30' ...,195.0,Sunbelt Rentals,,,,False
+SKU0126,Load Trailer 30' ...,195.0,United Rentals,,,,False
+SKU0126,Load Trailer 30' ...,195.0,Farmington Rental,,,,False
+SKU0126,Load Trailer 30' ...,195.0,Mike's Rentals,,,,False
+SKU0126,Load Trailer 30' ...,195.0,Fabick Rents,,,,False
+SKU0127,Magnum X7 Paint S...,85.0,Sunbelt Rentals,,,,False
+SKU0127,Magnum X7 Paint S...,85.0,United Rentals,,,,False
+SKU0127,Magnum X7 Paint S...,85.0,Farmington Rental,,,,False
+SKU0127,Magnum X7 Paint S...,85.0,Mike's Rentals,,,,False
+SKU0127,Magnum X7 Paint S...,85.0,Fabick Rents,,,,False
+SKU0128,Makinex Jackhamme...,20.0,Sunbelt Rentals,,,,False
+SKU0128,Makinex Jackhamme...,20.0,United Rentals,,,,False
+SKU0128,Makinex Jackhamme...,20.0,Farmington Rental,,,,False
+SKU0128,Makinex Jackhamme...,20.0,Mike's Rentals,,,,False
+SKU0128,Makinex Jackhamme...,20.0,Fabick Rents,,,,False
+SKU0129,Makita Concrete D...,75.0,Sunbelt Rentals,,,,False
+SKU0129,Makita Concrete D...,75.0,United Rentals,,,,False
+SKU0129,Makita Concrete D...,75.0,Farmington Rental,,,,False
+SKU0129,Makita Concrete D...,75.0,Mike's Rentals,,,,False
+SKU0129,Makita Concrete D...,75.0,Fabick Rents,,,,False
+SKU0130,Masterforce Foldi...,10.0,Sunbelt Rentals,,,,False
+SKU0130,Masterforce Foldi...,10.0,United Rentals,,,,False
+SKU0130,Masterforce Foldi...,10.0,Farmington Rental,,,,False
+SKU0130,Masterforce Foldi...,10.0,Mike's Rentals,,,,False
+SKU0130,Masterforce Foldi...,10.0,Fabick Rents,,,,False
+SKU0131,Masterforce Hamme...,50.0,Sunbelt Rentals,,,,False
+SKU0131,Masterforce Hamme...,50.0,United Rentals,,,,False
+SKU0131,Masterforce Hamme...,50.0,Farmington Rental,,,,False
+SKU0131,Masterforce Hamme...,50.0,Mike's Rentals,,,,False
+SKU0131,Masterforce Hamme...,50.0,Fabick Rents,,,,False
+SKU0132,Material Hoist,125.0,Sunbelt Rentals,,,,False
+SKU0132,Material Hoist,125.0,United Rentals,,,,False
+SKU0132,Material Hoist,125.0,Farmington Rental,,,,False
+SKU0132,Material Hoist,125.0,Mike's Rentals,,,,False
+SKU0132,Material Hoist,125.0,Fabick Rents,,,,False
+SKU0133,Metal Break,50.0,Sunbelt Rentals,,,,False
+SKU0133,Metal Break,50.0,United Rentals,,,,False
+SKU0133,Metal Break,50.0,Farmington Rental,,,,False
+SKU0133,Metal Break,50.0,Mike's Rentals,,,,False
+SKU0133,Metal Break,50.0,Fabick Rents,,,,False
+SKU0134,Milwaukee Core Drill,55.0,Sunbelt Rentals,,,,False
+SKU0134,Milwaukee Core Drill,55.0,United Rentals,,,,False
+SKU0134,Milwaukee Core Drill,55.0,Farmington Rental,,,,False
+SKU0134,Milwaukee Core Drill,55.0,Mike's Rentals,,,,False
+SKU0134,Milwaukee Core Drill,55.0,Fabick Rents,,,,False
+SKU0135,Milwaukee Right A...,30.0,Sunbelt Rentals,,,,False
+SKU0135,Milwaukee Right A...,30.0,United Rentals,,,,False
+SKU0135,Milwaukee Right A...,30.0,Farmington Rental,,,,False
+SKU0135,Milwaukee Right A...,30.0,Mike's Rentals,,,,False
+SKU0135,Milwaukee Right A...,30.0,Fabick Rents,,,,False
+SKU0136,Mini Skid Steer A...,100.0,Sunbelt Rentals,,,,False
+SKU0136,Mini Skid Steer A...,100.0,United Rentals,,,,False
+SKU0136,Mini Skid Steer A...,100.0,Farmington Rental,,,,False
+SKU0136,Mini Skid Steer A...,100.0,Mike's Rentals,,,,False
+SKU0136,Mini Skid Steer A...,100.0,Fabick Rents,,,,False
+SKU0137,Mini Skid Steer S...,125.0,Sunbelt Rentals,,,,False
+SKU0137,Mini Skid Steer S...,125.0,United Rentals,,,,False
+SKU0137,Mini Skid Steer S...,125.0,Farmington Rental,,,,False
+SKU0137,Mini Skid Steer S...,125.0,Mike's Rentals,,,,False
+SKU0137,Mini Skid Steer S...,125.0,Fabick Rents,,,,False
+SKU0138,Mini Skid Stter 4...,40.0,Sunbelt Rentals,,,,False
+SKU0138,Mini Skid Stter 4...,40.0,United Rentals,,,,False
+SKU0138,Mini Skid Stter 4...,40.0,Farmington Rental,,,,False
+SKU0138,Mini Skid Stter 4...,40.0,Mike's Rentals,,,,False
+SKU0138,Mini Skid Stter 4...,40.0,Fabick Rents,,,,False
+SKU0139,Mini Skid to Bobc...,60.0,Sunbelt Rentals,,,,False
+SKU0139,Mini Skid to Bobc...,60.0,United Rentals,,,,False
+SKU0139,Mini Skid to Bobc...,60.0,Farmington Rental,,,,False
+SKU0139,Mini Skid to Bobc...,60.0,Mike's Rentals,,,,False
+SKU0139,Mini Skid to Bobc...,60.0,Fabick Rents,,,,False
+SKU0140,"Multiquip 36"" Pow...",75.0,Sunbelt Rentals,,,,False
+SKU0140,"Multiquip 36"" Pow...",75.0,United Rentals,,,,False
+SKU0140,"Multiquip 36"" Pow...",75.0,Farmington Rental,,,,False
+SKU0140,"Multiquip 36"" Pow...",75.0,Mike's Rentals,,,,False
+SKU0140,"Multiquip 36"" Pow...",75.0,Fabick Rents,,,,False
+SKU0141,"Multiquip 36"" Pow...",75.0,Sunbelt Rentals,,,,False
+SKU0141,"Multiquip 36"" Pow...",75.0,United Rentals,,,,False
+SKU0141,"Multiquip 36"" Pow...",75.0,Farmington Rental,,,,False
+SKU0141,"Multiquip 36"" Pow...",75.0,Mike's Rentals,,,,False
+SKU0141,"Multiquip 36"" Pow...",75.0,Fabick Rents,,,,False
+SKU0142,Multiquip Concret...,105.0,Sunbelt Rentals,,,,False
+SKU0142,Multiquip Concret...,105.0,United Rentals,,,,False
+SKU0142,Multiquip Concret...,105.0,Farmington Rental,,,,False
+SKU0142,Multiquip Concret...,105.0,Mike's Rentals,,,,False
+SKU0142,Multiquip Concret...,105.0,Fabick Rents,,,,False
+SKU0143,"NAACOO 13"" Vinyl ...",25.0,Sunbelt Rentals,,,,False
+SKU0143,"NAACOO 13"" Vinyl ...",25.0,United Rentals,,,,False
+SKU0143,"NAACOO 13"" Vinyl ...",25.0,Farmington Rental,,,,False
+SKU0143,"NAACOO 13"" Vinyl ...",25.0,Mike's Rentals,,,,False
+SKU0143,"NAACOO 13"" Vinyl ...",25.0,Fabick Rents,,,,False
+SKU0144,North Star Plate ...,55.0,Sunbelt Rentals,,,,False
+SKU0144,North Star Plate ...,55.0,United Rentals,,,,False
+SKU0144,North Star Plate ...,55.0,Farmington Rental,,,,False
+SKU0144,North Star Plate ...,55.0,Mike's Rentals,,,,False
+SKU0144,North Star Plate ...,55.0,Fabick Rents,,,,False
+SKU0145,Paladin (Strike F...,185.0,Sunbelt Rentals,,,,False
+SKU0145,Paladin (Strike F...,185.0,United Rentals,,,,False
+SKU0145,Paladin (Strike F...,185.0,Farmington Rental,,,,False
+SKU0145,Paladin (Strike F...,185.0,Mike's Rentals,,,,False
+SKU0145,Paladin (Strike F...,185.0,Fabick Rents,,,,False
+SKU0146,Piranha PS-165E D...,370.0,Sunbelt Rentals,,,,False
+SKU0146,Piranha PS-165E D...,370.0,United Rentals,,,,False
+SKU0146,Piranha PS-165E D...,370.0,Farmington Rental,,,,False
+SKU0146,Piranha PS-165E D...,370.0,Mike's Rentals,,,,False
+SKU0146,Piranha PS-165E D...,370.0,Fabick Rents,,,,False
+SKU0147,Pneumatic Hydraul...,85.0,Sunbelt Rentals,,,,False
+SKU0147,Pneumatic Hydraul...,85.0,United Rentals,,,,False
+SKU0147,Pneumatic Hydraul...,85.0,Farmington Rental,,,,False
+SKU0147,Pneumatic Hydraul...,85.0,Mike's Rentals,,,,False
+SKU0147,Pneumatic Hydraul...,85.0,Fabick Rents,,,,False
+SKU0148,Portable Torch Set,45.0,Sunbelt Rentals,,,,False
+SKU0148,Portable Torch Set,45.0,United Rentals,,,,False
+SKU0148,Portable Torch Set,45.0,Farmington Rental,,,,False
+SKU0148,Portable Torch Set,45.0,Mike's Rentals,,,,False
+SKU0148,Portable Torch Set,45.0,Fabick Rents,,,,False
+SKU0149,Portacool Jetstre...,50.0,Sunbelt Rentals,,,,False
+SKU0149,Portacool Jetstre...,50.0,United Rentals,,,,False
+SKU0149,Portacool Jetstre...,50.0,Farmington Rental,,,,False
+SKU0149,Portacool Jetstre...,50.0,Mike's Rentals,,,,False
+SKU0149,Portacool Jetstre...,50.0,Fabick Rents,,,,False
+SKU0150,Predator 4500 wat...,60.0,Sunbelt Rentals,,,,False
+SKU0150,Predator 4500 wat...,60.0,United Rentals,,,,False
+SKU0150,Predator 4500 wat...,60.0,Farmington Rental,,,,False
+SKU0150,Predator 4500 wat...,60.0,Mike's Rentals,,,,False
+SKU0150,Predator 4500 wat...,60.0,Fabick Rents,,,,False
+SKU0151,Predator 4500W Ge...,60.0,Sunbelt Rentals,,,,False
+SKU0151,Predator 4500W Ge...,60.0,United Rentals,,,,False
+SKU0151,Predator 4500W Ge...,60.0,Farmington Rental,,,,False
+SKU0151,Predator 4500W Ge...,60.0,Mike's Rentals,,,,False
+SKU0151,Predator 4500W Ge...,60.0,Fabick Rents,,,,False
+SKU0152,PRESSURE WASHER,50.0,Sunbelt Rentals,,,,False
+SKU0152,PRESSURE WASHER,50.0,United Rentals,,,,False
+SKU0152,PRESSURE WASHER,50.0,Farmington Rental,,,,False
+SKU0152,PRESSURE WASHER,50.0,Mike's Rentals,,,,False
+SKU0152,PRESSURE WASHER,50.0,Fabick Rents,,,,False
+SKU0153,Pressure Washer 1...,20.0,Sunbelt Rentals,,,,False
+SKU0153,Pressure Washer 1...,20.0,United Rentals,,,,False
+SKU0153,Pressure Washer 1...,20.0,Farmington Rental,,,,False
+SKU0153,Pressure Washer 1...,20.0,Mike's Rentals,,,,False
+SKU0153,Pressure Washer 1...,20.0,Fabick Rents,,,,False
+SKU0154,Pressure Washer 1...,20.0,Sunbelt Rentals,,,,False
+SKU0154,Pressure Washer 1...,20.0,United Rentals,,,,False
+SKU0154,Pressure Washer 1...,20.0,Farmington Rental,,,,False
+SKU0154,Pressure Washer 1...,20.0,Mike's Rentals,,,,False
+SKU0154,Pressure Washer 1...,20.0,Fabick Rents,,,,False
+SKU0155,Pressure Washer 1...,20.0,Sunbelt Rentals,,,,False
+SKU0155,Pressure Washer 1...,20.0,United Rentals,,,,False
+SKU0155,Pressure Washer 1...,20.0,Farmington Rental,,,,False
+SKU0155,Pressure Washer 1...,20.0,Mike's Rentals,,,,False
+SKU0155,Pressure Washer 1...,20.0,Fabick Rents,,,,False
+SKU0156,Pressure Washer C...,80.0,Sunbelt Rentals,,,,False
+SKU0156,Pressure Washer C...,80.0,United Rentals,,,,False
+SKU0156,Pressure Washer C...,80.0,Farmington Rental,,,,False
+SKU0156,Pressure Washer C...,80.0,Mike's Rentals,,,,False
+SKU0156,Pressure Washer C...,80.0,Fabick Rents,,,,False
+SKU0157,Pull Behind Lawn ...,25.0,Sunbelt Rentals,,,,False
+SKU0157,Pull Behind Lawn ...,25.0,United Rentals,,,,False
+SKU0157,Pull Behind Lawn ...,25.0,Farmington Rental,,,,False
+SKU0157,Pull Behind Lawn ...,25.0,Mike's Rentals,,,,False
+SKU0157,Pull Behind Lawn ...,25.0,Fabick Rents,,,,False
+SKU0158,Rice 14k GVWR Equ...,85.0,Sunbelt Rentals,,,,False
+SKU0158,Rice 14k GVWR Equ...,85.0,United Rentals,,,,False
+SKU0158,Rice 14k GVWR Equ...,85.0,Farmington Rental,,,,False
+SKU0158,Rice 14k GVWR Equ...,85.0,Mike's Rentals,,,,False
+SKU0158,Rice 14k GVWR Equ...,85.0,Fabick Rents,,,,False
+SKU0159,Rigid Sewer Auger,60.0,Sunbelt Rentals,,,,False
+SKU0159,Rigid Sewer Auger,60.0,United Rentals,,,,False
+SKU0159,Rigid Sewer Auger,60.0,Farmington Rental,,,,False
+SKU0159,Rigid Sewer Auger,60.0,Mike's Rentals,,,,False
+SKU0159,Rigid Sewer Auger,60.0,Fabick Rents,,,,False
+SKU0160,Rigid Sewer Auger #2,60.0,Sunbelt Rentals,,,,False
+SKU0160,Rigid Sewer Auger #2,60.0,United Rentals,,,,False
+SKU0160,Rigid Sewer Auger #2,60.0,Farmington Rental,,,,False
+SKU0160,Rigid Sewer Auger #2,60.0,Mike's Rentals,,,,False
+SKU0160,Rigid Sewer Auger #2,60.0,Fabick Rents,,,,False
+SKU0161,Rigid Shop Vacuum,15.0,Sunbelt Rentals,,,,False
+SKU0161,Rigid Shop Vacuum,15.0,United Rentals,,,,False
+SKU0161,Rigid Shop Vacuum,15.0,Farmington Rental,,,,False
+SKU0161,Rigid Shop Vacuum,15.0,Mike's Rentals,,,,False
+SKU0161,Rigid Shop Vacuum,15.0,Fabick Rents,,,,False
+SKU0162,Rol-A-Lift 6k Saf...,50.0,Sunbelt Rentals,,,,False
+SKU0162,Rol-A-Lift 6k Saf...,50.0,United Rentals,,,,False
+SKU0162,Rol-A-Lift 6k Saf...,50.0,Farmington Rental,,,,False
+SKU0162,Rol-A-Lift 6k Saf...,50.0,Mike's Rentals,,,,False
+SKU0162,Rol-A-Lift 6k Saf...,50.0,Fabick Rents,,,,False
+SKU0163,Safety Harness fo...,20.0,Sunbelt Rentals,,,,False
+SKU0163,Safety Harness fo...,20.0,United Rentals,,,,False
+SKU0163,Safety Harness fo...,20.0,Farmington Rental,,,,False
+SKU0163,Safety Harness fo...,20.0,Mike's Rentals,,,,False
+SKU0163,Safety Harness fo...,20.0,Fabick Rents,,,,False
+SKU0164,Safety Harness fo...,20.0,Sunbelt Rentals,,,,False
+SKU0164,Safety Harness fo...,20.0,United Rentals,,,,False
+SKU0164,Safety Harness fo...,20.0,Farmington Rental,,,,False
+SKU0164,Safety Harness fo...,20.0,Mike's Rentals,,,,False
+SKU0164,Safety Harness fo...,20.0,Fabick Rents,,,,False
+SKU0165,Safety Harness fo...,20.0,Sunbelt Rentals,,,,False
+SKU0165,Safety Harness fo...,20.0,United Rentals,,,,False
+SKU0165,Safety Harness fo...,20.0,Farmington Rental,,,,False
+SKU0165,Safety Harness fo...,20.0,Mike's Rentals,,,,False
+SKU0165,Safety Harness fo...,20.0,Fabick Rents,,,,False
+SKU0166,Safety Harness fo...,20.0,Sunbelt Rentals,,,,False
+SKU0166,Safety Harness fo...,20.0,United Rentals,,,,False
+SKU0166,Safety Harness fo...,20.0,Farmington Rental,,,,False
+SKU0166,Safety Harness fo...,20.0,Mike's Rentals,,,,False
+SKU0166,Safety Harness fo...,20.0,Fabick Rents,,,,False
+SKU0167,Safety Harness fo...,20.0,Sunbelt Rentals,,,,False
+SKU0167,Safety Harness fo...,20.0,United Rentals,,,,False
+SKU0167,Safety Harness fo...,20.0,Farmington Rental,,,,False
+SKU0167,Safety Harness fo...,20.0,Mike's Rentals,,,,False
+SKU0167,Safety Harness fo...,20.0,Fabick Rents,,,,False
+SKU0168,Safety Harness fo...,20.0,Sunbelt Rentals,,,,False
+SKU0168,Safety Harness fo...,20.0,United Rentals,,,,False
+SKU0168,Safety Harness fo...,20.0,Farmington Rental,,,,False
+SKU0168,Safety Harness fo...,20.0,Mike's Rentals,,,,False
+SKU0168,Safety Harness fo...,20.0,Fabick Rents,,,,False
+SKU0169,Scaffolding Outri...,10.0,Sunbelt Rentals,,,,False
+SKU0169,Scaffolding Outri...,10.0,United Rentals,,,,False
+SKU0169,Scaffolding Outri...,10.0,Farmington Rental,,,,False
+SKU0169,Scaffolding Outri...,10.0,Mike's Rentals,,,,False
+SKU0169,Scaffolding Outri...,10.0,Fabick Rents,,,,False
+SKU0170,Shop Floor Fan,25.0,Sunbelt Rentals,,,,False
+SKU0170,Shop Floor Fan,25.0,United Rentals,,,,False
+SKU0170,Shop Floor Fan,25.0,Farmington Rental,,,,False
+SKU0170,Shop Floor Fan,25.0,Mike's Rentals,,,,False
+SKU0170,Shop Floor Fan,25.0,Fabick Rents,,,,False
+SKU0171,Item # 233,85.0,Sunbelt Rentals,,,,False
+SKU0171,Item # 233,85.0,United Rentals,,,,False
+SKU0171,Item # 233,85.0,Farmington Rental,,,,False
+SKU0171,Item # 233,85.0,Mike's Rentals,,,,False
+SKU0171,Item # 233,85.0,Fabick Rents,,,,False
+SKU0172,Skid Steer Bush H...,125.0,Sunbelt Rentals,,,,False
+SKU0172,Skid Steer Bush H...,125.0,United Rentals,,,,False
+SKU0172,Skid Steer Bush H...,125.0,Farmington Rental,,,,False
+SKU0172,Skid Steer Bush H...,125.0,Mike's Rentals,,,,False
+SKU0172,Skid Steer Bush H...,125.0,Fabick Rents,,,,False
+SKU0173,Skid Steer Fork A...,60.0,Sunbelt Rentals,,,,False
+SKU0173,Skid Steer Fork A...,60.0,United Rentals,,,,False
+SKU0173,Skid Steer Fork A...,60.0,Farmington Rental,,,,False
+SKU0173,Skid Steer Fork A...,60.0,Mike's Rentals,,,,False
+SKU0173,Skid Steer Fork A...,60.0,Fabick Rents,,,,False
+SKU0174,Skid Steer Sickle...,185.0,Sunbelt Rentals,,,,False
+SKU0174,Skid Steer Sickle...,185.0,United Rentals,,,,False
+SKU0174,Skid Steer Sickle...,185.0,Farmington Rental,,,,False
+SKU0174,Skid Steer Sickle...,185.0,Mike's Rentals,,,,False
+SKU0174,Skid Steer Sickle...,185.0,Fabick Rents,,,,False
+SKU0175,Skid Steer Solid ...,185.0,Sunbelt Rentals,,,,False
+SKU0175,Skid Steer Solid ...,185.0,United Rentals,,,,False
+SKU0175,Skid Steer Solid ...,185.0,Farmington Rental,,,,False
+SKU0175,Skid Steer Solid ...,185.0,Mike's Rentals,,,,False
+SKU0175,Skid Steer Solid ...,185.0,Fabick Rents,,,,False
+SKU0176,Skid Steer Tiller...,185.0,Sunbelt Rentals,,,,False
+SKU0176,Skid Steer Tiller...,185.0,United Rentals,,,,False
+SKU0176,Skid Steer Tiller...,185.0,Farmington Rental,,,,False
+SKU0176,Skid Steer Tiller...,185.0,Mike's Rentals,,,,False
+SKU0176,Skid Steer Tiller...,185.0,Fabick Rents,,,,False
+SKU0177,Skid Steer Tooth ...,50.0,Sunbelt Rentals,,,,False
+SKU0177,Skid Steer Tooth ...,50.0,United Rentals,,,,False
+SKU0177,Skid Steer Tooth ...,50.0,Farmington Rental,,,,False
+SKU0177,Skid Steer Tooth ...,50.0,Mike's Rentals,,,,False
+SKU0177,Skid Steer Tooth ...,50.0,Fabick Rents,,,,False
+SKU0178,Skyjack 20' 2 Man...,165.0,Sunbelt Rentals,,,,False
+SKU0178,Skyjack 20' 2 Man...,165.0,United Rentals,,,,False
+SKU0178,Skyjack 20' 2 Man...,165.0,Farmington Rental,,,,False
+SKU0178,Skyjack 20' 2 Man...,165.0,Mike's Rentals,,,,False
+SKU0178,Skyjack 20' 2 Man...,165.0,Fabick Rents,,,,False
+SKU0179,Skyjack S7127 Rou...,195.0,Sunbelt Rentals,,,,False
+SKU0179,Skyjack S7127 Rou...,195.0,United Rentals,,,,False
+SKU0179,Skyjack S7127 Rou...,195.0,Farmington Rental,,,,False
+SKU0179,Skyjack S7127 Rou...,195.0,Mike's Rentals,,,,False
+SKU0179,Skyjack S7127 Rou...,195.0,Fabick Rents,,,,False
+SKU0180,Skyjack SJIII 322...,175.0,Sunbelt Rentals,,,,False
+SKU0180,Skyjack SJIII 322...,175.0,United Rentals,,,,False
+SKU0180,Skyjack SJIII 322...,175.0,Farmington Rental,,,,False
+SKU0180,Skyjack SJIII 322...,175.0,Mike's Rentals,,,,False
+SKU0180,Skyjack SJIII 322...,175.0,Fabick Rents,,,,False
+SKU0181,Snorkel 15' 2 Man...,100.0,Sunbelt Rentals,,,,False
+SKU0181,Snorkel 15' 2 Man...,100.0,United Rentals,,,,False
+SKU0181,Snorkel 15' 2 Man...,100.0,Farmington Rental,,,,False
+SKU0181,Snorkel 15' 2 Man...,100.0,Mike's Rentals,,,,False
+SKU0181,Snorkel 15' 2 Man...,100.0,Fabick Rents,,,,False
+SKU0182,Soffcut X150 Earl...,85.0,Sunbelt Rentals,,,,False
+SKU0182,Soffcut X150 Earl...,85.0,United Rentals,,,,False
+SKU0182,Soffcut X150 Earl...,85.0,Farmington Rental,,,,False
+SKU0182,Soffcut X150 Earl...,85.0,Mike's Rentals,,,,False
+SKU0182,Soffcut X150 Earl...,85.0,Fabick Rents,,,,False
+SKU0183,Solo Concrete Dem...,75.0,Sunbelt Rentals,,,,False
+SKU0183,Solo Concrete Dem...,75.0,United Rentals,,,,False
+SKU0183,Solo Concrete Dem...,75.0,Farmington Rental,,,,False
+SKU0183,Solo Concrete Dem...,75.0,Mike's Rentals,,,,False
+SKU0183,Solo Concrete Dem...,75.0,Fabick Rents,,,,False
+SKU0184,Spectra Laser Tra...,85.0,Sunbelt Rentals,,,,False
+SKU0184,Spectra Laser Tra...,85.0,United Rentals,,,,False
+SKU0184,Spectra Laser Tra...,85.0,Farmington Rental,,,,False
+SKU0184,Spectra Laser Tra...,85.0,Mike's Rentals,,,,False
+SKU0184,Spectra Laser Tra...,85.0,Fabick Rents,,,,False
+SKU0185,Spray Paint Marki...,5.0,Sunbelt Rentals,,,,False
+SKU0185,Spray Paint Marki...,5.0,United Rentals,,,,False
+SKU0185,Spray Paint Marki...,5.0,Farmington Rental,,,,False
+SKU0185,Spray Paint Marki...,5.0,Mike's Rentals,,,,False
+SKU0185,Spray Paint Marki...,5.0,Fabick Rents,,,,False
+SKU0186,Stihl Concrete Saw,75.0,Sunbelt Rentals,,,,False
+SKU0186,Stihl Concrete Saw,75.0,United Rentals,,,,False
+SKU0186,Stihl Concrete Saw,75.0,Farmington Rental,,,,False
+SKU0186,Stihl Concrete Saw,75.0,Mike's Rentals,,,,False
+SKU0186,Stihl Concrete Saw,75.0,Fabick Rents,,,,False
+SKU0187,Stihl MS250 Chainsaw,65.0,Sunbelt Rentals,,,,False
+SKU0187,Stihl MS250 Chainsaw,65.0,United Rentals,,,,False
+SKU0187,Stihl MS250 Chainsaw,65.0,Farmington Rental,,,,False
+SKU0187,Stihl MS250 Chainsaw,65.0,Mike's Rentals,,,,False
+SKU0187,Stihl MS250 Chainsaw,65.0,Fabick Rents,,,,False
+SKU0188,Stihl Walk Behind...,85.0,Sunbelt Rentals,,,,False
+SKU0188,Stihl Walk Behind...,85.0,United Rentals,,,,False
+SKU0188,Stihl Walk Behind...,85.0,Farmington Rental,,,,False
+SKU0188,Stihl Walk Behind...,85.0,Mike's Rentals,,,,False
+SKU0188,Stihl Walk Behind...,85.0,Fabick Rents,,,,False
+SKU0189,Straw Blower Finn...,210.0,Sunbelt Rentals,,,,False
+SKU0189,Straw Blower Finn...,210.0,United Rentals,,,,False
+SKU0189,Straw Blower Finn...,210.0,Farmington Rental,,,,False
+SKU0189,Straw Blower Finn...,210.0,Mike's Rentals,,,,False
+SKU0189,Straw Blower Finn...,210.0,Fabick Rents,,,,False
+SKU0190,Submersible Sump ...,35.0,Sunbelt Rentals,,,,False
+SKU0190,Submersible Sump ...,35.0,United Rentals,,,,False
+SKU0190,Submersible Sump ...,35.0,Farmington Rental,,,,False
+SKU0190,Submersible Sump ...,35.0,Mike's Rentals,,,,False
+SKU0190,Submersible Sump ...,35.0,Fabick Rents,,,,False
+SKU0191,Sunward Mini Exca...,300.0,Sunbelt Rentals,,,,False
+SKU0191,Sunward Mini Exca...,300.0,United Rentals,,,,False
+SKU0191,Sunward Mini Exca...,300.0,Farmington Rental,,,,False
+SKU0191,Sunward Mini Exca...,300.0,Mike's Rentals,,,,False
+SKU0191,Sunward Mini Exca...,300.0,Fabick Rents,,,,False
+SKU0192,Sunward Mini Exca...,275.0,Sunbelt Rentals,,,,False
+SKU0192,Sunward Mini Exca...,275.0,United Rentals,,,,False
+SKU0192,Sunward Mini Exca...,275.0,Farmington Rental,,,,False
+SKU0192,Sunward Mini Exca...,275.0,Mike's Rentals,,,,False
+SKU0192,Sunward Mini Exca...,275.0,Fabick Rents,,,,False
+SKU0193,Sunward Mini Exca...,275.0,Sunbelt Rentals,,,,False
+SKU0193,Sunward Mini Exca...,275.0,United Rentals,,,,False
+SKU0193,Sunward Mini Exca...,275.0,Farmington Rental,,,,False
+SKU0193,Sunward Mini Exca...,275.0,Mike's Rentals,,,,False
+SKU0193,Sunward Mini Exca...,275.0,Fabick Rents,,,,False
+SKU0194,Tennant Floor Pol...,55.0,Sunbelt Rentals,,,,False
+SKU0194,Tennant Floor Pol...,55.0,United Rentals,,,,False
+SKU0194,Tennant Floor Pol...,55.0,Farmington Rental,,,,False
+SKU0194,Tennant Floor Pol...,55.0,Mike's Rentals,,,,False
+SKU0194,Tennant Floor Pol...,55.0,Fabick Rents,,,,False
+SKU0195,Terex light tower...,110.0,Sunbelt Rentals,,,,False
+SKU0195,Terex light tower...,110.0,United Rentals,,,,False
+SKU0195,Terex light tower...,110.0,Farmington Rental,,,,False
+SKU0195,Terex light tower...,110.0,Mike's Rentals,,,,False
+SKU0195,Terex light tower...,110.0,Fabick Rents,,,,False
+SKU0196,Terex Light Tower...,110.0,Sunbelt Rentals,,,,False
+SKU0196,Terex Light Tower...,110.0,United Rentals,,,,False
+SKU0196,Terex Light Tower...,110.0,Farmington Rental,,,,False
+SKU0196,Terex Light Tower...,110.0,Mike's Rentals,,,,False
+SKU0196,Terex Light Tower...,110.0,Fabick Rents,,,,False
+SKU0197,Titan Post Driver,115.0,Sunbelt Rentals,,,,False
+SKU0197,Titan Post Driver,115.0,United Rentals,,,,False
+SKU0197,Titan Post Driver,115.0,Farmington Rental,,,,False
+SKU0197,Titan Post Driver,115.0,Mike's Rentals,,,,False
+SKU0197,Titan Post Driver,115.0,Fabick Rents,,,,False
+SKU0198,Toro Dingo Mini S...,150.0,Sunbelt Rentals,,,,False
+SKU0198,Toro Dingo Mini S...,150.0,United Rentals,,,,False
+SKU0198,Toro Dingo Mini S...,150.0,Farmington Rental,,,,False
+SKU0198,Toro Dingo Mini S...,150.0,Mike's Rentals,,,,False
+SKU0198,Toro Dingo Mini S...,150.0,Fabick Rents,,,,False
+SKU0199,Toro STX26 Stump ...,215.0,Sunbelt Rentals,,,,False
+SKU0199,Toro STX26 Stump ...,215.0,United Rentals,,,,False
+SKU0199,Toro STX26 Stump ...,215.0,Farmington Rental,,,,False
+SKU0199,Toro STX26 Stump ...,215.0,Mike's Rentals,,,,False
+SKU0199,Toro STX26 Stump ...,215.0,Fabick Rents,,,,False
+SKU0200,Torpedo Diesel He...,50.0,Sunbelt Rentals,,,,False
+SKU0200,Torpedo Diesel He...,50.0,United Rentals,,,,False
+SKU0200,Torpedo Diesel He...,50.0,Farmington Rental,,,,False
+SKU0200,Torpedo Diesel He...,50.0,Mike's Rentals,,,,False
+SKU0200,Torpedo Diesel He...,50.0,Fabick Rents,,,,False
+SKU0201,TOWABLE 34 TON LO...,85.0,Sunbelt Rentals,,,,False
+SKU0201,TOWABLE 34 TON LO...,85.0,United Rentals,,,,False
+SKU0201,TOWABLE 34 TON LO...,85.0,Farmington Rental,,,,False
+SKU0201,TOWABLE 34 TON LO...,85.0,Mike's Rentals,,,,False
+SKU0201,TOWABLE 34 TON LO...,85.0,Fabick Rents,,,,False
+SKU0202,Towable Auger,145.0,Sunbelt Rentals,,,,False
+SKU0202,Towable Auger,145.0,United Rentals,,,,False
+SKU0202,Towable Auger,145.0,Farmington Rental,,,,False
+SKU0202,Towable Auger,145.0,Mike's Rentals,,,,False
+SKU0202,Towable Auger,145.0,Fabick Rents,,,,False
+SKU0203,Towable Ground Ho...,130.0,Sunbelt Rentals,,,,False
+SKU0203,Towable Ground Ho...,130.0,United Rentals,,,,False
+SKU0203,Towable Ground Ho...,130.0,Farmington Rental,,,,False
+SKU0203,Towable Ground Ho...,130.0,Mike's Rentals,,,,False
+SKU0203,Towable Ground Ho...,130.0,Fabick Rents,,,,False
+SKU0204,Toyota 5K Warehou...,175.0,Sunbelt Rentals,,,,False
+SKU0204,Toyota 5K Warehou...,175.0,United Rentals,,,,False
+SKU0204,Toyota 5K Warehou...,175.0,Farmington Rental,,,,False
+SKU0204,Toyota 5K Warehou...,175.0,Mike's Rentals,,,,False
+SKU0204,Toyota 5K Warehou...,175.0,Fabick Rents,,,,False
+SKU0205,Tractor Boom Pole,45.0,Sunbelt Rentals,,,,False
+SKU0205,Tractor Boom Pole,45.0,United Rentals,,,,False
+SKU0205,Tractor Boom Pole,45.0,Farmington Rental,,,,False
+SKU0205,Tractor Boom Pole,45.0,Mike's Rentals,,,,False
+SKU0205,Tractor Boom Pole,45.0,Fabick Rents,,,,False
+SKU0206,Trailer Hitch 2 5/16,5.0,Sunbelt Rentals,,,,False
+SKU0206,Trailer Hitch 2 5/16,5.0,United Rentals,,,,False
+SKU0206,Trailer Hitch 2 5/16,5.0,Farmington Rental,,,,False
+SKU0206,Trailer Hitch 2 5/16,5.0,Mike's Rentals,,,,False
+SKU0206,Trailer Hitch 2 5/16,5.0,Fabick Rents,,,,False
+SKU0207,Tri-Ball Hitch,10.0,Sunbelt Rentals,,,,False
+SKU0207,Tri-Ball Hitch,10.0,United Rentals,,,,False
+SKU0207,Tri-Ball Hitch,10.0,Farmington Rental,,,,False
+SKU0207,Tri-Ball Hitch,10.0,Mike's Rentals,,,,False
+SKU0207,Tri-Ball Hitch,10.0,Fabick Rents,,,,False
+SKU0208,Twin Tank Air Com...,25.0,Sunbelt Rentals,,,,False
+SKU0208,Twin Tank Air Com...,25.0,United Rentals,,,,False
+SKU0208,Twin Tank Air Com...,25.0,Farmington Rental,,,,False
+SKU0208,Twin Tank Air Com...,25.0,Mike's Rentals,,,,False
+SKU0208,Twin Tank Air Com...,25.0,Fabick Rents,,,,False
+SKU0209,Twin Tank Air Com...,25.0,Sunbelt Rentals,,,,False
+SKU0209,Twin Tank Air Com...,25.0,United Rentals,,,,False
+SKU0209,Twin Tank Air Com...,25.0,Farmington Rental,,,,False
+SKU0209,Twin Tank Air Com...,25.0,Mike's Rentals,,,,False
+SKU0209,Twin Tank Air Com...,25.0,Fabick Rents,,,,False
+SKU0210,"Unipro Finisher 15""",100.0,Sunbelt Rentals,,,,False
+SKU0210,"Unipro Finisher 15""",100.0,United Rentals,,,,False
+SKU0210,"Unipro Finisher 15""",100.0,Farmington Rental,,,,False
+SKU0210,"Unipro Finisher 15""",100.0,Mike's Rentals,,,,False
+SKU0210,"Unipro Finisher 15""",100.0,Fabick Rents,,,,False
+SKU0211,"Unipro Finisher 18""",100.0,Sunbelt Rentals,,,,False
+SKU0211,"Unipro Finisher 18""",100.0,United Rentals,,,,False
+SKU0211,"Unipro Finisher 18""",100.0,Farmington Rental,,,,False
+SKU0211,"Unipro Finisher 18""",100.0,Mike's Rentals,,,,False
+SKU0211,"Unipro Finisher 18""",100.0,Fabick Rents,,,,False
+SKU0212,Vermeer BC700XL T...,285.0,Sunbelt Rentals,,,,False
+SKU0212,Vermeer BC700XL T...,285.0,United Rentals,,,,False
+SKU0212,Vermeer BC700XL T...,285.0,Farmington Rental,,,,False
+SKU0212,Vermeer BC700XL T...,285.0,Mike's Rentals,,,,False
+SKU0212,Vermeer BC700XL T...,285.0,Fabick Rents,,,,False
+SKU0213,Vermeer RTX250 Tr...,165.0,Sunbelt Rentals,,,,False
+SKU0213,Vermeer RTX250 Tr...,165.0,United Rentals,,,,False
+SKU0213,Vermeer RTX250 Tr...,165.0,Farmington Rental,,,,False
+SKU0213,Vermeer RTX250 Tr...,165.0,Mike's Rentals,,,,False
+SKU0213,Vermeer RTX250 Tr...,165.0,Fabick Rents,,,,False
+SKU0214,VibraStrike Vibra...,85.0,Sunbelt Rentals,,,,False
+SKU0214,VibraStrike Vibra...,85.0,United Rentals,,,,False
+SKU0214,VibraStrike Vibra...,85.0,Farmington Rental,,,,False
+SKU0214,VibraStrike Vibra...,85.0,Mike's Rentals,,,,False
+SKU0214,VibraStrike Vibra...,85.0,Fabick Rents,,,,False
+SKU0215,"Virnig 84"" Skid S...",185.0,Sunbelt Rentals,,,,False
+SKU0215,"Virnig 84"" Skid S...",185.0,United Rentals,,,,False
+SKU0215,"Virnig 84"" Skid S...",185.0,Farmington Rental,,,,False
+SKU0215,"Virnig 84"" Skid S...",185.0,Mike's Rentals,,,,False
+SKU0215,"Virnig 84"" Skid S...",185.0,Fabick Rents,,,,False
+SKU0216,Volvo SD45 Single...,495.0,Sunbelt Rentals,,,,False
+SKU0216,Volvo SD45 Single...,495.0,United Rentals,,,,False
+SKU0216,Volvo SD45 Single...,495.0,Farmington Rental,,,,False
+SKU0216,Volvo SD45 Single...,495.0,Mike's Rentals,,,,False
+SKU0216,Volvo SD45 Single...,495.0,Fabick Rents,,,,False
+SKU0217,Wacker Nuesen LVT...,110.0,Sunbelt Rentals,,,,False
+SKU0217,Wacker Nuesen LVT...,110.0,United Rentals,,,,False
+SKU0217,Wacker Nuesen LVT...,110.0,Farmington Rental,,,,False
+SKU0217,Wacker Nuesen LVT...,110.0,Mike's Rentals,,,,False
+SKU0217,Wacker Nuesen LVT...,110.0,Fabick Rents,,,,False
+SKU0218,Wacker RD-11 RIDE...,210.0,Sunbelt Rentals,,,,False
+SKU0218,Wacker RD-11 RIDE...,210.0,United Rentals,,,,False
+SKU0218,Wacker RD-11 RIDE...,210.0,Farmington Rental,,,,False
+SKU0218,Wacker RD-11 RIDE...,210.0,Mike's Rentals,,,,False
+SKU0218,Wacker RD-11 RIDE...,210.0,Fabick Rents,,,,False
+SKU0219,Warehouse Pallet ...,20.0,Sunbelt Rentals,,,,False
+SKU0219,Warehouse Pallet ...,20.0,United Rentals,,,,False
+SKU0219,Warehouse Pallet ...,20.0,Farmington Rental,,,,False
+SKU0219,Warehouse Pallet ...,20.0,Mike's Rentals,,,,False
+SKU0219,Warehouse Pallet ...,20.0,Fabick Rents,,,,False
+SKU0220,WEN PLATE COMPACTOR,55.0,Sunbelt Rentals,,,,False
+SKU0220,WEN PLATE COMPACTOR,55.0,United Rentals,,,,False
+SKU0220,WEN PLATE COMPACTOR,55.0,Farmington Rental,,,,False
+SKU0220,WEN PLATE COMPACTOR,55.0,Mike's Rentals,,,,False
+SKU0220,WEN PLATE COMPACTOR,55.0,Fabick Rents,,,,False
+SKU0221,Whiteman Concrete...,160.0,Sunbelt Rentals,,,,False
+SKU0221,Whiteman Concrete...,160.0,United Rentals,,,,False
+SKU0221,Whiteman Concrete...,160.0,Farmington Rental,,,,False
+SKU0221,Whiteman Concrete...,160.0,Mike's Rentals,,,,False
+SKU0221,Whiteman Concrete...,160.0,Fabick Rents,,,,False
