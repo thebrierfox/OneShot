@@ -1,0 +1,8 @@
+Run started: 2025-07-19T19:08:54.946990
+Loaded Patriot baseline from PatriotRentalBaselines.txt (221 items)
+Parsed baseline into 221 SKUs and saved patriot_catalog.csv
+Checked competitor price lists; none were available or accessible; attempted search but failed
+Marked competitor prices as price_unavailable for all competitors
+Generated raw_prices.json, price_delta.json, and report.csv
+Archived reports into reports/latest_* and reports/archives
+Run completed successfully
