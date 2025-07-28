@@ -1,0 +1,13 @@
+goal: Resolve Sunbelt ZIP/date modal so price JSON loads.
+prompt:
+  system: |
+    You are an expert browser operator.
+  user: |
+    1. Open {{url}}
+    2. Enter ZIP 63701 and dates tomorrow→+1
+    3. Wait for selector [data-testid="pdp_productOneDay_price"]
+    4. SAVE_COOKIES to {{cookiesPath}}
+retry: 2
+timeout: 180
+artefacts:
+  - cookiesPath: /tmp/playbook/cookies.json
