@@ -1,2 +1,7 @@
 packages:
-  - 'packages/*' 
+  - 'packages/*'
+  - 'libs'
+  - 'scripts'
+  - 'data'
+  - 'playbooks'
+  - 'aggregate'
