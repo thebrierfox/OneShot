@@ -20,7 +20,18 @@
     "clean": "rimraf \"packages/*/dist\" && rimraf \"packages/*/*.tsbuildinfo\"",
     "e2e": "node e2e/price-gap.e2e.js",
     "infra:up": "docker compose up -d postgres weaviate redis temporal flaresolverr",
-    "infra:down": "docker compose down --volumes"
+    "infra:down": "docker compose down --volumes",
+    "playbook:sunbelt": "ts-node scripts/playbook.ts sunbelt",
+    "playbook:united": "ts-node scripts/playbook.ts unitedrentals",
+    "playbook:farmington": "ts-node scripts/playbook.ts farmington",
+    "playbook:mikes": "ts-node scripts/playbook.ts mikesrentals",
+    "playbook:fabick": "ts-node scripts/playbook.ts fabickrents",
+    "runner:sunbelt": "ts-node scripts/runVendorPlaybook.ts sunbelt",
+    "runner:united": "ts-node scripts/runVendorPlaybook.ts unitedrentals",
+    "runner:farmington": "ts-node scripts/runVendorPlaybook.ts farmington",
+    "runner:mikes": "ts-node scripts/runVendorPlaybook.ts mikesrentals",
+    "runner:fabick": "ts-node scripts/runVendorPlaybook.ts fabickrents",
+    "aggregate:reports": "ts-node scripts/aggregate.ts"
   },
   "devDependencies": {
     "@types/jest": "^29.5.5",
