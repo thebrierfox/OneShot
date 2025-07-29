@@ -181,5 +181,21 @@ export async function runCrawlers(
 }
 
 async function handleFailedRequest(url: string, errorMessage: string, vendorId: string): Promise<void> {
-  // Implementation of handleFailedRequest function
-} 
+  // Implem  /*
+   * When a request exhausts all retries, surface the appropriate
+   * Stagehand trigger code to the orchestrator. The Quick-Patch
+   * checklist (Master Directive §17) requires that vendor scrapers
+   * throw a typed error with a `needsAgent` property so the caller
+   * can spawn a live browser session via Stagehand. Map known
+   * vendor IDs to their canonical trigger codes, and fall back to
+   * a generic PDF download trigger for any other vendor.
+   */
+  const triggerMap: Record<string, string> = {
+    sunbelt: 'SUNBELT_MODAL',
+    unitedrentals: 'UNITED_PDF',
+  };
+  const needsAgent = triggerMap[vendorId] || 'PDF_DOWNLOAD';
+  const err: any = new Error(`Request failed for ${url}: ${errorMessage}`);
+  err.needsAgent = needsAgent;
+  throw err;
+}
