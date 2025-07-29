@@ -1,0 +1,11 @@
+# {{vendor}} Price Variance Report
+
+Generated on {{date}}
+
+| SKU | Patriot Price (Day) | {{vendor}} Price (Day) | Variance (%) |
+| --- | --- | --- | --- |
+{{#each items}}
+| {{sku}} | {{patriot.priceDay}} | {{competitor.priceDay}} | {{variance.percentDay}} |
+{{/each}}
+
+<!-- TODO: Expand this template to include week and month pricing and richer formatting as needed. -->
