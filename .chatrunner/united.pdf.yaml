@@ -1,0 +1,11 @@
+goal: Download United Rentals PDF for price data.
+prompt:
+  system: |
+    You are an expert browser operator.
+  user: |
+    1. Navigate to the PDF link on the product page.
+    2. Download the PDF and save it to {{pdfPath}}.
+retry: 1
+timeout: 120
+artefacts:
+  - pdfPath: /tmp/playbook/united.pdf

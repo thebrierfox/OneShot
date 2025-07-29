@@ -1,0 +1,11 @@
+goal: Solve United Rentals CAPTCHA to access price data.
+prompt:
+  system: |
+    You are an expert at solving CAPTCHAs.
+  user: |
+    1. Wait for the CAPTCHA frame to load on the page.
+    2. Solve the CAPTCHA challenge as instructed.
+retry: 3
+timeout: 300
+artefacts:
+  - captchaSolution: /tmp/playbook/captcha_solution.txt
