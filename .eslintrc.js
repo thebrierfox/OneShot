@@ -28,6 +28,13 @@ module.exports = {
       },
     ],
     'no-console': 'warn', // Encourage use of a dedicated logger in actual modules
+      'no-restricted-syntax': [
+    'warn',
+    {
+      selector: "Property[key.name='needsAgent'][value.value!='SUNBELT_MODAL'][value.value!='UNITED_PDF'][value.value!='UNITED_CAPTCHA'][value.value!='PDF_DOWNLOAD']",
+      message: 'needsAgent value has no matching Stagehand YAML file in .chatrunner directory',
+    },
+  ],  
   },
   env: {
     node: true,
